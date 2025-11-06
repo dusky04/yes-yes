@@ -12,6 +12,7 @@ from train import train_model
 
 @dataclass
 class C:
+    LR = 3e-3
     DATASET_NAME = "CricketEC"
     NUM_CLASSES = 14
     NUM_FRAMES = 16
@@ -23,6 +24,7 @@ class C:
     TRAIN_SIZE = 0.8
     NUM_WORKERS = 4
     PREFETCH_FACTOR = 3
+    WEIGHT_DECAY = 1e-4
     NUM_EPOCHS = 20
 
 
@@ -31,7 +33,7 @@ if __name__ == "__main__":
 
     # setup the dataset
     DATASET_NAME = "CricketEC"
-    CRICKET_EC_URL = "https://drive.google.com/file/d/10NkpzAEFzDwTSO-asSxD3LsQjuXyZ0BE/view?usp=sharing"
+    CRICKET_EC_URL = "https://drive.google.com/file/d/1KpKua7OoCjmaQhzF52wdejpGHiDmShZs/view?usp=sharing"
     setup_and_download_dataset(
         DATASET_NAME, url=CRICKET_EC_URL, download_dir=Path("zipped_data")
     )
