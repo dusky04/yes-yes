@@ -14,7 +14,7 @@ class Model(nn.Module):
         else:
             self.in_features = feature_extractor_model.fc.in_features
 
-        # self.batch_norm = nn.BatchNorm2d(num_features=512)
+        self.batch_norm = nn.BatchNorm2d(num_features=512)
         self.lstm = nn.LSTM(
             input_size=self.in_features,
             hidden_size=C.LSTM_HIDDEN_DIM,
