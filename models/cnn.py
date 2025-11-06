@@ -4,12 +4,19 @@ from torchvision.models import efficientnet_b0, resnet18
 
 
 class Model(nn.Module):
-    def __init__(self, C, feature_extractor_model: nn.Module, in_features: int) -> None:
+    def __init__(self, C, name: str, feature_extractor_model: nn.Module) -> None:
         super().__init__()
-        self.feature_extractor = feature_extractor_model
-        self.batch_norm = nn.BatchNorm2d(num_features=512)
+        self.feature_extractor = nn.Sequential(
+            *list(feature_extractor_model.children())[:-1]
+        )
+        if name == "effnet":
+            self.in_features = feature_extractor_model.classifier[1].in_features
+        else:
+            self.in_features = feature_extractor_model.fc.in_features
+
+        # self.batch_norm = nn.BatchNorm2d(num_features=512)
         self.lstm = nn.LSTM(
-            input_size=in_features,
+            input_size=self.in_features,
             hidden_size=C.LSTM_HIDDEN_DIM,
             num_layers=C.LSTM_NUM_LAYERS,
             dropout=C.LSTM_DROPOUT if C.LSTM_NUM_LAYERS > 1 else 0.0,
@@ -19,7 +26,7 @@ class Model(nn.Module):
         self.dropout = nn.Dropout(C.FC_DROPOUT)
         lstm_out_dim = C.LSTM_HIDDEN_DIM * 2
 
-        self.fc = nn.Sequential(
+        self.linear = nn.Sequential(
             nn.Linear(lstm_out_dim, lstm_out_dim // 2),
             nn.BatchNorm1d(lstm_out_dim // 2),
             nn.ReLU(inplace=True),
@@ -49,29 +56,17 @@ class Model(nn.Module):
 
 def resnet_lstm_model(C) -> Model:
     resnet = resnet18(weights="DEFAULT")
-    # get the output size from the penultimate layer of ResNet
-    in_features = resnet.fc.in_features
-    # create our own feature extractor by removing 'fc' layer
-
     # fine tune the lower layer
     for param in resnet.layer4.parameters():
         param.requires_grad = True
-
     for param in resnet.layer3.parameters():
         param.requires_grad = True
-
-    resnet = nn.Sequential(*list(resnet.children())[:-1])
-
-    return Model(C, resnet, in_features)
+    return Model(C, name = "resnet", feature_extractor_model=resnet)
 
 
 def effnet_b0_model(C) -> Model:
     effnet = efficientnet_b0(weights="DEFAULT")
-    in_features = effnet.classifier[1].in_features
-
     for idx in range(6, 8):
         for param in effnet.features[idx].parameters():
             param.requires_grad = True
-
-    effnet = nn.Sequential(*list(effnet.children())[:-1])
-    return Model(C, effnet, in_features)
+    return Model(C, name = "effnet", feature_extractor_model=effnet)
