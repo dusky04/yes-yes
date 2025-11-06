@@ -68,5 +68,10 @@ def resnet_lstm_model(C) -> Model:
 def effnet_b0_model(C) -> Model:
     effnet = efficientnet_b0(weights="DEFAULT")
     in_features = effnet.classifier[1].in_features
+
+    for idx in range(6, 8):
+      for param in effnet.features[idx].parameters():
+        param.requires_grad = True
+
     effnet = nn.Sequential(*list(effnet.children())[:-1])
     return Model(C, effnet, in_features)
