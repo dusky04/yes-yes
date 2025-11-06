@@ -19,7 +19,7 @@ def unzip_files(zip_file_path: Path, dataset_name: str) -> None:
     if not zip_file_path.exists():
         raise FileNotFoundError(f"Directory does not exist: {zip_file_path}")
 
-    dataset_path = Path(dataset_name)
+    dataset_path = Path.cwd()
     Path.mkdir(dataset_path, exist_ok=True)
     print(f"Creating directory: {dataset_path}")
 
@@ -145,6 +145,14 @@ def setup_dataset_structure(
 #         download(url, output=str(download_dir / f"{idx}.zip"), fuzzy=True, quiet=True)
 
 
-def download_dataset(download_dir: Path, url: str):
+def download_dataset(download_dir: Path, url: str) -> None:
     download_dir.mkdir(exist_ok=True)
-    download(url, output=str(download_dir / "0.zip"), fuzzy=True, quiet=False)
+    download(url, output=str(download_dir / "CricketEC.zip"), fuzzy=True, quiet=False)
+
+
+def setup_and_download_dataset(
+    dataset_name: str, url: str, download_dir: Path = Path("zipped_data")
+) -> None:
+    if not Path(download_dir).exists():
+        download_dataset(download_dir, url)
+        unzip_files(download_dir, dataset_name)

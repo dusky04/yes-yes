@@ -1,15 +1,14 @@
+from dataclasses import dataclass
 from pathlib import Path
 
 import torch
 from torch import nn
 from torchvision import transforms
 
+from dataset import get_dataloaders
 from models.video_resnet import video_resnet
 from train import train_model
 from utils import download_dataset, unzip_files
-from dataset import get_dataloaders
-
-from dataclasses import dataclass
 
 
 @dataclass

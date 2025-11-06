@@ -12,3 +12,7 @@ wheels/
 
 # Editor
 .ropeproject
+
+# Dataset
+zipped_data
+CricketEC

@@ -1,5 +1,5 @@
-from torchvision.models.video import r3d_18
 from torch import nn
+from torchvision.models.video import r3d_18
 
 
 def video_resnet(c):

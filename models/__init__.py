@@ -1,1 +1,1 @@
-from .cnn import resnet_lstm_model, effnet_b0_model
+from .cnn import effnet_b0_model, resnet_lstm_model

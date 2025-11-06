@@ -1,18 +1,16 @@
+import random
 from pathlib import Path
-from typing import Tuple
+from typing import Optional, Tuple
 
 import torch
 from decord import VideoReader
-from torch.utils.data import DataLoader, Dataset, random_split
+from torch.utils.data import DataLoader, Dataset
 from torchvision import transforms
 
 from utils import get_classes
-import random
-
-from typing import Optional
 
 
-class CricShot(Dataset):
+class CricketEC(Dataset):
     def __init__(
         self,
         c,
@@ -21,14 +19,8 @@ class CricShot(Dataset):
     ) -> None:
         self.dataset_dir = dir
         # paths of all the videos present in the dataset - label / video.avi
-        self.video_paths = []
+        self.video_paths = list(dir.glob("*/*.avi"))
         self.class_names, self.class_to_idx = get_classes(dir)
-        for class_name in self.class_names:
-            class_video_paths = random.sample(
-                list((self.dataset_dir / class_name).rglob("*.avi")), 150
-            )
-            self.video_paths.extend(class_video_paths)
-
         self.transform = transform
         self.config = c
 
@@ -57,73 +49,33 @@ class CricShot(Dataset):
         return video, label_idx
 
 
-# def get_dataloaders(
-#     config: Config,
-#     train_transform: transforms.Compose,
-#     test_transform: transforms.Compose,
-# ) -> Tuple[DataLoader[CricShot], DataLoader[CricShot]]:
-#     train_dir = Path(config.DATASET_NAME) / "train"
-#     test_dir = Path(config.DATASET_NAME) / "test"
-
-#     dataset = CricShot(dir=config.DATASET_NAME, config=config)
-#     train_dataset = CricShot(dir=train_dir, transform=train_transform, config=config)
-#     test_dataset = CricShot(dir=test_dir, transform=test_transform, config=config)
-
-#     train_dataloader = DataLoader(
-#         train_dataset,
-#         shuffle=True,
-#         pin_memory=True,
-#         prefetch_factor=config.PREFETCH_FACTOR,
-#         persistent_workers=True,
-#         batch_size=config.BATCH_SIZE,
-#         num_workers=config.NUM_WORKERS,
-#     )
-#     test_dataloader = DataLoader(
-#         test_dataset,
-#         shuffle=False,
-#         pin_memory=True,
-#         prefetch_factor=config.PREFETCH_FACTOR,
-#         persistent_workers=True,
-#         batch_size=config.BATCH_SIZE,
-#         num_workers=config.NUM_WORKERS,
-#     )
-#     return train_dataloader, test_dataloader
-
-
 def get_dataloaders(
-    c,
+    config,
     train_transform: transforms.Compose,
     test_transform: transforms.Compose,
-) -> Tuple[DataLoader, DataLoader]:
-    dataset = CricShot(
-        dir=Path(c.DATASET_NAME),
-        transform=None,
-        config=c,
-    )
+) -> Tuple[DataLoader[CricketEC], DataLoader[CricketEC]]:
+    train_dir = Path(config.DATASET_NAME) / "train"
+    test_dir = Path(config.DATASET_NAME) / "test"
 
-    train_size = int(c.TRAIN_SIZE * len(dataset))
-    test_size = len(dataset) - train_size
-
-    train_dataset, test_dataset = random_split(dataset, [train_size, test_size])
-    train_dataset.dataset.transform = train_transform
-    test_dataset.dataset.transform = test_transform
+    train_dataset = CricketEC(c=config, dir=train_dir, transform=train_transform)
+    test_dataset = CricketEC(c=config, dir=test_dir, transform=test_transform)
 
     train_dataloader = DataLoader(
         train_dataset,
         shuffle=True,
         pin_memory=True,
-        prefetch_factor=c.PREFETCH_FACTOR,
+        prefetch_factor=config.PREFETCH_FACTOR,
         persistent_workers=True,
-        batch_size=c.BATCH_SIZE,
-        num_workers=c.NUM_WORKERS,
+        batch_size=config.BATCH_SIZE,
+        num_workers=config.NUM_WORKERS,
     )
     test_dataloader = DataLoader(
         test_dataset,
         shuffle=False,
         pin_memory=True,
-        prefetch_factor=c.PREFETCH_FACTOR,
+        prefetch_factor=config.PREFETCH_FACTOR,
         persistent_workers=True,
-        batch_size=c.BATCH_SIZE,
-        num_workers=c.NUM_WORKERS,
+        batch_size=config.BATCH_SIZE,
+        num_workers=config.NUM_WORKERS,
     )
     return train_dataloader, test_dataloader

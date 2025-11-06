@@ -1,6 +1,6 @@
 import torch
 from torch import nn
-from torchvision.models import resnet18, efficientnet_b0
+from torchvision.models import efficientnet_b0, resnet18
 
 
 class Model(nn.Module):
@@ -52,7 +52,6 @@ def resnet_lstm_model(C) -> Model:
     # get the output size from the penultimate layer of ResNet
     in_features = resnet.fc.in_features
     # create our own feature extractor by removing 'fc' layer
-    resnet = nn.Sequential(*list(resnet.children())[:-1])
 
     # fine tune the lower layer
     for param in resnet.layer4.parameters():
@@ -60,6 +59,8 @@ def resnet_lstm_model(C) -> Model:
 
     for param in resnet.layer3.parameters():
         param.requires_grad = True
+
+    resnet = nn.Sequential(*list(resnet.children())[:-1])
 
     return Model(C, resnet, in_features)
 
