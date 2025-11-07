@@ -27,7 +27,7 @@ class Model(nn.Module):
 
         lstm_out_dim = C.LSTM_HIDDEN_DIM * 2
 
-        # self.layer_norm = nn.LayerNorm(lstm_out_dim)
+        self.layer_norm = nn.LayerNorm(lstm_out_dim)
         self.dropout = nn.Dropout(C.FC_DROPOUT)
 
         self.linear = nn.Sequential(
@@ -51,7 +51,7 @@ class Model(nn.Module):
         features = features.view(B, T, -1)  # [batch_size, sequence_length, 512]
         # output of LSTM dims: [batch_size, sequence_length, hidden_dim]
         features, _ = self.lstm(features)
-        # features = self.layer_norm(features)
+        features = self.layer_norm(features)
         features = torch.mean(features, dim=1)  # pool across time
         features = self.dropout(features)
         output = self.linear(features)
@@ -60,6 +60,8 @@ class Model(nn.Module):
 
 def resnet_lstm_model(C) -> Model:
     resnet = resnet18(weights="DEFAULT")
+    for param in resnet.parameters():
+        param.requires_grad = False
     # fine tune the lower layer
     for param in resnet.layer4.parameters():
         param.requires_grad = True
