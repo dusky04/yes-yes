@@ -1,6 +1,6 @@
 import torch
 from torch import nn
-from torchvision.models import efficientnet_b0, resnet18
+from torchvision.models import efficientnet_b0, resnet18, resnet34
 
 
 class Model(nn.Module):
@@ -61,7 +61,7 @@ class Model(nn.Module):
         return output
 
 
-def resnet_lstm_model(C) -> Model:
+def resnet18_lstm_model(C) -> Model:
     resnet = resnet18(weights="DEFAULT")
     for param in resnet.parameters():
         param.requires_grad = False
@@ -71,6 +71,18 @@ def resnet_lstm_model(C) -> Model:
     for param in resnet.layer3.parameters():
         param.requires_grad = True
     return Model(C, name="resnet", feature_extractor_model=resnet)
+
+def resnet34_lstm_model(C) -> Model:
+    resnet = resnet34(weights="DEFAULT")
+    for param in resnet.parameters():
+        param.requires_grad = False
+    # fine tune the lower layer
+    for param in resnet.layer4.parameters():
+        param.requires_grad = True
+    for param in resnet.layer3.parameters():
+        param.requires_grad = True
+    return Model(C, name="resnet", feature_extractor_model=resnet)
+
 
 
 def effnet_b0_model(C) -> Model:
