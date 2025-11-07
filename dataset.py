@@ -52,14 +52,12 @@ def get_dataloaders(
     config,
     train_transform: transforms.Compose,
     test_transform: transforms.Compose,
-) -> Tuple[DataLoader[CricketEC], DataLoader[CricketEC], DataLoader[CricketEC]]:
+) -> Tuple[DataLoader[CricketEC], DataLoader[CricketEC]]:
     train_dir = Path(config.DATASET_NAME) / "train"
     test_dir = Path(config.DATASET_NAME) / "test"
-    val_dir = Path(config.DATASET_NAME) / "val"
 
     train_dataset = CricketEC(c=config, dir=train_dir, transform=train_transform)
     test_dataset = CricketEC(c=config, dir=test_dir, transform=test_transform)
-    val_dataset = CricketEC(c=config, dir=val_dir, transform=test_transform)
 
     train_dataloader = DataLoader(
         train_dataset,
@@ -80,7 +78,15 @@ def get_dataloaders(
         num_workers=config.NUM_WORKERS,
     )
 
-    val_dataloader = DataLoader(
+    return train_dataloader, test_dataloader
+
+
+def get_val_dataloader(
+    config, val_transform: transforms.Compose
+) -> DataLoader[CricketEC]:
+    val_dir = Path(config.DATASET_NAME) / "val"
+    val_dataset = CricketEC(c=config, dir=val_dir, transform=val_transform)
+    return DataLoader(
         val_dataset,
         shuffle=False,
         pin_memory=True,
@@ -89,4 +95,3 @@ def get_dataloaders(
         batch_size=config.BATCH_SIZE,
         num_workers=config.NUM_WORKERS,
     )
-    return train_dataloader, test_dataloader, val_dataloader

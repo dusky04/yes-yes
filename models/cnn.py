@@ -6,13 +6,15 @@ from torchvision.models import efficientnet_b0, resnet18
 class Model(nn.Module):
     def __init__(self, C, name: str, feature_extractor_model: nn.Module) -> None:
         super().__init__()
-        self.feature_extractor = nn.Sequential(
-            *list(feature_extractor_model.children())[:-1]
-        )
+
         if name == "effnet":
             self.in_features = feature_extractor_model.classifier[1].in_features
         else:
             self.in_features = feature_extractor_model.fc.in_features
+
+        self.feature_extractor = nn.Sequential(
+            *list(feature_extractor_model.children())[:-1]
+        )
 
         self.lstm = nn.LSTM(
             input_size=self.in_features,
@@ -25,7 +27,7 @@ class Model(nn.Module):
 
         lstm_out_dim = C.LSTM_HIDDEN_DIM * 2
 
-        self.layer_norm = nn.LayerNorm(lstm_out_dim)
+        # self.layer_norm = nn.LayerNorm(lstm_out_dim)
         self.dropout = nn.Dropout(C.FC_DROPOUT)
 
         self.linear = nn.Sequential(
@@ -49,8 +51,8 @@ class Model(nn.Module):
         features = features.view(B, T, -1)  # [batch_size, sequence_length, 512]
         # output of LSTM dims: [batch_size, sequence_length, hidden_dim]
         features, _ = self.lstm(features)
-        features = self.layer_norm(features)
-        features = torch.mean(features, dim=1) # pool across time
+        # features = self.layer_norm(features)
+        features = torch.mean(features, dim=1)  # pool across time
         features = self.dropout(features)
         output = self.linear(features)
         return output
@@ -63,7 +65,7 @@ def resnet_lstm_model(C) -> Model:
         param.requires_grad = True
     for param in resnet.layer3.parameters():
         param.requires_grad = True
-    return Model(C, name = "resnet", feature_extractor_model=resnet)
+    return Model(C, name="resnet", feature_extractor_model=resnet)
 
 
 def effnet_b0_model(C) -> Model:
@@ -71,4 +73,4 @@ def effnet_b0_model(C) -> Model:
     for idx in range(6, 8):
         for param in effnet.features[idx].parameters():
             param.requires_grad = True
-    return Model(C, name = "effnet", feature_extractor_model=effnet)
+    return Model(C, name="effnet", feature_extractor_model=effnet)
