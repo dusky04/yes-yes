@@ -16,7 +16,7 @@ class Model(nn.Module):
             *list(feature_extractor_model.children())[:-1]
         )
 
-        self.batch_norm = nn.BatchNorm2D(self.in_features)
+        self.batch_norm = nn.BatchNorm2d(self.in_features)
 
         self.lstm = nn.LSTM(
             input_size=self.in_features,
