@@ -14,7 +14,6 @@ class Model(nn.Module):
         else:
             self.in_features = feature_extractor_model.fc.in_features
 
-        self.batch_norm = nn.BatchNorm2d(num_features=512)
         self.lstm = nn.LSTM(
             input_size=self.in_features,
             hidden_size=C.LSTM_HIDDEN_DIM,
@@ -23,8 +22,11 @@ class Model(nn.Module):
             batch_first=True,
             bidirectional=True,
         )
-        self.dropout = nn.Dropout(C.FC_DROPOUT)
+
         lstm_out_dim = C.LSTM_HIDDEN_DIM * 2
+
+        self.layer_norm = nn.LayerNorm(lstm_out_dim)
+        self.dropout = nn.Dropout(C.FC_DROPOUT)
 
         self.linear = nn.Sequential(
             nn.Linear(lstm_out_dim, lstm_out_dim // 2),
@@ -42,14 +44,13 @@ class Model(nn.Module):
         # have to convert dims to [batch_size * frame, C, H, W]
         # output dims: [batch_size, 512 (in_features), 1, 1]
         features = self.feature_extractor(x.view(B * T, C, H, W))
-        features = self.batch_norm(features)
 
         # LSTM expects (batch_size, sequence_length, input_size) as input
         features = features.view(B, T, -1)  # [batch_size, sequence_length, 512]
         # output of LSTM dims: [batch_size, sequence_length, hidden_dim]
         features, _ = self.lstm(features)
-        features = torch.mean(features, dim=1)
-
+        features = self.layer_norm(features)
+        features = torch.mean(features, dim=1) # pool across time
         features = self.dropout(features)
         output = self.linear(features)
         return output
