@@ -70,6 +70,8 @@ def resnet_lstm_model(C) -> Model:
 
 def effnet_b0_model(C) -> Model:
     effnet = efficientnet_b0(weights="DEFAULT")
+    for param in effnet.parameters():
+        param.requires_grad = False
     for idx in range(6, 8):
         for param in effnet.features[idx].parameters():
             param.requires_grad = True
