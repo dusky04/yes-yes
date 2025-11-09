@@ -72,6 +72,7 @@ def resnet18_lstm_model(C) -> Model:
         param.requires_grad = True
     return Model(C, name="resnet", feature_extractor_model=resnet)
 
+
 def resnet34_lstm_model(C) -> Model:
     resnet = resnet34(weights="DEFAULT")
     for param in resnet.parameters():
@@ -82,7 +83,6 @@ def resnet34_lstm_model(C) -> Model:
     for param in resnet.layer3.parameters():
         param.requires_grad = True
     return Model(C, name="resnet", feature_extractor_model=resnet)
-
 
 
 def effnet_b0_model(C) -> Model:

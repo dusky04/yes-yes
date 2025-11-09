@@ -4,8 +4,8 @@ import torch
 from torch import nn
 from pathlib import Path
 from utils import setup_and_download_dataset
-from dataset import get_dataloaders
-from models.cnn import resnet18_lstm_model
+from dataset import FrameSampling, get_dataloaders
+from models.cnn import effnet_b0_model
 from torchvision import transforms
 from train import train_model
 
@@ -15,17 +15,17 @@ class C:
     LR = 3e-3
     DATASET_NAME = "CricketEC"
     NUM_CLASSES = 14
-    NUM_FRAMES = 16
+    NUM_FRAMES = 32
     BATCH_SIZE = 16
-    LSTM_HIDDEN_DIM = 128
+    LSTM_HIDDEN_DIM = 64
     LSTM_NUM_LAYERS = 1
     LSTM_DROPOUT = 0.4
     FC_DROPOUT = 0.5
     TRAIN_SIZE = 0.8
-    NUM_WORKERS = 4
-    PREFETCH_FACTOR = 3
-    WEIGHT_DECAY = 1e-4
-    NUM_EPOCHS = 20
+    NUM_WORKERS = 1
+    PREFETCH_FACTOR = 2
+    NUM_EPOCHS = 40
+    WEIGHT_DECAY = 3e-4
 
 
 if __name__ == "__main__":
@@ -34,6 +34,7 @@ if __name__ == "__main__":
     # setup the dataset
     DATASET_NAME = "CricketEC"
     CRICKET_EC_URL = "https://drive.google.com/file/d/1KpKua7OoCjmaQhzF52wdejpGHiDmShZs/view?usp=sharing"
+
     setup_and_download_dataset(
         DATASET_NAME, url=CRICKET_EC_URL, download_dir=Path("zipped_data")
     )
@@ -69,11 +70,14 @@ if __name__ == "__main__":
 
     # setup dataloaders
     train_dataloader, test_dataloader = get_dataloaders(
-        c, train_transform=train_transform, test_transform=test_transform
+        c,
+        train_transform=train_transform,
+        test_transform=test_transform,
+        sampling=FrameSampling.UNIFORM,
     )
 
     # setup model
-    model = resnet_lstm_model(c).to(device)
+    model = effnet_b0_model(c).to(device)
 
     # loss function
     loss_fn = nn.CrossEntropyLoss()
@@ -81,6 +85,12 @@ if __name__ == "__main__":
     # optimizer
     # Define parameter groups with different learning rates
     optimizer = torch.optim.Adam(
+        [
+            {"params": model.feature_extractor.parameters(), "lr": 1e-4},
+            {"params": model.lstm.parameters()},
+            {"params": model.linear.parameters()},
+            {"params": model.dropout.parameters()},
+        ],
         lr=c.LR,
         weight_decay=c.WEIGHT_DECAY,
     )
@@ -89,6 +99,9 @@ if __name__ == "__main__":
 
     # train
     train_model(
+        c=c,
+        exp_name="effenet-32frames-40epochs",
+        weights_dir=Path("weights"),
         model=model,
         train_dataloader=train_dataloader,
         test_dataloader=test_dataloader,
