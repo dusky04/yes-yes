@@ -8,7 +8,6 @@ from torch.utils.data import DataLoader, Dataset
 from torchvision import transforms
 from utils import get_classes
 from enum import Enum
-from black.rusty import Err
 
 
 class FrameSampling(Enum):
