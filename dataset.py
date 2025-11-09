@@ -186,8 +186,7 @@ class CricketEC(Dataset):
 
         self.index_map = None
         cache_path = Path(
-            f"CricketEC-train-test-val/pixel_intensity_indices_{
-                self.config.NUM_FRAMES}_frames.pkl"
+            f"CricketEC-train-test-val/pixel_intensity_indices_{self.config.NUM_FRAMES}_frames.pkl"
         )
         if self.sampling == FrameSampling.PIXEL_INTENSITY:
             print("Loaded indices:", str(cache_path))
@@ -224,12 +223,6 @@ class CricketEC(Dataset):
                 indices = self.index_map[key]
 
                 if len(indices) != self.config.NUM_FRAMES:
-                    print(
-                        f"Warning: Mismatch in {key}. "
-                        f"Cache has {len(indices)} frames, config needs {
-                            self.config.NUM_FRAMES}. "
-                        "You may need to re-run pre-computation."
-                    )
 
                     if len(indices) > self.config.NUM_FRAMES:
                         indices = indices[: self.config.NUM_FRAMES]
