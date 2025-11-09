@@ -6,6 +6,7 @@ dist/
 wheels/
 *.egg-info
 .ruff_cache
+.ipynb_checkpoints
 
 # Virtual environments
 .venv
@@ -16,3 +17,4 @@ wheels/
 # Dataset
 zipped_data
 CricketEC
+CricketEC-train-test-val
