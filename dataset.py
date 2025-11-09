@@ -5,7 +5,6 @@ import torch
 from decord import VideoReader
 from torch.utils.data import DataLoader, Dataset
 from torchvision import transforms
-import numpy as np
 from utils import get_classes
 from enum import Enum
 
@@ -19,17 +18,20 @@ class FrameSampling(Enum):
 def _calculate_likelihood(
     frame1_chunks: torch.Tensor, frame2_chunks: torch.Tensor
 ) -> torch.Tensor:
+    frame1_chunks = frame1_chunks.float()
+    frame2_chunks = frame2_chunks.float()
+
     # m_i and m_i+1 represents
     # mean intensity values for a given colour channel for the
     # region in two consecutive frames
-    m_1 = frame1_chunks.mean(axis=(1, 2))
-    m_2 = frame2_chunks.mean(axis=(1, 2))
+    m_1 = frame1_chunks.mean(dim=(1, 2))
+    m_2 = frame2_chunks.mean(dim=(1, 2))
 
     # s_i and s_i+1 represents
     # corresponding variance values for a given colour channel for the
     # region in two consecutive frames
-    s_1 = frame1_chunks.var(axis=(1, 2))
-    s_2 = frame2_chunks.var(axis=(1, 2))
+    s_1 = frame1_chunks.var(dim=(1, 2))
+    s_2 = frame2_chunks.var(dim=(1, 2))
 
     # handle zero variance
     # "If s_i = 0 or s_{i+1} = 0 then set s_i = s_{i+1} = 1"
@@ -47,7 +49,7 @@ def _calculate_likelihood(
     likelihood_ratio = c / d
 
     # average across the 3 color channels
-    avg_likelihood_per_region = likelihood_ratio.mean(axis=1)
+    avg_likelihood_per_region = likelihood_ratio.mean(dim=1)
 
     return avg_likelihood_per_region
 
@@ -61,7 +63,7 @@ def _pixel_intensity_sampling(c, vr: VideoReader) -> List[int]:
     nrows, ncols = 4, 4
     side_of_region = 56  # (width * height)  / num_of_regions -> (224 * 224) / 16
 
-    frame_prev = vr[0]
+    frame_prev = torch.from_numpy(vr[0].asnumpy())
     total_frames = len(vr)
 
     frame_scores = []
@@ -101,7 +103,68 @@ def _pixel_intensity_sampling(c, vr: VideoReader) -> List[int]:
     # Add frame 0 and sort the final indices
     final_indices = sorted(list(set([0] + top_indices)))
 
+    # Ensure exactly NUM_FRAMES frames
+    if len(final_indices) > c.NUM_FRAMES:
+        final_indices = final_indices[: c.NUM_FRAMES]
+    elif len(final_indices) < c.NUM_FRAMES:
+        final_indices += [final_indices[-1]] * (c.NUM_FRAMES - len(final_indices))
+
     return final_indices
+
+
+# def _pixel_intensity_sampling(c, vr: VideoReader) -> List[int]:
+#     nrows, ncols = 4, 4
+#     side_of_region = 56
+#     total_frames = len(vr)
+
+#     if total_frames < 2:
+#         # Not enough frames to compare, return uniform
+#         indices = torch.linspace(
+#             0, total_frames - 1, c.NUM_FRAMES, dtype=torch.float32
+#         ).tolist()
+#         return [int(i) for i in indices] # Ensure integer indices
+
+#     # 1. Batch read all frames.
+#     # Shape -> (T, H, W, 3)
+#     all_frames = torch.from_numpy(vr.get_batch(range(total_frames)).asnumpy())
+
+#     # 2. Create (T-1) pairs of frames
+#     # shape -> (T-1, H, W, 3)
+#     frames_prev = all_frames[:-1]
+#     frames_curr = all_frames[1:]
+
+#     # 3. Vectorize the chunking operation
+#     def chunk_frames(frames: torch.Tensor) -> torch.Tensor:
+#         # Input shape: (T-1, 224, 224, 3)
+#         num_pairs = frames.shape[0]
+#         return (
+#             frames.reshape(num_pairs, nrows, side_of_region, ncols, side_of_region, 3)
+#             .permute(0, 1, 3, 2, 4, 5) # (T-1, nrows, ncols, 56, 56, 3)
+#             .reshape(num_pairs, -1, side_of_region, side_of_region, 3) # (T-1, 16, 56, 56, 3)
+#         )
+
+#     frame1_chunks = chunk_frames(frames_prev)
+#     frame2_chunks = chunk_frames(frames_curr)
+
+#     # 4. Run vectorized calculation
+#     # frame_scores shape: (T-1)
+#     frame_scores = _calculate_likelihood(frame1_chunks, frame2_chunks)
+
+#     # 5. Get top indices
+#     # We add 1 to the index because the score at index 0 corresponds to the change
+#     # between frame 0 and frame 1 (so it belongs to frame 1).
+#     top_indices = torch.topk(frame_scores, k=min(c.NUM_FRAMES - 1, len(frame_scores))).indices + 1
+
+#     # Add frame 0 and sort the final indices
+#     final_indices = sorted(list(set([0] + top_indices.tolist())))
+
+#     # 6. Pad or truncate
+#     if len(final_indices) > c.NUM_FRAMES:
+#         final_indices = final_indices[: c.NUM_FRAMES]
+#     elif len(final_indices) < c.NUM_FRAMES:
+#         final_indices += [final_indices[-1]] * (c.NUM_FRAMES - len(final_indices))
+
+#     return final_indices
 
 
 class CricketEC(Dataset):
