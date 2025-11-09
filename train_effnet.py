@@ -73,7 +73,7 @@ if __name__ == "__main__":
         c,
         train_transform=train_transform,
         test_transform=test_transform,
-        sampling=FrameSampling.UNIFORM,
+        sampling=FrameSampling.PIXEL_INTENSITY,
     )
 
     # setup model
