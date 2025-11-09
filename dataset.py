@@ -135,7 +135,7 @@ class CricketEC(Dataset):
             case FrameSampling.JITTERED:
                 raise NotImplementedError
             case FrameSampling.PIXEL_INTENSITY:
-                indices = _pixel_intensity_sampling(c, vr)
+                indices = _pixel_intensity_sampling(self.c, vr)
 
         frames = torch.from_numpy(vr.get_batch(indices=indices).asnumpy()).permute(
             0, 3, 1, 2
