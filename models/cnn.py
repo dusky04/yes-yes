@@ -59,8 +59,8 @@ class Model(nn.Module):
         # LSTM expects (batch_size, sequence_length, input_size) as input
         features = features.view(B, T, -1)  # [batch_size, sequence_length, 512]
         # output of LSTM dims: [batch_size, sequence_length, hidden_dim]
-        features, _ = self.lstm(features)
         features = self.layer_norm(features)
+        features, _ = self.lstm(features)
 
 
         attention_weights = self.attention_pool(features)
