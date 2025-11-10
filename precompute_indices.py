@@ -6,7 +6,7 @@ import torch
 from decord import VideoReader
 from tqdm import tqdm
 
-NUM_FRAMES_TO_SAMPLE = 32
+NUM_FRAMES_TO_SAMPLE = 16
 DATASET_ROOT = Path("CricketEC")
 CACHE_FILE_NAME = "pixel_intensity_indices_32_frames.pkl"
 

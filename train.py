@@ -40,7 +40,7 @@ def train_model(
             videos = videos.to(device)
             labels = labels.to(device)
 
-            optimizer.zero_grad()
+            optimizer.zero_grad(set_to_none = True)
 
             outputs = model(videos)
             loss = loss_fn(outputs, labels)
@@ -83,7 +83,8 @@ def train_model(
         val_epoch_acc = 100.0 * val_correct / val_total if val_total > 0 else 0
 
         if scheduler:
-            scheduler.step()
+            scheduler.step(val_epoch_loss)
+            print("LEARNING RATE:", scheduler.get_last_lr())
 
         print(
             f"Epoch {epoch + 1}/{c.NUM_EPOCHS} | Train Loss: {epoch_loss:.4f} | Train Acc: {epoch_acc:.2f}% | Val Loss: {val_epoch_loss:.4f} | Val Acc: {val_epoch_acc:.2f}%"
