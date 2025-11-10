@@ -27,17 +27,23 @@ class Model(nn.Module):
             bidirectional=True,
         )
 
-        lstm_out_dim = C.LSTM_HIDDEN_DIM * 2
+        self.lstm_out_dim = C.LSTM_HIDDEN_DIM * 2
 
-        self.layer_norm = nn.LayerNorm(lstm_out_dim)
+        self.layer_norm = nn.LayerNorm(self.lstm_out_dim)
+
+        self.attention_pool = nn.Sequential(
+            nn.Linear(self.lstm_out_dim, 1),
+            nn.Softmax(dim=1)
+        )
         self.dropout = nn.Dropout(C.FC_DROPOUT)
 
+
         self.linear = nn.Sequential(
-            nn.Linear(lstm_out_dim, lstm_out_dim // 2),
-            nn.BatchNorm1d(lstm_out_dim // 2),
+            nn.Linear(self.lstm_out_dim, self.lstm_out_dim // 2),
+            nn.BatchNorm1d(self.lstm_out_dim // 2),
             nn.ReLU(inplace=True),
             nn.Dropout(C.FC_DROPOUT),
-            nn.Linear(lstm_out_dim // 2, C.NUM_CLASSES),
+            nn.Linear(self.lstm_out_dim // 2, C.NUM_CLASSES),
         )
 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
@@ -55,7 +61,12 @@ class Model(nn.Module):
         # output of LSTM dims: [batch_size, sequence_length, hidden_dim]
         features, _ = self.lstm(features)
         features = self.layer_norm(features)
-        features = torch.mean(features, dim=1)  # pool across time
+
+
+        attention_weights = self.attention_pool(features)
+        features = torch.sum(features * attention_weights, dim=1)
+        # features = torch.mean(features, dim=1)  # pool across time
+
         features = self.dropout(features)
         output = self.linear(features)
         return output
