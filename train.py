@@ -83,7 +83,7 @@ def train_model(
         val_epoch_acc = 100.0 * val_correct / val_total if val_total > 0 else 0
 
         if scheduler:
-            scheduler.step(val_epoch_loss)
+            scheduler.step()
             print("LEARNING RATE:", scheduler.get_last_lr())
 
         print(

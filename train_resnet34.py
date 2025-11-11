@@ -8,17 +8,17 @@ from dataset import get_dataloaders, FrameSampling
 from models.cnn import resnet34_lstm_model
 from torchvision import transforms
 from train import train_model
-from torch.optim.lr_scheduler import ReduceLROnPlateau
+from torch.optim.lr_scheduler import CosineAnnealingLR
 
 
 @dataclass
 class C:
     LR = 3e-3
-    DATASET_NAME = "CricketEC-train-test-val"
+    DATASET_NAME = "CricketEC"
     NUM_CLASSES = 15
     NUM_FRAMES = 16
     BATCH_SIZE = 16
-    LSTM_HIDDEN_DIM = 128
+    LSTM_HIDDEN_DIM = 64
     LSTM_NUM_LAYERS = 2
     LSTM_DROPOUT = 0.3
     FC_DROPOUT = 0.4
@@ -87,19 +87,16 @@ if __name__ == "__main__":
     loss_fn = nn.CrossEntropyLoss()
 
     # optimizer
-    optimizer = torch.optim.Adam(
+    optimizer = torch.optim.AdamW(
         [
-            {"params": model.feature_extractor.parameters(), "lr": 1e-5},
-            {"params": model.lstm.parameters()},
-            {"params": model.linear.parameters()},
-            {"params": model.dropout.parameters()},
+            {"params": model.feature_extractor.parameters(), "lr": 1e-4},
         ],
         lr=c.LR,
         weight_decay=c.WEIGHT_DECAY,
     )
 
     # lr-scheduler
-    scheduler = ReduceLROnPlateau(optimizer, mode="min", factor=0.1, patience=3)
+    scheduler = CosineAnnealingLR(optimizer, T_max=c.NUM_EPOCHS)
 
     # train
     train_model(
