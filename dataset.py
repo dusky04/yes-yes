@@ -287,10 +287,10 @@ def get_dataloaders(
 
 
 def get_val_dataloader(
-    config, val_transform: transforms.Compose
+    config, val_transform: transforms.Compose, sampling: FrameSampling  = FrameSampling.UNIFORM
 ) -> DataLoader[CricketEC]:
     val_dir = Path(config.DATASET_NAME) / "val"
-    val_dataset = CricketEC(c=config, dir=val_dir, transform=val_transform)
+    val_dataset = CricketEC(c=config, dir=val_dir, transform=val_transform, sampling=sampling)
     return DataLoader(
         val_dataset,
         shuffle=False,
