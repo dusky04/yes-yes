@@ -186,7 +186,7 @@ class CricketEC(Dataset):
 
         self.index_map = None
         cache_path = Path(
-            f"CricketEC-train-test-val/pixel_intensity_indices_{self.config.NUM_FRAMES}_frames.pkl"
+            f"CricketEC/pixel_intensity_indices_{self.config.NUM_FRAMES}_frames.pkl"
         )
         if self.sampling == FrameSampling.PIXEL_INTENSITY:
             print("Loaded indices:", str(cache_path))

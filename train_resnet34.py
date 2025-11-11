@@ -18,15 +18,15 @@ class C:
     NUM_CLASSES = 15
     NUM_FRAMES = 16
     BATCH_SIZE = 16
-    LSTM_HIDDEN_DIM = 64
+    LSTM_HIDDEN_DIM = 128
     LSTM_NUM_LAYERS = 2
     LSTM_DROPOUT = 0.3
     FC_DROPOUT = 0.4
     TRAIN_SIZE = 0.8
     NUM_WORKERS = 4
-    PREFETCH_FACTOR = 6
+    PREFETCH_FACTOR = 10
     NUM_EPOCHS = 40
-    WEIGHT_DECAY = 3e-4
+    WEIGHT_DECAY = 3e-3
 
 
 if __name__ == "__main__":
@@ -36,7 +36,7 @@ if __name__ == "__main__":
 
     # setup the dataset
     DATASET_NAME = "CricketEC"
-    CRICKET_EC_URL = "https://drive.google.com/file/d/1ad0626ntvr6NqBs39jejj7pmZk9D6mBI/view?usp=sharing"
+    CRICKET_EC_URL = "https://drive.google.com/file/d/1QRM360a5HvRKvPF3k7vOT1PS0suxioJd/view?usp=sharing"
     setup_and_download_dataset(
         DATASET_NAME, url=CRICKET_EC_URL, download_dir=Path("zipped_data")
     )
@@ -81,7 +81,7 @@ if __name__ == "__main__":
 
     # setup model
     model = resnet34_lstm_model(c).to(device)
-    model.compile()
+    # model.compile()
 
     # loss function
     loss_fn = nn.CrossEntropyLoss()

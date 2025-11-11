@@ -6,9 +6,9 @@ import torch
 from decord import VideoReader
 from tqdm import tqdm
 
-NUM_FRAMES_TO_SAMPLE = 16
+NUM_FRAMES_TO_SAMPLE = 32
 DATASET_ROOT = Path("CricketEC")
-CACHE_FILE_NAME = "pixel_intensity_indices_32_frames.pkl"
+CACHE_FILE_NAME = f"pixel_intensity_indices_{NUM_FRAMES_TO_SAMPLE}_frames.pkl"
 
 
 def _calculate_likelihood_vectorized(
