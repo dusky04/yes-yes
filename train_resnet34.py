@@ -13,7 +13,7 @@ from torch.optim.lr_scheduler import CosineAnnealingLR
 
 @dataclass
 class C:
-    LR = 3e-3
+    LR = 1e-3
     DATASET_NAME = "CricketEC"
     NUM_CLASSES = 15
     NUM_FRAMES = 16
