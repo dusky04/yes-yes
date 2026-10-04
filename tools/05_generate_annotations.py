@@ -1,3 +1,4 @@
+from __future__ import annotations
 """
 Stage 05 — emit the two annotation JSONs in the professor's exact schema.
 

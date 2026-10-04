@@ -1,3 +1,4 @@
+from __future__ import annotations
 """
 Stage 06 — build annotations/full_taxonomy_metadata.csv (the paper's Table 2).
 

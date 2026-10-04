@@ -1,3 +1,4 @@
+from __future__ import annotations
 """
 train_baseline.py — a simple, honest PyTorch baseline for CricketEC.
 

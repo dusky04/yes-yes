@@ -1,3 +1,4 @@
+from __future__ import annotations
 """
 Stage 03 — probe every sorted clip for its real physical properties.
 

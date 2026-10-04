@@ -1,3 +1,4 @@
+from __future__ import annotations
 """
 Stage 01 — rename raw clips to  <class>_<4-digit>.mp4
 

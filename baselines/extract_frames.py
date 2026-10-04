@@ -1,3 +1,4 @@
+from __future__ import annotations
 """
 extract_frames.py — sample a fixed number of frames from each clip.
 

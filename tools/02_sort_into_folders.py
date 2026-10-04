@@ -1,3 +1,4 @@
+from __future__ import annotations
 """
 Stage 02 — move named clips into the final class folders.
 

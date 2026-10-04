@@ -1,3 +1,4 @@
+from __future__ import annotations
 """
 Stage 04 — assign every clip to train or val, WITHOUT leaking a match.
 
