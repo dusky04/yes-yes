@@ -144,14 +144,24 @@ python run_pipeline.py
 | 05 | `generate_annotations.py` | Emit the three split JSONs |
 | 06 | `generate_taxonomy_csv.py` | Aggregate the per-class summary table |
 
-### Match-disjoint splitting
+### Splitting
 
-Clips from one broadcast match share players, kit, pitch, lighting and camera
-setup; allowing a match to appear in more than one split lets a model exploit
-match identity rather than the target class, inflating reported accuracy. Splits
-are therefore **match-disjoint**: using `source_match_id`, every clip of a given
-match is assigned entirely to a single split, and the pipeline asserts that no
-match spans two splits. The split file names reflect this (`*_match_disjoint`).
+The intended partition protocol is **match-disjoint**: clips from one broadcast
+match share players, kit, pitch, lighting and camera setup, so allowing a match to
+appear in more than one split lets a model exploit match identity rather than the
+target class, inflating reported accuracy. Using `source_match_id`, every clip of a
+given match is assigned entirely to a single split, and the pipeline asserts that
+no match spans two splits. Supplying a clip→match mapping in
+`annotations/match_mapping.csv` and running `run_pipeline.py --from 04` produces
+this split.
+
+**Current release.** Reliable per-clip broadcast-match identifiers were not
+available for the full corpus. Where they are absent, `source_match_id` is assigned
+automatically as a synthetic placeholder, and the resulting partition is a
+**random stratified split** (stratified by class) rather than a true match-disjoint
+one. The `*_match_disjoint` file names denote the target protocol; providing real
+match identifiers upgrades the partition to genuine match-disjointness without any
+other change.
 
 ---
 
