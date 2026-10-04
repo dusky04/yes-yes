@@ -83,7 +83,7 @@ def write_split(split_name, split_key, meta, split, match):
         "total_clips": len(clips),     # always equals the real array length
         "clips": clips,
     }
-    out = C.TRAIN_JSON if split_key == "train" else C.VAL_JSON
+    out = C.SPLIT_JSON[split_key]
     with out.open("w") as f:
         json.dump(doc, f, indent=2)
     assert doc["total_clips"] == len(doc["clips"])
@@ -95,6 +95,7 @@ def main():
     meta, split, match = load_rows()
     write_split("train_match_disjoint", "train", meta, split, match)
     write_split("val_match_disjoint", "val", meta, split, match)
+    write_split("test_match_disjoint", "test", meta, split, match)
     print("[05] annotations written. chirality & camera_perspective left null "
           "for the annotation pass.")
 

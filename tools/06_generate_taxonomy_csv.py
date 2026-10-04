@@ -34,11 +34,13 @@ def load_clips(path):
 def main():
     train = load_clips(C.TRAIN_JSON)
     val = load_clips(C.VAL_JSON)
-    all_clips = train + val
+    test = load_clips(C.TEST_JSON)
+    all_clips = train + val + test
 
     # index by class for counts/durations
     train_count = Counter(c["class_name"] for c in train)
     val_count = Counter(c["class_name"] for c in val)
+    test_count = Counter(c["class_name"] for c in test)
     by_class = {}
     for c in all_clips:
         by_class.setdefault(c["class_name"], []).append(c)
@@ -61,6 +63,7 @@ def main():
             "total_clips": len(clips),
             "train_clips": train_count.get(name, 0),
             "val_clips": val_count.get(name, 0),
+            "test_clips": test_count.get(name, 0),
             "total_duration_sec": round(float(durations.sum()), 2) if len(clips) else 0.0,
             "mean_duration_sec": round(float(durations.mean()), 2) if len(clips) else 0.0,
             "std_duration_sec": round(float(durations.std(ddof=0)), 2) if len(clips) else 0.0,
@@ -70,8 +73,8 @@ def main():
 
     df = pd.DataFrame(rows, columns=[
         "class_id", "class_name", "semantic_layer", "total_clips",
-        "train_clips", "val_clips", "total_duration_sec", "mean_duration_sec",
-        "std_duration_sec", "fps", "dominant_perspective"])
+        "train_clips", "val_clips", "test_clips", "total_duration_sec",
+        "mean_duration_sec", "std_duration_sec", "fps", "dominant_perspective"])
     df.to_csv(C.TAXONOMY_CSV, index=False)
 
     # Console summary incl. a crude class-imbalance ratio.

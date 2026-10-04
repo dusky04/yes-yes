@@ -42,6 +42,8 @@ MATCH_MAPPING_CSV   = ANNOTATIONS_DIR / "match_mapping.csv"
 # Generated outputs
 TRAIN_JSON          = ANNOTATIONS_DIR / "train_split_match_disjoint.json"
 VAL_JSON            = ANNOTATIONS_DIR / "val_split_match_disjoint.json"
+TEST_JSON           = ANNOTATIONS_DIR / "test_split_match_disjoint.json"
+SPLIT_JSON          = {"train": TRAIN_JSON, "val": VAL_JSON, "test": TEST_JSON}
 TAXONOMY_CSV        = ANNOTATIONS_DIR / "full_taxonomy_metadata.csv"
 METADATA_CACHE      = ANNOTATIONS_DIR / "_metadata_cache.csv"   # intermediate
 
@@ -95,17 +97,19 @@ CONVERT_TO_MP4    = False
 OUTPUT_EXT        = ".mp4" if CONVERT_TO_MP4 else ".avi"
 
 # --- Split -------------------------------------------------------------------
-# Fraction of *matches* (not clips) held out for validation. The split is made
-# at the match level so no match appears in both train and val (no leakage).
-VAL_FRACTION      = 0.20
-SPLIT_SEED        = 42        # reproducible shuffling of matches
+# Three-way split: train / val / test (the professor confirmed he wants all
+# three). Fractions are of the whole; TRAIN is the remainder. Done at the match
+# level when match data exists, so no match appears in two splits (no leakage).
+VAL_FRACTION      = 0.15
+TEST_FRACTION     = 0.15      # TRAIN_FRACTION = 1 - VAL - TEST = 0.70
+SPLIT_SEED        = 42        # reproducible shuffling
 
 # If no match mapping is available, stage 04 can fall back to a stratified
 # clip-level split (NOT leak-free) when run with --allow-no-match. In that mode
 # source_match_id is written as null and the split is clearly flagged.
 
-# Clip-id prefixes per split (matches the professor's CEC_TR_0001 / CEC_VAL_0001)
-CLIPID_PREFIX = {"train": "CEC_TR_", "val": "CEC_VAL_"}
+# Clip-id prefixes per split (train CEC_TR_0001, val CEC_VAL_0001, test CEC_TEST_0001)
+CLIPID_PREFIX = {"train": "CEC_TR_", "val": "CEC_VAL_", "test": "CEC_TEST_"}
 
 # --- Derived lookups (do not edit; built from the lists above) ---------------
 def _build_maps():
