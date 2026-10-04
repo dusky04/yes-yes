@@ -184,20 +184,64 @@ def match_disjoint_split(meta, mapping):
     print(f"[04] -> {SPLIT_CACHE.name}")
 
 
+def _read_mapping():
+    """Read match_mapping.csv into {stem: match_id}; blanks allowed. None if absent."""
+    if not C.MATCH_MAPPING_CSV.exists():
+        return None
+    m = {}
+    with C.MATCH_MAPPING_CSV.open() as f:
+        for row in csv.DictReader(f):
+            stem = (row.get("clip_stem") or "").strip()
+            if stem:
+                m[stem] = (row.get("source_match_id") or "").strip()
+    return m
+
+
+def _write_synthetic_mapping(meta):
+    """Auto-generate a match_mapping.csv when no real match ids are available.
+    Each clip gets a distinct SYNTHETIC placeholder id (clearly prefixed so it is
+    never mistaken for a real broadcast match). With one id per clip the resulting
+    partition is effectively a RANDOM stratified split, not a true match-disjoint
+    one — the README documents this. Returns the mapping dict."""
+    C.ANNOTATIONS_DIR.mkdir(parents=True, exist_ok=True)
+    rows = sorted(meta, key=lambda r: r["file_path"])
+    mapping = {Path(r["file_path"]).stem: f"SYNTH_{i:05d}"
+               for i, r in enumerate(rows, 1)}
+    with C.MATCH_MAPPING_CSV.open("w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["clip_stem", "source_match_id"])
+        for r in rows:
+            s = Path(r["file_path"]).stem
+            w.writerow([s, mapping[s]])
+    print(f"[04] no real match ids found — auto-generated {len(mapping)} SYNTHETIC "
+          f"placeholder ids in {C.MATCH_MAPPING_CSV.name}.")
+    print(f"[04] NOTE: synthetic ids => this is a RANDOM stratified split, not a "
+          f"true match-disjoint one (see README). Provide real ids to upgrade it.")
+    return mapping
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--allow-no-match", action="store_true",
-                    help="stratified clip-level split when no match data (NOT leak-free)")
-    args = ap.parse_args()
+                    help="(kept for back-compat; fallback is now automatic)")
+    ap.parse_args()
 
     meta = load_metadata()
-    if args.allow_no_match and not C.MATCH_MAPPING_CSV.exists():
-        stratified_clip_split(meta)
-        return
+    stems = [Path(r["file_path"]).stem for r in meta]
+    mapping = _read_mapping()
 
-    clip_stems = [Path(r["file_path"]).stem for r in meta]
-    mapping = load_match_mapping(clip_stems)
-    match_disjoint_split(meta, mapping)
+    # Real, fully-populated mapping -> genuine match-disjoint split.
+    # Otherwise auto-generate synthetic placeholder ids so the pipeline always
+    # proceeds; the result is a random stratified split (documented in the README).
+    if mapping and all(mapping.get(s) for s in stems):
+        match_disjoint_split(meta, mapping)
+    else:
+        if mapping is not None:
+            filled = sum(1 for s in stems if mapping.get(s))
+            print(f"[04] match_mapping.csv present but only {filled}/{len(stems)} "
+                  f"clips have a source_match_id — regenerating synthetic ids.")
+        mapping = _write_synthetic_mapping(meta)
+        match_disjoint_split(meta, mapping)
 
 
 if __name__ == "__main__":
