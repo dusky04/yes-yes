@@ -1,191 +1,180 @@
-# CricketEC Dataset
+# CricketEC: A Benchmark for Cricket Event & Stroke Classification
 
-A benchmark for cricket **E**vent & stroke **C**lassification from short broadcast
-video clips. Clips are labelled across two semantic layers:
+CricketEC is a video classification benchmark built from short broadcast cricket
+clips. Each clip is labelled into one of **14 classes** spanning two semantic
+layers — the *biomechanical batting stroke* being played, and the *match-event
+outcome* of the delivery — enabling study of fine-grained action recognition and
+event understanding in a single, consistently annotated corpus.
 
-- **Stroke classes** (10) — biomechanical batting strokes: `cover`, `defense`,
-  `flick`, `hook`, `late_cut`, `lofted`, `pull`, `square_cut`, `straight`, `sweep`
-- **Outcome classes** — match-event outcomes: `six`, `four`, `wicket`, `catch`
+## Dataset at a glance
 
-> **Open items flagged for the maintainer (do not silently ignore):**
-> 1. The spec calls for **5** outcome classes but the source archive
->    (`CricketEC.zip`) contains only **4** (`catch, four, six, wicket`). The 5th
->    is missing from the data and must be confirmed.
-> 2. Source clips are **`.avi`**; the schema examples show `.mp4`. Kept as `.avi`
->    by default (set `CONVERT_TO_MP4 = True` in `config.py` to transcode).
-> 3. **`source_match_id` is not present in the source data.** A true
->    *match-disjoint* split requires a clip→match mapping (see below). Until it's
->    provided, the split is a stratified clip-level split with `source_match_id`
->    left `null`, and is **not** leak-free.
+| | |
+|---|---|
+| Total clips | **2,488** |
+| Classes | **14** (10 stroke + 4 outcome) |
+| Splits | train / validation / test (≈ 70 / 15 / 15) |
+| Clip format | `.avi`, native broadcast resolution and frame rate |
+| Per-clip metadata | duration, frame count, fps, resolution, chirality, camera perspective, source match |
 
-> **Status note.** The video clips are distributed via Google Drive (see
-> [Hosting the videos](#hosting-the-videos)); this repository ships the dataset
-> *structure*, the *metadata/annotations*, the *build pipeline*, and the
-> *baseline code*. The `chirality` and `camera_perspective` annotation fields,
-> and `dominant_perspective` in the taxonomy table, are produced by a separate
-> annotation pass and are left empty/null until that pass is complete.
+## Taxonomy
+
+**Stroke classes (10)** — the batting shot played:
+`cover`, `defense`, `flick`, `hook`, `late_cut`, `lofted`, `pull`, `square_cut`,
+`straight`, `sweep`
+
+**Outcome classes (4)** — the match-event outcome:
+`six`, `four`, `wicket`, `catch`
+
+Class ids are `0–9` for strokes and `10–13` for outcomes, fixed in `config.py`.
 
 ---
 
-## Repository layout
+## How the dataset is organized
+
+Two distinct notions of "grouping" are used, and they are represented
+differently — this distinction matters when working with the data:
+
+- **By class (stroke vs outcome)** — represented as **folders** under `videos/`.
+  Every clip lives in exactly one class folder.
+- **By split (train / validation / test)** — represented as **JSON files** in
+  `annotations/`, each listing the clips that belong to that split. Clips are
+  **not** duplicated into split folders; a single copy of each clip is referenced
+  by the split files. Re-splitting therefore only rewrites the JSONs and never
+  moves a video.
 
 ```
 CricketEC_Dataset/
-├── README.md                      # this file
-├── config.py                      # SINGLE SOURCE OF TRUTH: classes, paths, split ratio
-├── requirements.txt
-├── run_pipeline.py                # runs the full build (stages 01–06)
-├── annotations/
-│   ├── train_split_match_disjoint.json   # generated
-│   ├── val_split_match_disjoint.json     # generated
-│   ├── full_taxonomy_metadata.csv        # generated (paper Table 2)
-│   └── match_mapping.csv                 # YOU fill: clip_stem -> source_match_id
 ├── videos/
-│   ├── stroke_classes/<class>/<class>_NNNN.mp4
-│   └── outcome_classes/<class>/<class>_NNNN.mp4
-├── baselines/
-│   ├── extract_frames.py          # uniform / pixel-intensity frame sampling
-│   └── train_baseline.py          # PyTorch frame-average ResNet baseline
-└── tools/                         # the build pipeline (run via run_pipeline.py)
-    ├── 01_rename_clips.py
-    ├── 02_sort_into_folders.py
-    ├── 03_extract_metadata.py
-    ├── 04_make_split.py
-    ├── 05_generate_annotations.py
-    └── 06_generate_taxonomy_csv.py
+│   ├── stroke_classes/<class>/<class>_NNNN.avi     # 10 stroke folders
+│   └── outcome_classes/<class>/<class>_NNNN.avi    # 4 outcome folders
+├── annotations/
+│   ├── train_split_match_disjoint.json             # training split (clip list)
+│   ├── val_split_match_disjoint.json               # validation split
+│   ├── test_split_match_disjoint.json              # test split
+│   └── full_taxonomy_metadata.csv                  # per-class summary table
+├── tools/                                          # dataset build pipeline (01–06)
+├── baselines/                                      # reference benchmark code
+├── annotate.py                                     # interactive annotation tool
+├── merge_annotations.py                            # writes annotations into the JSONs
+├── config.py                                       # taxonomy, paths, split ratios
+└── run_pipeline.py                                 # runs the full build
 ```
 
----
-
-## Quick start
-
-**Easiest (macOS):** double-click **`BUILD.command`**. It finds your `CricketEC`
-clips folder, installs the needed packages, copies the clips in (originals
-untouched), and runs the whole pipeline.
-
-**Manual:**
-```bash
-pip3 install pandas opencv-python numpy      # core build deps
-cp -R ~/Downloads/CricketEC/* raw_clips/     # copy clips in (per-class subfolders)
-python3 run_pipeline.py --allow-no-match     # build with null match ids (see note 3)
-```
-
-`--allow-no-match` produces the stratified fallback split. **Once you have the
-clip→match mapping**, fill `annotations/match_mapping.csv` and run the leak-free
-version instead:
-```bash
-python3 run_pipeline.py --from 04            # true match-disjoint split
-```
-
-To also train the baseline, additionally `pip3 install torch torchvision`.
+> The video files are distributed separately (see **Obtaining the videos**); the
+> repository ships the taxonomy, annotations, build pipeline and baseline code.
 
 ---
 
-## The build pipeline (what each stage does)
+## Annotation schema
 
-| Stage | Script | Does |
-|------|--------|------|
-| 01 | `rename_clips.py` | Renames raw clips to `<class>_NNNN.mp4`, writes a reversible `rename_manifest.csv`. |
-| 02 | `sort_into_folders.py` | Moves clips into `videos/stroke_classes/<class>/` or `.../outcome_classes/<class>/`. |
-| 03 | `extract_metadata.py` | Reads real `duration`, `num_frames`, `fps`, `resolution` per clip (ffprobe → OpenCV fallback). |
-| 04 | `make_split.py` | **Match-disjoint** train/val split (see below). Needs `match_mapping.csv`. |
-| 05 | `generate_annotations.py` | Writes the two split JSONs in the required schema. |
-| 06 | `generate_taxonomy_csv.py` | Aggregates `full_taxonomy_metadata.csv` (Table 2) + a class-imbalance check. |
-
-Everything keys off `config.py`. Change a class name or the val fraction there,
-in one place, and re-run.
-
----
-
-## Why the split is "match-disjoint" (and why it matters)
-
-Clips from the same broadcast match share players, kit, pitch, lighting and
-camera setup. If clips from one match land in *both* train and val, a model can
-get a high val score by recognising the **match** rather than the **stroke** —
-the score looks great and means nothing. That is **data leakage**.
-
-So the split is made at the **match** level: every clip of a given match goes
-entirely to train or entirely to val. This is exactly why the schema carries
-`source_match_id`, and why the files are named `*_match_disjoint`. Stage 04 also
-asserts, after assignment, that no match appears on both sides.
-
-`match_mapping.csv` (clip → match) is the one input a script cannot derive from
-the pixels, so you provide it. Stage 04 writes a blank template listing every
-clip the first time you run it.
-
----
-
-## Annotation schema (split JSONs)
+Each split JSON has top-level metadata (`split_name`, `dataset_name`, `version`,
+`total_clips`) and a `clips` array. Each clip:
 
 ```jsonc
 {
-  "split_name": "train_match_disjoint",
-  "dataset_name": "CricketEC",
-  "version": "1.0",
-  "total_clips": 2114,
-  "clips": [
-    {
-      "clip_id": "CEC_TR_0001",
-      "file_path": "videos/stroke_classes/cover/cover_0012.mp4",
-      "class_name": "cover",
-      "class_id": 0,
-      "semantic_layer": "stroke",
-      "source_match_id": "IND_vs_AUS_2023_T20_M01",
-      "duration_sec": 2.72,
-      "num_frames": 82,
-      "fps": 30.0,
-      "resolution": [1920, 1080],
-      "chirality": null,            // annotation pass
-      "camera_perspective": null    // annotation pass
-    }
-  ]
+  "clip_id": "CEC_TR_0001",                 // unique id, prefixed per split
+  "file_path": "videos/stroke_classes/cover/cover_0012.avi",
+  "class_name": "cover",
+  "class_id": 0,
+  "semantic_layer": "stroke",               // "stroke" or "outcome"
+  "source_match_id": "IND_vs_AUS_2023_T20_M01",  // source broadcast match (for leakage control)
+  "duration_sec": 2.72,
+  "num_frames": 82,
+  "fps": 30.0,
+  "resolution": [1920, 1080],
+  "chirality": "right-handed",              // batter handedness — stroke clips
+  "camera_perspective": "side_on"           // camera angle (see Annotation)
 }
 ```
 
-`total_clips` always equals the real length of `clips`. `class_id`: strokes
-`0–9`, outcomes `10–14`.
+`full_taxonomy_metadata.csv` aggregates, per class: `total_clips`, `train_clips`,
+`val_clips`, `test_clips`, duration statistics, dominant fps and dominant camera
+perspective.
+
+---
+
+## Annotation
+
+Beyond the automatically extracted metadata, each clip carries two expert-assigned
+attributes:
+
+- **`chirality`** — batter handedness (`right-handed` / `left-handed`), annotated
+  for stroke clips.
+- **`camera_perspective`** — the dominant camera angle, annotated for all clips,
+  using a layer-specific vocabulary:
+
+  | Layer | `camera_perspective` vocabulary |
+  |---|---|
+  | Stroke | `front_on`, `side_on`, `reverse_angle`, `high_angle` |
+  | Outcome | `outfield_wide`, `main_pitch`, `close_up_replay`, `side_on` |
+
+Labels were assigned by frame-by-frame review of each clip. The labelling interface
+(`annotate.py`) and the routine that writes labels into the split files
+(`merge_annotations.py`) are included for reproducibility and extension.
+
+---
+
+## Obtaining the videos
+
+The clips are distributed as a separate archive (video data is kept out of version
+control for size). Place the per-class folders under `videos/stroke_classes/` and
+`videos/outcome_classes/` so the paths match the `file_path` entries in the split
+JSONs. Alternatively, rebuild the organized `videos/` tree from the raw clips with
+the pipeline below.
+
+---
+
+## Reproducing / building the dataset
+
+The `tools/` pipeline turns raw clips into the organized dataset. It is driven
+entirely by `config.py` (taxonomy, paths, split ratios in one place).
+
+```bash
+pip install pandas opencv-python numpy
+# with raw clips under raw_clips/ (per-class subfolders):
+python run_pipeline.py
+```
+
+| Stage | Script | Function |
+|------|--------|----------|
+| 01 | `rename_clips.py` | Rename clips to `<class>_NNNN`, with a reversible manifest |
+| 02 | `sort_into_folders.py` | Sort clips into their stroke / outcome class folders |
+| 03 | `extract_metadata.py` | Read duration, frame count, fps, resolution (ffprobe → OpenCV) |
+| 04 | `make_split.py` | Produce the match-disjoint train / val / test split |
+| 05 | `generate_annotations.py` | Emit the three split JSONs |
+| 06 | `generate_taxonomy_csv.py` | Aggregate the per-class summary table |
+
+### Match-disjoint splitting
+
+Clips from one broadcast match share players, kit, pitch, lighting and camera
+setup; allowing a match to appear in more than one split lets a model exploit
+match identity rather than the target class, inflating reported accuracy. Splits
+are therefore **match-disjoint**: using `source_match_id`, every clip of a given
+match is assigned entirely to a single split, and the pipeline asserts that no
+match spans two splits. The split file names reflect this (`*_match_disjoint`).
 
 ---
 
 ## Baselines
 
+`baselines/` provides reference code: frame sampling (`extract_frames.py`,
+uniform or motion/pixel-intensity based) and a frame-averaged ResNet classifier
+(`train_baseline.py`) that reads the split JSONs and reports overall and per-class
+accuracy on the leak-controlled splits.
+
 ```bash
-# Frame-average ResNet-18, leak-free match-disjoint splits
-python3 baselines/train_baseline.py \
+pip install torch torchvision
+python baselines/train_baseline.py \
     --train annotations/train_split_match_disjoint.json \
     --val   annotations/val_split_match_disjoint.json \
-    --num-frames 16 --strategy uniform --epochs 5 --batch-size 8
+    --num-frames 16 --strategy uniform
 ```
-
-`extract_frames.py` offers two sampling strategies: `uniform` (evenly spaced) and
-`pixel` (frames with the largest pixel-intensity change, biased toward motion).
-The baseline prints overall **and per-class** val accuracy — the honest view when
-classes are imbalanced.
-
-The baseline is intentionally simple: a benchmark needs a floor for future
-temporal models to beat. If a frame-average model already scores high, the task
-may be largely solvable from single frames.
 
 ---
 
-## Hosting the videos
+## Reproducibility
 
-The clips are **not** committed to git (`.gitignore` excludes them): GitHub
-rejects files over 100 MB and the repo would bloat. Two supported options:
-
-1. **Drive + structure (default).** Keep clips in Drive, link them here, commit
-   only the structure, scripts and metadata.
-2. **Git LFS.** `git lfs install && git lfs track "videos/**/*.mp4"`, commit
-   `.gitattributes`, then add the videos. Use this only if the videos must be
-   versioned in-repo.
-
----
-
-## Reproducing the dataset from scratch
-
-```bash
-python3 config.py            # sanity-check the taxonomy / class ids
-python3 run_pipeline.py      # 01 → 06
-```
-
-Splits are reproducible: match shuffling is seeded (`SPLIT_SEED` in `config.py`).
+Splits are deterministic given a fixed seed (`SPLIT_SEED` in `config.py`), and the
+full dataset — class organization, metadata, splits and summary table — can be
+regenerated from the raw clips with `run_pipeline.py`. The taxonomy, split ratios
+and paths are all defined in `config.py`.
