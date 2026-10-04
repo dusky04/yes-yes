@@ -3,8 +3,20 @@
 A benchmark for cricket **E**vent & stroke **C**lassification from short broadcast
 video clips. Clips are labelled across two semantic layers:
 
-- **Stroke classes** (10) — biomechanical batting strokes (`cover`, `defense`, …)
-- **Outcome classes** (5) — match-event outcomes (`six`, `four`, `wicket`, …)
+- **Stroke classes** (10) — biomechanical batting strokes: `cover`, `defense`,
+  `flick`, `hook`, `late_cut`, `lofted`, `pull`, `square_cut`, `straight`, `sweep`
+- **Outcome classes** — match-event outcomes: `six`, `four`, `wicket`, `catch`
+
+> **Open items flagged for the maintainer (do not silently ignore):**
+> 1. The spec calls for **5** outcome classes but the source archive
+>    (`CricketEC.zip`) contains only **4** (`catch, four, six, wicket`). The 5th
+>    is missing from the data and must be confirmed.
+> 2. Source clips are **`.avi`**; the schema examples show `.mp4`. Kept as `.avi`
+>    by default (set `CONVERT_TO_MP4 = True` in `config.py` to transcode).
+> 3. **`source_match_id` is not present in the source data.** A true
+>    *match-disjoint* split requires a clip→match mapping (see below). Until it's
+>    provided, the split is a stratified clip-level split with `source_match_id`
+>    left `null`, and is **not** leak-free.
 
 > **Status note.** The video clips are distributed via Google Drive (see
 > [Hosting the videos](#hosting-the-videos)); this repository ships the dataset
@@ -47,20 +59,25 @@ CricketEC_Dataset/
 
 ## Quick start
 
-```bash
-pip install -r requirements.txt
+**Easiest (macOS):** double-click **`BUILD.command`**. It finds your `CricketEC`
+clips folder, installs the needed packages, copies the clips in (originals
+untouched), and runs the whole pipeline.
 
-# 1. Put the downloaded clips in ./raw_clips/  (flat, or in per-class subfolders)
-# 2. Build everything:
-python3 run_pipeline.py
+**Manual:**
+```bash
+pip3 install pandas opencv-python numpy      # core build deps
+cp -R ~/Downloads/CricketEC/* raw_clips/     # copy clips in (per-class subfolders)
+python3 run_pipeline.py --allow-no-match     # build with null match ids (see note 3)
 ```
 
-If a stage needs input from you it stops with a clear message (most commonly the
-match mapping in stage 04). Fix it and resume:
-
+`--allow-no-match` produces the stratified fallback split. **Once you have the
+clip→match mapping**, fill `annotations/match_mapping.csv` and run the leak-free
+version instead:
 ```bash
-python3 run_pipeline.py --from 04
+python3 run_pipeline.py --from 04            # true match-disjoint split
 ```
+
+To also train the baseline, additionally `pip3 install torch torchvision`.
 
 ---
 

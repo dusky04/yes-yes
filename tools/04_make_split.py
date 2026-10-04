@@ -22,6 +22,7 @@ Output: annotations/_split_assignments.csv  (clip_stem,source_match_id,split)
 
 Run:  python3 tools/04_make_split.py
 """
+import argparse
 import csv
 import random
 import sys
@@ -76,8 +77,44 @@ def _write_mapping_template(clip_stems):
             w.writerow([s, ""])
 
 
+def stratified_clip_split(meta):
+    """Fallback when no match data exists: stratified per-class clip split.
+    NOT leak-free; source_match_id is left empty. Clearly flagged."""
+    by_class = defaultdict(list)
+    for r in meta:
+        by_class[r["class_name"]].append(Path(r["file_path"]).stem)
+    assign = {}
+    rng = random.Random(C.SPLIT_SEED)
+    for cls, stems in by_class.items():
+        rng.shuffle(stems)
+        n_val = max(1, round(C.VAL_FRACTION * len(stems))) if len(stems) > 1 else 0
+        for i, s in enumerate(stems):
+            assign[s] = "val" if i < n_val else "train"
+    with SPLIT_CACHE.open("w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["clip_stem", "source_match_id", "split"])
+        for s, sp in assign.items():
+            w.writerow([s, "", sp])
+    n_val = sum(1 for v in assign.values() if v == "val")
+    print(f"[04] NO MATCH DATA: stratified clip-level split (NOT match-disjoint).")
+    print(f"[04] source_match_id left empty. {len(assign)-n_val} train / {n_val} val")
+    print(f"[04] WARNING: tell the professor this split can leak until a "
+          f"clip->match mapping is provided; then re-run without --allow-no-match.")
+    print(f"[04] -> {SPLIT_CACHE.name}")
+
+
 def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--allow-no-match", action="store_true",
+                    help="produce a stratified clip-level split when no match "
+                         "mapping exists (NOT leak-free)")
+    args = ap.parse_args()
+
     meta = load_metadata()
+    if args.allow_no_match and not C.MATCH_MAPPING_CSV.exists():
+        stratified_clip_split(meta)
+        return
+
     stem_of = {r["file_path"]: Path(r["file_path"]).stem for r in meta}
     clip_stems = [stem_of[r["file_path"]] for r in meta]
     mapping = load_match_mapping(clip_stems)

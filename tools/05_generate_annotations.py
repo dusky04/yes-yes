@@ -73,7 +73,8 @@ def write_split(split_name, split_key, meta, split, match):
     clips = []
     for i, stem in enumerate(stems, start=1):
         clip_id = f"{C.CLIPID_PREFIX[split_key]}{i:04d}"
-        clips.append(build_clip(clip_id, by_stem[stem], match[stem]))
+        mid = match.get(stem) or None      # empty string -> null
+        clips.append(build_clip(clip_id, by_stem[stem], mid))
     doc = {
         "split_name": split_name,
         "dataset_name": C.DATASET_NAME,

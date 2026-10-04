@@ -82,7 +82,7 @@ def main():
     manifest = []
     for cls in sorted(per_class):
         for i, old in enumerate(sorted(per_class[cls]), start=1):
-            new_name = f"{cls}_{i:04d}.mp4"
+            new_name = f"{cls}_{i:04d}{old.suffix.lower()}"  # keep original ext
             new_path = old.with_name(new_name)
             manifest.append((str(old), cls, new_name))
             if args.dry_run:

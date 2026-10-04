@@ -32,13 +32,18 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--from", dest="start", default="01")
     ap.add_argument("--only", dest="only")
+    ap.add_argument("--allow-no-match", action="store_true",
+                    help="let stage 04 do a stratified split when no match data")
     args = ap.parse_args()
 
     todo = [(n, s) for n, s in STAGES if (args.only == n) or
             (args.only is None and n >= args.start)]
     for name, script in todo:
         print(f"\n{'='*60}\n  STAGE {name}  {script}\n{'='*60}")
-        r = subprocess.run([sys.executable, str(ROOT / script)])
+        cmd = [sys.executable, str(ROOT / script)]
+        if name == "04" and args.allow_no_match:
+            cmd.append("--allow-no-match")
+        r = subprocess.run(cmd)
         if r.returncode != 0:
             print(f"\n[pipeline] stage {name} stopped (exit {r.returncode}). "
                   f"Resolve the message above, then: "
