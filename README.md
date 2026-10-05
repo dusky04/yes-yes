@@ -14,7 +14,7 @@ event understanding in a single, consistently annotated corpus.
 | Classes | **14** (10 stroke + 4 outcome) |
 | Splits | train / validation / test (≈ 70 / 15 / 15) |
 | Clip format | `.avi`, native broadcast resolution and frame rate |
-| Per-clip metadata | duration, frame count, fps, resolution, chirality, camera perspective, source match |
+| Per-clip metadata | duration, frame count, fps, resolution, chirality, camera perspective, stroke start/end time, source match |
 
 ## Taxonomy
 
@@ -83,7 +83,9 @@ Each split JSON has top-level metadata (`split_name`, `dataset_name`, `version`,
   "fps": 30.0,
   "resolution": [1920, 1080],
   "chirality": "right-handed",              // batter handedness — stroke clips
-  "camera_perspective": "side_on"           // camera angle (see Annotation)
+  "camera_perspective": "side_on",          // camera angle (see Annotation)
+  "start_time_of_stroke": 0.80,             // stroke clips — seconds from clip start
+  "end_time_of_stroke": 2.10                // stroke clips — seconds from clip start
 }
 ```
 
@@ -95,7 +97,7 @@ perspective.
 
 ## Annotation
 
-Beyond the automatically extracted metadata, each clip carries two expert-assigned
+Beyond the automatically extracted metadata, each clip carries expert-assigned
 attributes:
 
 - **`chirality`** — batter handedness (`right-handed` / `left-handed`), annotated
@@ -107,6 +109,10 @@ attributes:
   |---|---|
   | Stroke | `front_on`, `side_on`, `reverse_angle`, `high_angle` |
   | Outcome | `outfield_wide`, `main_pitch`, `close_up_replay`, `side_on` |
+
+- **`start_time_of_stroke`** / **`end_time_of_stroke`** — the temporal extent of the
+  stroke within the clip, in seconds measured from the clip start (stroke clips
+  only; `null` for outcome clips).
 
 Labels were assigned by frame-by-frame review of each clip. The labelling interface
 (`annotate.py`) and the routine that writes labels into the split files

@@ -64,6 +64,8 @@ def build_clip(clip_id, r, source_match_id):
         # annotation pass fills these:
         "chirality": None,
         "camera_perspective": None,
+        "start_time_of_stroke": None,   # stroke clips only (seconds from clip start)
+        "end_time_of_stroke": None,     # stroke clips only (seconds from clip start)
     }
 
 
