@@ -234,9 +234,10 @@ class CricketEC(Dataset):
         frames = torch.from_numpy(vr.get_batch(indices=indices).asnumpy()).permute(
             0, 3, 1, 2
         )
+        print(frames.shape)
         if self.transform:
             return self.transform(frames)
-        return frames
+        return frames 
 
     def __getitem__(self, idx: int) -> Tuple[torch.Tensor, int]:
         if self.config.NUM_FRAMES > 32:

@@ -26,3 +26,17 @@ venv/
 # OS
 .DS_Store
 Thumbs.db
+
+# Virtual environments
+.venv
+
+# Editor
+.ropeproject
+
+# Dataset
+zipped_data
+CricketEC
+CricketEC-train-test-val
+
+# Weights
+weights

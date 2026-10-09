@@ -5,7 +5,7 @@ import torch
 from torch import nn
 from torchvision import transforms
 
-from dataset import get_dataloaders
+from dataset import get_dataloaders, FrameSampling
 from models.video_resnet import video_resnet
 from train import train_model
 from utils import download_dataset, unzip_files
@@ -14,7 +14,7 @@ from utils import download_dataset, unzip_files
 @dataclass
 class C:
     DATASET_NAME = "CricketEC"
-    NUM_CLASSES = 14
+    NUM_CLASSES = 15
     NUM_FRAMES = 16
     BATCH_SIZE = 16
     LSTM_HIDDEN_DIM = 128
@@ -83,7 +83,7 @@ def train_video_resnet(c: C):
 
     # setup dataloaders
     train_dataloader, test_dataloader = get_dataloaders(
-        c, train_transform=train_transform, test_transform=test_transform
+        c, train_transform=train_transform, test_transform=test_transform, sampling=FrameSampling.PIXEL_INTENSITY
     )
 
     # setup model
@@ -105,6 +105,9 @@ def train_video_resnet(c: C):
 
     # train
     train_model(
+        c=c,
+        exp_name="video_resnet",
+        weights_dir=Path("models/weights"),
         model=model,
         train_dataloader=train_dataloader,
         test_dataloader=test_dataloader,
