@@ -19,7 +19,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Fielder / Boundary View",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0002",
@@ -36,7 +38,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Pitch / Stump Close-up",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0003",
@@ -53,7 +57,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Fielder / Boundary View",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0004",
@@ -70,7 +76,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Ground Field Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0005",
@@ -87,7 +95,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Ground Field Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0006",
@@ -104,7 +114,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Fielder / Boundary View",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0007",
@@ -121,7 +133,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Fielder / Boundary View",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0008",
@@ -138,7 +152,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Fielder / Boundary View",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0009",
@@ -155,7 +171,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Fielder / Boundary View",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0010",
@@ -172,7 +190,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Fielder / Boundary View",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0011",
@@ -189,7 +209,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Pitch / Stump Close-up",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0012",
@@ -206,7 +228,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Pitch / Stump Close-up",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0013",
@@ -223,7 +247,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Fielder / Boundary View",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0014",
@@ -240,7 +266,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Fielder / Boundary View",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0015",
@@ -257,7 +285,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Fielder / Boundary View",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0016",
@@ -274,7 +304,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Fielder / Boundary View",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0017",
@@ -291,7 +323,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Pitch / Umpire Perspective",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0018",
@@ -308,7 +342,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Pitch / Stump Close-up",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0019",
@@ -325,7 +361,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Pitch / Stump Close-up",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0020",
@@ -342,7 +380,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Pitch / Stump Close-up",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0021",
@@ -359,7 +399,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Fielder / Boundary View",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0022",
@@ -376,7 +418,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Pitch / Stump Close-up",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0023",
@@ -392,8 +436,10 @@
         224,
         224
       ],
-      "chirality": null,
-      "camera_perspective": null
+      "chirality": "right-handed",
+      "camera_perspective": "Batsman-Centric",
+      "start_time_of_stroke": 0.0,
+      "end_time_of_stroke": 2.0
     },
     {
       "clip_id": "CEC_TEST_0024",
@@ -410,7 +456,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0025",
@@ -427,7 +475,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0026",
@@ -444,7 +494,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0027",
@@ -461,7 +513,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0028",
@@ -478,7 +532,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0029",
@@ -495,7 +551,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0030",
@@ -512,7 +570,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0031",
@@ -529,7 +589,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0032",
@@ -546,7 +608,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0033",
@@ -563,7 +627,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0034",
@@ -580,7 +646,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0035",
@@ -597,7 +665,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0036",
@@ -614,7 +684,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0037",
@@ -631,7 +703,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0038",
@@ -648,7 +722,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0039",
@@ -665,7 +741,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0040",
@@ -682,7 +760,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0041",
@@ -699,7 +779,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0042",
@@ -716,7 +798,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0043",
@@ -733,7 +817,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0044",
@@ -750,7 +836,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0045",
@@ -767,7 +855,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0046",
@@ -784,7 +874,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0047",
@@ -801,7 +893,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0048",
@@ -818,7 +912,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0049",
@@ -835,7 +931,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0050",
@@ -852,7 +950,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0051",
@@ -869,7 +969,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0052",
@@ -886,7 +988,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0053",
@@ -903,7 +1007,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0054",
@@ -920,7 +1026,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0055",
@@ -937,7 +1045,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0056",
@@ -954,7 +1064,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0057",
@@ -971,7 +1083,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0058",
@@ -988,7 +1102,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0059",
@@ -1005,7 +1121,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0060",
@@ -1022,7 +1140,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0061",
@@ -1039,7 +1159,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0062",
@@ -1056,7 +1178,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0063",
@@ -1073,7 +1197,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0064",
@@ -1090,7 +1216,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0065",
@@ -1107,7 +1235,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0066",
@@ -1124,7 +1254,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0067",
@@ -1141,7 +1273,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0068",
@@ -1158,7 +1292,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0069",
@@ -1175,7 +1311,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0070",
@@ -1192,7 +1330,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0071",
@@ -1209,7 +1349,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0072",
@@ -1226,7 +1368,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0073",
@@ -1243,7 +1387,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0074",
@@ -1260,7 +1406,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0075",
@@ -1277,7 +1425,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0076",
@@ -1294,7 +1444,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0077",
@@ -1311,7 +1463,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0078",
@@ -1328,7 +1482,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0079",
@@ -1345,7 +1501,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0080",
@@ -1362,7 +1520,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0081",
@@ -1379,7 +1539,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0082",
@@ -1396,7 +1558,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0083",
@@ -1413,7 +1577,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0084",
@@ -1430,7 +1596,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0085",
@@ -1447,7 +1615,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0086",
@@ -1464,7 +1634,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0087",
@@ -1481,7 +1653,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0088",
@@ -1498,7 +1672,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0089",
@@ -1515,7 +1691,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0090",
@@ -1532,7 +1710,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0091",
@@ -1549,7 +1729,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0092",
@@ -1566,7 +1748,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0093",
@@ -1583,7 +1767,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0094",
@@ -1600,7 +1786,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0095",
@@ -1617,7 +1805,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0096",
@@ -1634,7 +1824,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0097",
@@ -1651,7 +1843,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0098",
@@ -1668,7 +1862,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0099",
@@ -1685,7 +1881,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0100",
@@ -1702,7 +1900,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0101",
@@ -1719,7 +1919,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0102",
@@ -1736,7 +1938,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0103",
@@ -1753,7 +1957,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0104",
@@ -1770,7 +1976,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0105",
@@ -1787,7 +1995,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0106",
@@ -1804,7 +2014,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0107",
@@ -1821,7 +2033,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Ground Field Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0108",
@@ -1838,7 +2052,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Ground Field Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0109",
@@ -1855,7 +2071,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Ground Field Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0110",
@@ -1872,7 +2090,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Ground Field Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0111",
@@ -1889,7 +2109,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Ground Field Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0112",
@@ -1906,7 +2128,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Ground Field Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0113",
@@ -1923,7 +2147,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Ground Field Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0114",
@@ -1940,7 +2166,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Ground Field Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0115",
@@ -1957,7 +2185,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Ground Field Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0116",
@@ -1974,7 +2204,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Ground Field Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0117",
@@ -1991,7 +2223,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Ground Field Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0118",
@@ -2008,7 +2242,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Ground Field Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0119",
@@ -2025,7 +2261,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Ground Field Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0120",
@@ -2042,7 +2280,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Ground Field Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0121",
@@ -2059,7 +2299,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Ground Field Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0122",
@@ -2076,7 +2318,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Ground Field Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0123",
@@ -2093,7 +2337,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Ground Field Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0124",
@@ -2110,7 +2356,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Ground Field Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0125",
@@ -2127,7 +2375,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Ground Field Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0126",
@@ -2144,7 +2394,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Ground Field Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0127",
@@ -2161,7 +2413,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Ground Field Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0128",
@@ -2178,7 +2432,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Ground Field Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0129",
@@ -2195,7 +2451,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0130",
@@ -2212,7 +2470,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0131",
@@ -2229,7 +2489,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0132",
@@ -2246,7 +2508,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0133",
@@ -2263,7 +2527,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0134",
@@ -2280,7 +2546,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0135",
@@ -2297,7 +2565,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0136",
@@ -2314,7 +2584,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0137",
@@ -2331,7 +2603,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0138",
@@ -2348,7 +2622,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0139",
@@ -2365,7 +2641,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0140",
@@ -2382,7 +2660,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0141",
@@ -2399,7 +2679,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0142",
@@ -2416,7 +2698,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0143",
@@ -2433,7 +2717,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0144",
@@ -2450,7 +2736,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0145",
@@ -2467,7 +2755,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0146",
@@ -2484,7 +2774,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0147",
@@ -2501,7 +2793,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0148",
@@ -2518,7 +2812,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0149",
@@ -2535,7 +2831,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0150",
@@ -2552,7 +2850,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0151",
@@ -2569,7 +2869,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0152",
@@ -2586,7 +2888,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0153",
@@ -2603,7 +2907,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0154",
@@ -2620,7 +2926,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0155",
@@ -2637,7 +2945,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0156",
@@ -2654,7 +2964,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0157",
@@ -2671,7 +2983,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0158",
@@ -2688,7 +3002,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0159",
@@ -2705,7 +3021,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0160",
@@ -2722,7 +3040,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0161",
@@ -2739,7 +3059,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0162",
@@ -2756,7 +3078,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0163",
@@ -2773,7 +3097,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0164",
@@ -2790,7 +3116,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0165",
@@ -2807,7 +3135,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0166",
@@ -2824,7 +3154,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0167",
@@ -2841,7 +3173,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0168",
@@ -2858,7 +3192,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0169",
@@ -2875,7 +3211,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0170",
@@ -2892,7 +3230,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0171",
@@ -2909,7 +3249,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0172",
@@ -2926,7 +3268,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0173",
@@ -2943,7 +3287,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0174",
@@ -2960,7 +3306,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0175",
@@ -2977,7 +3325,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0176",
@@ -2994,7 +3344,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0177",
@@ -3011,7 +3363,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0178",
@@ -3028,7 +3382,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0179",
@@ -3045,7 +3401,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0180",
@@ -3062,7 +3420,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0181",
@@ -3079,7 +3439,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0182",
@@ -3096,7 +3458,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0183",
@@ -3113,7 +3477,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0184",
@@ -3130,7 +3496,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0185",
@@ -3147,7 +3515,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0186",
@@ -3164,7 +3534,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0187",
@@ -3181,7 +3553,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0188",
@@ -3198,7 +3572,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0189",
@@ -3215,7 +3591,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0190",
@@ -3232,7 +3610,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0191",
@@ -3249,7 +3629,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0192",
@@ -3266,7 +3648,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0193",
@@ -3283,7 +3667,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0194",
@@ -3300,7 +3686,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0195",
@@ -3317,7 +3705,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0196",
@@ -3334,7 +3724,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0197",
@@ -3351,7 +3743,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0198",
@@ -3368,7 +3762,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0199",
@@ -3385,7 +3781,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0200",
@@ -3402,7 +3800,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0201",
@@ -3419,7 +3819,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0202",
@@ -3436,7 +3838,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0203",
@@ -3453,7 +3857,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0204",
@@ -3470,7 +3876,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0205",
@@ -3487,7 +3895,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0206",
@@ -3504,7 +3914,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0207",
@@ -3521,7 +3933,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0208",
@@ -3538,7 +3952,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0209",
@@ -3555,7 +3971,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0210",
@@ -3572,7 +3990,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0211",
@@ -3589,7 +4009,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0212",
@@ -3606,7 +4028,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0213",
@@ -3623,7 +4047,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0214",
@@ -3640,7 +4066,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0215",
@@ -3657,7 +4085,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0216",
@@ -3674,7 +4104,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0217",
@@ -3691,7 +4123,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0218",
@@ -3708,7 +4142,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0219",
@@ -3725,7 +4161,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0220",
@@ -3742,7 +4180,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0221",
@@ -3759,7 +4199,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0222",
@@ -3776,7 +4218,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0223",
@@ -3793,7 +4237,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0224",
@@ -3810,7 +4256,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0225",
@@ -3827,7 +4275,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0226",
@@ -3844,7 +4294,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0227",
@@ -3861,7 +4313,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0228",
@@ -3878,7 +4332,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0229",
@@ -3895,7 +4351,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0230",
@@ -3912,7 +4370,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0231",
@@ -3929,7 +4389,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0232",
@@ -3946,7 +4408,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0233",
@@ -3963,7 +4427,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0234",
@@ -3980,7 +4446,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0235",
@@ -3997,7 +4465,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0236",
@@ -4014,7 +4484,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0237",
@@ -4031,7 +4503,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0238",
@@ -4048,7 +4522,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0239",
@@ -4065,7 +4541,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0240",
@@ -4082,7 +4560,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "High-Angle Ball Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0241",
@@ -4099,7 +4579,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "High-Angle Ball Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0242",
@@ -4116,7 +4598,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "High-Angle Ball Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0243",
@@ -4133,7 +4617,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "High-Angle Ball Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0244",
@@ -4150,7 +4636,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "High-Angle Ball Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0245",
@@ -4167,7 +4655,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "High-Angle Ball Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0246",
@@ -4184,7 +4674,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "High-Angle Ball Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0247",
@@ -4201,7 +4693,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "High-Angle Ball Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0248",
@@ -4218,7 +4712,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "High-Angle Ball Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0249",
@@ -4235,7 +4731,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "High-Angle Ball Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0250",
@@ -4252,7 +4750,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "High-Angle Ball Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0251",
@@ -4269,7 +4769,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "High-Angle Ball Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0252",
@@ -4286,7 +4788,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "High-Angle Ball Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0253",
@@ -4303,7 +4807,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "High-Angle Ball Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0254",
@@ -4320,7 +4826,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "High-Angle Ball Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0255",
@@ -4337,7 +4845,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "High-Angle Ball Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0256",
@@ -4354,7 +4864,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "High-Angle Ball Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0257",
@@ -4371,7 +4883,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "High-Angle Ball Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0258",
@@ -4388,7 +4902,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "High-Angle Ball Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0259",
@@ -4405,7 +4921,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "High-Angle Ball Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0260",
@@ -4422,7 +4940,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "High-Angle Ball Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0261",
@@ -4439,7 +4959,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "High-Angle Ball Tracking",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0262",
@@ -4456,7 +4978,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0263",
@@ -4473,7 +4997,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0264",
@@ -4490,7 +5016,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0265",
@@ -4507,7 +5035,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0266",
@@ -4524,7 +5054,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0267",
@@ -4541,7 +5073,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0268",
@@ -4558,7 +5092,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0269",
@@ -4575,7 +5111,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0270",
@@ -4592,7 +5130,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0271",
@@ -4609,7 +5149,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0272",
@@ -4626,7 +5168,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0273",
@@ -4643,7 +5187,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0274",
@@ -4660,7 +5206,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0275",
@@ -4677,7 +5225,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0276",
@@ -4694,7 +5244,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0277",
@@ -4711,7 +5263,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0278",
@@ -4728,7 +5282,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0279",
@@ -4745,7 +5301,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0280",
@@ -4762,7 +5320,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0281",
@@ -4779,7 +5339,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0282",
@@ -4796,7 +5358,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0283",
@@ -4813,7 +5377,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0284",
@@ -4830,7 +5396,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0285",
@@ -4847,7 +5415,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0286",
@@ -4864,7 +5434,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0287",
@@ -4881,7 +5453,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0288",
@@ -4898,7 +5472,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0289",
@@ -4915,7 +5491,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0290",
@@ -4932,7 +5510,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0291",
@@ -4949,7 +5529,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0292",
@@ -4966,7 +5548,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0293",
@@ -4983,7 +5567,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0294",
@@ -5000,7 +5586,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0295",
@@ -5017,7 +5605,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0296",
@@ -5034,7 +5624,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0297",
@@ -5051,7 +5643,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0298",
@@ -5068,7 +5662,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0299",
@@ -5085,7 +5681,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0300",
@@ -5102,7 +5700,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0301",
@@ -5119,7 +5719,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0302",
@@ -5136,7 +5738,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0303",
@@ -5153,7 +5757,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0304",
@@ -5170,7 +5776,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0305",
@@ -5187,7 +5795,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0306",
@@ -5204,7 +5814,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0307",
@@ -5221,7 +5833,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0308",
@@ -5238,7 +5852,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0309",
@@ -5255,7 +5871,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0310",
@@ -5272,7 +5890,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0311",
@@ -5289,7 +5909,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0312",
@@ -5306,7 +5928,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0313",
@@ -5323,7 +5947,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0314",
@@ -5340,7 +5966,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0315",
@@ -5357,7 +5985,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0316",
@@ -5374,7 +6004,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0317",
@@ -5391,7 +6023,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0318",
@@ -5408,7 +6042,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0319",
@@ -5425,7 +6061,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0320",
@@ -5442,7 +6080,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0321",
@@ -5459,7 +6099,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0322",
@@ -5476,7 +6118,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0323",
@@ -5493,7 +6137,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0324",
@@ -5510,7 +6156,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0325",
@@ -5527,7 +6175,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0326",
@@ -5544,7 +6194,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0327",
@@ -5561,7 +6213,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0328",
@@ -5578,7 +6232,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0329",
@@ -5595,7 +6251,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0330",
@@ -5612,7 +6270,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0331",
@@ -5629,7 +6289,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0332",
@@ -5646,7 +6308,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0333",
@@ -5663,7 +6327,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0334",
@@ -5680,7 +6346,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0335",
@@ -5697,7 +6365,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0336",
@@ -5714,7 +6384,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0337",
@@ -5731,7 +6403,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0338",
@@ -5748,7 +6422,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0339",
@@ -5765,7 +6441,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0340",
@@ -5782,7 +6460,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0341",
@@ -5799,7 +6479,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0342",
@@ -5816,7 +6498,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0343",
@@ -5833,7 +6517,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0344",
@@ -5850,7 +6536,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0345",
@@ -5867,7 +6555,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0346",
@@ -5884,7 +6574,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0347",
@@ -5901,7 +6593,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0348",
@@ -5918,7 +6612,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0349",
@@ -5935,7 +6631,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": null,
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0350",
@@ -5952,7 +6650,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Pitch / Stump Close-up",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0351",
@@ -5969,7 +6669,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Pitch / Stump Close-up",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0352",
@@ -5986,7 +6688,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Pitch / Stump Close-up",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0353",
@@ -6003,7 +6707,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Pitch / Umpire Perspective",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0354",
@@ -6020,7 +6726,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Pitch / Umpire Perspective",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0355",
@@ -6037,7 +6745,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Pitch / Umpire Perspective",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0356",
@@ -6054,7 +6764,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Pitch / Umpire Perspective",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0357",
@@ -6071,7 +6783,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Pitch / Umpire Perspective",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0358",
@@ -6088,7 +6802,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Pitch / Umpire Perspective",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0359",
@@ -6105,7 +6821,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Pitch / Umpire Perspective",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0360",
@@ -6122,7 +6840,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Pitch / Umpire Perspective",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0361",
@@ -6139,7 +6859,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Pitch / Umpire Perspective",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0362",
@@ -6156,7 +6878,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Pitch / Stump Close-up",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0363",
@@ -6173,7 +6897,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Pitch / Umpire Perspective",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0364",
@@ -6190,7 +6916,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Pitch / Umpire Perspective",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0365",
@@ -6207,7 +6935,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Pitch / Umpire Perspective",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0366",
@@ -6224,7 +6954,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Pitch / Umpire Perspective",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0367",
@@ -6241,7 +6973,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Pitch / Umpire Perspective",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0368",
@@ -6258,7 +6992,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Pitch / Umpire Perspective",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0369",
@@ -6275,7 +7011,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Pitch / Umpire Perspective",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0370",
@@ -6292,7 +7030,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Pitch / Umpire Perspective",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     },
     {
       "clip_id": "CEC_TEST_0371",
@@ -6309,7 +7049,9 @@
         224
       ],
       "chirality": null,
-      "camera_perspective": null
+      "camera_perspective": "Pitch / Umpire Perspective",
+      "start_time_of_stroke": null,
+      "end_time_of_stroke": null
     }
   ]
 }
