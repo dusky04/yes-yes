@@ -17,7 +17,10 @@ Pipeline (paper Sec. 4):
 Anti-overfitting additions, NOT in the paper (all on by default; --paper-strict
 turns every one of them off to reproduce the paper's protocol exactly):
     * train-time augmentation, identical across a clip's frames: random resized
-      crop (70–100% area), horizontal flip, mild colour jitter
+      crop (70–100% area), horizontal flip, mild colour jitter, random erasing
+    * temporal jitter: training clips get different frames each epoch (random
+      frame per uniform segment / random T of the top 1.5T pixel-intensity frames)
+    * dropout 0.2 on the CNN features before the RNN
     * label smoothing 0.1
     * fine-tuned backbone layers train at 0.1x the Table 7 learning rate
     * early stopping after 8 epochs without a val-accuracy improvement
@@ -122,9 +125,19 @@ def uniform_indices(n_frames: int, t: int) -> list[int]:
     return [int(math.floor(k * (n_frames - 1) / (t - 1) + 0.5)) for k in range(t)]
 
 
-def pixel_intensity_indices(frames: np.ndarray, t: int, bins: int) -> list[int]:
+def jittered_uniform_indices(n_frames: int, t: int) -> list[int]:
+    """Training-time variant of uniform sampling: split the clip into T equal
+    segments and take a random frame from each, so every epoch sees new frames."""
+    if n_frames < t:
+        return pad_indices(n_frames, t)
+    bounds = [round(k * n_frames / t) for k in range(t + 1)]
+    return [random.randrange(bounds[k], max(bounds[k] + 1, bounds[k + 1])) for k in range(t)]
+
+
+def pixel_intensity_indices(frames: np.ndarray, t: int, bins: int, pool: float = 1.0) -> list[int]:
     """Algorithm 1: top-T frames by L1 distance between consecutive normalised
-    grayscale histograms, returned in chronological order."""
+    grayscale histograms, returned in chronological order. With pool > 1
+    (training-time jitter) T frames are drawn at random from the top pool*T."""
     n_frames = len(frames)
     # Algorithm 1 pads when N < T; at N == T there are only T-1 distances, so
     # every frame is kept as well.
@@ -136,8 +149,10 @@ def pixel_intensity_indices(frames: np.ndarray, t: int, bins: int) -> list[int]:
     hists = hists / hists.sum(axis=1, keepdims=True)  # normalised so each sums to 1
     dists = np.abs(hists[1:] - hists[:-1]).sum(axis=1)  # d_t for t = 1..N-1
     # stable sort so ties resolve to the earlier frame, keeping runs reproducible
-    top = np.argsort(-dists, kind="stable")[:t] + 1
-    return sorted(top.tolist())
+    top = (np.argsort(-dists, kind="stable") + 1).tolist()
+    if pool > 1:
+        return sorted(random.sample(top[:max(t, round(pool * t))], t))
+    return sorted(top[:t])
 
 
 # --- Dataset -------------------------------------------------------------------
@@ -145,7 +160,8 @@ class CricketECClips(Dataset):
     """CricketEC/<split>/<class>/<clip>.avi -> (uint8 [T, 3, H, W], label)."""
 
     def __init__(self, split_dir: Path, classes: list[str], cfg: Config,
-                 size: int, hist_bins: int, augment: v2.Transform | None = None) -> None:
+                 size: int, hist_bins: int, augment: v2.Transform | None = None,
+                 temporal_jitter: bool = False) -> None:
         self.class_to_idx = {c: i for i, c in enumerate(classes)}
         self.paths = sorted(p for p in split_dir.glob("*/*.avi"))
         unknown = {p.parent.name for p in self.paths} - set(classes)
@@ -154,6 +170,7 @@ class CricketECClips(Dataset):
         if not self.paths:
             raise FileNotFoundError(f"No .avi clips under {split_dir}")
         self.cfg, self.size, self.hist_bins, self.augment = cfg, size, hist_bins, augment
+        self.temporal_jitter = temporal_jitter
 
     def __len__(self) -> int:
         return len(self.paths)
@@ -161,10 +178,13 @@ class CricketECClips(Dataset):
     def __getitem__(self, idx: int):
         path = self.paths[idx]
         frames = read_all_frames(path, self.size)
+        t = self.cfg.num_frames
         if self.cfg.sampling == "uniform":
-            indices = uniform_indices(len(frames), self.cfg.num_frames)
+            indices = (jittered_uniform_indices(len(frames), t) if self.temporal_jitter
+                       else uniform_indices(len(frames), t))
         else:
-            indices = pixel_intensity_indices(frames, self.cfg.num_frames, self.hist_bins)
+            indices = pixel_intensity_indices(frames, t, self.hist_bins,
+                                              pool=1.5 if self.temporal_jitter else 1.0)
         clip = torch.from_numpy(np.ascontiguousarray(frames[indices])).permute(0, 3, 1, 2)
         if self.augment is not None:
             # v2 transforms draw one set of random parameters for the whole
@@ -179,6 +199,8 @@ def train_augmentation(size: int) -> v2.Transform:
         # a mirrored right-hander's stroke is the same stroke played left-handed
         v2.RandomHorizontalFlip(p=0.5),
         v2.RandomApply([v2.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2)], p=0.8),
+        # same patch blanked in every frame, so no single region can be relied on
+        v2.RandomErasing(p=0.25, scale=(0.02, 0.15), value=0),
     ])
 
 
@@ -217,9 +239,10 @@ def build_backbone(name: str) -> tuple[nn.Module, int]:
 
 class CNNRNN(nn.Module):
     def __init__(self, cfg: Config, num_classes: int, rnn_layers: int,
-                 rnn_dropout: float, fc_dropout: float) -> None:
+                 rnn_dropout: float, fc_dropout: float, feat_dropout: float = 0.0) -> None:
         super().__init__()
         self.backbone, feat_dim = build_backbone(cfg.backbone)
+        self.feat_dropout = nn.Dropout(feat_dropout)
         rnn_cls = nn.GRU if cfg.rnn == "gru" else nn.LSTM
         self.rnn = rnn_cls(
             input_size=feat_dim,
@@ -238,7 +261,7 @@ class CNNRNN(nn.Module):
         x = (x.float() / 255.0 - self.mean) / self.std
         b, t = x.shape[:2]
         feats = self.backbone(x.flatten(0, 1)).flatten(1)  # [B*T, D]
-        feats = feats.view(b, t, -1)                        # [B, T, D]
+        feats = self.feat_dropout(feats.view(b, t, -1))     # [B, T, D]
         _, hidden = self.rnn(feats)
         h = hidden[0] if isinstance(hidden, tuple) else hidden  # LSTM -> (h, c)
         return self.fc(self.dropout(h[-1]))                 # final hidden state
@@ -324,7 +347,8 @@ def run_config(cfg: Config, args, device: torch.device) -> dict:
     classes = sorted(p.name for p in (data_root / "train").iterdir() if p.is_dir())
     augment = train_augmentation(args.img_size) if args.augment else None
     datasets = {s: CricketECClips(data_root / s, classes, cfg, args.img_size, args.hist_bins,
-                                  augment if s == "train" else None)
+                                  augment if s == "train" else None,
+                                  temporal_jitter=args.temporal_jitter and s == "train")
                 for s in ("train", "val", "test")}
     test_fp = split_fingerprint(datasets["test"].paths, data_root / "test")
     print(f"\n=== Config {cfg.name}: {cfg.backbone} + {cfg.rnn.upper()} | {cfg.sampling} "
@@ -337,7 +361,8 @@ def run_config(cfg: Config, args, device: torch.device) -> dict:
     val_dl = make_loader(datasets["val"], cfg.batch_size, False, args.workers, args.seed)
     test_dl = make_loader(datasets["test"], cfg.batch_size, False, args.workers, args.seed)
 
-    model = CNNRNN(cfg, len(classes), args.rnn_layers, args.rnn_dropout, args.fc_dropout).to(device)
+    model = CNNRNN(cfg, len(classes), args.rnn_layers, args.rnn_dropout, args.fc_dropout,
+                   args.feat_dropout).to(device)
     trainable = [p for p in model.parameters() if p.requires_grad]
     print(f"    trainable params: {sum(p.numel() for p in trainable):,} / "
           f"{sum(p.numel() for p in model.parameters()):,}")
@@ -350,7 +375,8 @@ def run_config(cfg: Config, args, device: torch.device) -> dict:
     scaler = torch.amp.GradScaler("cuda", enabled=use_scaler)
     loss_fn = nn.CrossEntropyLoss(label_smoothing=args.label_smoothing)
     eval_loss_fn = nn.CrossEntropyLoss()  # plain CE so val/test losses stay comparable
-    print(f"    augment={args.augment}  label_smoothing={args.label_smoothing}  "
+    print(f"    augment={args.augment}  temporal_jitter={args.temporal_jitter}  "
+          f"feat_dropout={args.feat_dropout}  label_smoothing={args.label_smoothing}  "
           f"backbone_lr={cfg.lr * args.backbone_lr_mult:g}  early_stop_patience={args.patience or 'off'}")
 
     start_epoch, best, history = 1, {"accuracy": -1.0, "macro_f1": -1.0, "epoch": 0}, []
@@ -493,6 +519,10 @@ def main() -> None:
     ap.add_argument("--label-smoothing", type=float, default=0.1)
     ap.add_argument("--backbone-lr-mult", type=float, default=0.1,
                     help="learning-rate multiplier for the fine-tuned CNN layers")
+    ap.add_argument("--no-temporal-jitter", dest="temporal_jitter", action="store_false",
+                    help="train on the same frames every epoch")
+    ap.add_argument("--feat-dropout", type=float, default=0.2,
+                    help="dropout on CNN features before the RNN")
     ap.add_argument("--patience", type=int, default=8,
                     help="early-stopping patience in epochs, 0 disables")
     ap.add_argument("--paper-strict", action="store_true",
@@ -507,6 +537,7 @@ def main() -> None:
     args = ap.parse_args()
     if args.paper_strict:
         args.augment, args.label_smoothing, args.backbone_lr_mult, args.patience = False, 0.0, 1.0, 0
+        args.temporal_jitter, args.feat_dropout = False, 0.0
 
     if args.summarize or not args.config:
         summarize(args.out_dir)
