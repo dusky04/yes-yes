@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 # One-time setup on a fresh jarvislabs.ai GPU instance.
 # Builds the project's uv environment (pyproject.toml + uv.lock, Python 3.13)
-# and downloads + unzips the CricketEC clips.
+# downloads the CricketEC release (one folder per class, 2,638 clips) and builds
+# the fixed train/val/test split in data/CricketEC_split/ (see make_split.py).
 #
 #   bash benchmark/setup_jarvis.sh
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-CRICKET_EC_URL="https://drive.google.com/file/d/1QRM360a5HvRKvPF3k7vOT1PS0suxioJd/view?usp=sharing"
+CRICKET_EC_URL="https://drive.google.com/file/d/1cs1-M5ByeSziPR9he362UMJ-PvS2prMY/view?usp=sharing"
 
 echo "==> uv"
 if ! command -v uv >/dev/null 2>&1; then
@@ -28,16 +29,21 @@ print("CUDA:", torch.cuda.get_device_name(0))
 EOF
 
 echo "==> Dataset"
-if [ -d CricketEC/train ] && [ -d CricketEC/val ] && [ -d CricketEC/test ]; then
-    echo "CricketEC/ already present, skipping download"
+if [ -d data/raw/CricketEC ]; then
+    echo "data/raw/CricketEC already present, skipping download"
 else
-    mkdir -p zipped_data
-    [ -f zipped_data/CricketEC.zip ] || uv run --frozen gdown --fuzzy "$CRICKET_EC_URL" -O zipped_data/CricketEC.zip
-    uv run --frozen python -m zipfile -e zipped_data/CricketEC.zip .
+    mkdir -p data/raw zipped_data
+    [ -f zipped_data/CricketEC_2638.zip ] || uv run --frozen gdown --fuzzy "$CRICKET_EC_URL" -O zipped_data/CricketEC_2638.zip
+    uv run --frozen python -m zipfile -e zipped_data/CricketEC_2638.zip data/raw/
+fi
+if [ -f data/CricketEC_split/split.json ]; then
+    echo "split already built (delete data/CricketEC_split to rebuild)"
+else
+    uv run --frozen benchmark/make_split.py --src data/raw/CricketEC --out data/CricketEC_split
 fi
 for s in train val test; do
     printf "  %-5s %5s clips, %s classes\n" "$s" \
-        "$(find "CricketEC/$s" -name '*.avi' | wc -l)" "$(find "CricketEC/$s" -mindepth 1 -maxdepth 1 -type d | wc -l)"
+        "$(find -L "data/CricketEC_split/$s" -name '*.avi' | wc -l)" "$(find "data/CricketEC_split/$s" -mindepth 1 -maxdepth 1 -type d | wc -l)"
 done
 
 echo "==> Pre-downloading ImageNet weights"

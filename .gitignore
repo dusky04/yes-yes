@@ -37,6 +37,7 @@ Thumbs.db
 zipped_data
 CricketEC
 CricketEC-train-test-val
+data/
 
 # Weights
 weights

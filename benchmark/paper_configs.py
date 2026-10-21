@@ -2,17 +2,25 @@
 paper_configs.py — the five CNN–RNN benchmark configurations (A–E) from the
 CricketEC paper (Table 7), trained and evaluated on ONE fixed train/val/test split.
 
-Every configuration reads the same CricketEC/{train,val,test} folders, so all five
-are scored on the identical 375-clip test set. Each run writes a fingerprint of the
-test file list into results.json so this can be checked afterwards.
+Every configuration reads the same <data-root>/{train,val,test} folders (built by
+make_split.py), so all five are scored on the identical test set. Each run writes a
+fingerprint of the test file list into results.json so this can be checked afterwards.
 
 Pipeline (paper Sec. 4):
     clip -> sample T frames (uniform Eq. 9 / pixel-intensity Algorithm 1)
-         -> 224x224, ImageNet normalisation (no random augmentation, Table 6)
+         -> centre crop + resize to 224x224, ImageNet normalisation (Table 6)
          -> ImageNet-pretrained CNN, partially fine-tuned (Sec. 4.3.3)
          -> GRU / LSTM, final hidden state h (Sec. 4.4)
          -> Dropout(0.4) -> Linear(H, 15) (Sec. 4.5)
     loss: cross-entropy, optimiser: AdamW (Sec. 4.5.3)
+
+Anti-overfitting additions, NOT in the paper (all on by default; --paper-strict
+turns every one of them off to reproduce the paper's protocol exactly):
+    * train-time augmentation, identical across a clip's frames: random resized
+      crop (70–100% area), horizontal flip, mild colour jitter
+    * label smoothing 0.1
+    * fine-tuned backbone layers train at 0.1x the Table 7 learning rate
+    * early stopping after 8 epochs without a val-accuracy improvement
 
 Per configuration, written to runs/<config>/:
     best.pt         weights with the best validation accuracy (used for test)
@@ -44,6 +52,7 @@ from decord import VideoReader, cpu
 from sklearn.metrics import classification_report, confusion_matrix, f1_score
 from torch import nn
 from torch.utils.data import DataLoader, Dataset
+from torchvision.transforms import v2
 from torchvision.models import (
     EfficientNet_B0_Weights,
     ResNet34_Weights,
@@ -84,13 +93,19 @@ CONFIGS = {
 
 # --- Frame sampling (paper Sec. 4.2) -----------------------------------------
 def read_all_frames(path: Path, size: int) -> np.ndarray:
-    """Decode every frame as RGB at size x size (the CricketEC clips are already 224x224)."""
+    """Decode every frame as RGB; other resolutions are resized (short side = size)
+    and centre-cropped to size x size, never stretched."""
     vr = VideoReader(str(path), ctx=cpu(0))
-    if vr[0].shape[:2] != (size, size):
-        vr = VideoReader(str(path), ctx=cpu(0), width=size, height=size)
     if len(vr) == 0:
         raise RuntimeError(f"Could not decode any frames from {path}")
-    return vr.get_batch(list(range(len(vr)))).asnumpy()  # [N, H, W, 3] uint8
+    h, w = vr[0].shape[:2]
+    if (h, w) != (size, size):
+        scale = size / min(h, w)
+        vr = VideoReader(str(path), ctx=cpu(0),
+                         width=max(size, round(w * scale)), height=max(size, round(h * scale)))
+    frames = vr.get_batch(list(range(len(vr)))).asnumpy()  # [N, H', W', 3] uint8
+    top, left = (frames.shape[1] - size) // 2, (frames.shape[2] - size) // 2
+    return np.ascontiguousarray(frames[:, top:top + size, left:left + size])
 
 
 def pad_indices(n_frames: int, t: int) -> list[int]:
@@ -130,7 +145,7 @@ class CricketECClips(Dataset):
     """CricketEC/<split>/<class>/<clip>.avi -> (uint8 [T, 3, H, W], label)."""
 
     def __init__(self, split_dir: Path, classes: list[str], cfg: Config,
-                 size: int, hist_bins: int) -> None:
+                 size: int, hist_bins: int, augment: v2.Transform | None = None) -> None:
         self.class_to_idx = {c: i for i, c in enumerate(classes)}
         self.paths = sorted(p for p in split_dir.glob("*/*.avi"))
         unknown = {p.parent.name for p in self.paths} - set(classes)
@@ -138,7 +153,7 @@ class CricketECClips(Dataset):
             raise ValueError(f"{split_dir} has classes not in train: {sorted(unknown)}")
         if not self.paths:
             raise FileNotFoundError(f"No .avi clips under {split_dir}")
-        self.cfg, self.size, self.hist_bins = cfg, size, hist_bins
+        self.cfg, self.size, self.hist_bins, self.augment = cfg, size, hist_bins, augment
 
     def __len__(self) -> int:
         return len(self.paths)
@@ -151,7 +166,20 @@ class CricketECClips(Dataset):
         else:
             indices = pixel_intensity_indices(frames, self.cfg.num_frames, self.hist_bins)
         clip = torch.from_numpy(np.ascontiguousarray(frames[indices])).permute(0, 3, 1, 2)
+        if self.augment is not None:
+            # v2 transforms draw one set of random parameters for the whole
+            # [T, 3, H, W] tensor, so every frame of the clip gets the same crop/flip
+            clip = self.augment(clip)
         return clip, self.class_to_idx[path.parent.name]
+
+
+def train_augmentation(size: int) -> v2.Transform:
+    return v2.Compose([
+        v2.RandomResizedCrop(size, scale=(0.7, 1.0), ratio=(0.9, 1.1), antialias=True),
+        # a mirrored right-hander's stroke is the same stroke played left-handed
+        v2.RandomHorizontalFlip(p=0.5),
+        v2.RandomApply([v2.ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2)], p=0.8),
+    ])
 
 
 def split_fingerprint(paths: list[Path], split_dir: Path) -> str:
@@ -294,7 +322,9 @@ def run_config(cfg: Config, args, device: torch.device) -> dict:
 
     data_root = args.data_root
     classes = sorted(p.name for p in (data_root / "train").iterdir() if p.is_dir())
-    datasets = {s: CricketECClips(data_root / s, classes, cfg, args.img_size, args.hist_bins)
+    augment = train_augmentation(args.img_size) if args.augment else None
+    datasets = {s: CricketECClips(data_root / s, classes, cfg, args.img_size, args.hist_bins,
+                                  augment if s == "train" else None)
                 for s in ("train", "val", "test")}
     test_fp = split_fingerprint(datasets["test"].paths, data_root / "test")
     print(f"\n=== Config {cfg.name}: {cfg.backbone} + {cfg.rnn.upper()} | {cfg.sampling} "
@@ -311,10 +341,17 @@ def run_config(cfg: Config, args, device: torch.device) -> dict:
     trainable = [p for p in model.parameters() if p.requires_grad]
     print(f"    trainable params: {sum(p.numel() for p in trainable):,} / "
           f"{sum(p.numel() for p in model.parameters()):,}")
-    optimizer = torch.optim.AdamW(trainable, lr=cfg.lr, weight_decay=cfg.weight_decay)
+    backbone_ids = {id(p) for p in model.backbone.parameters()}
+    optimizer = torch.optim.AdamW([
+        {"params": [p for p in trainable if id(p) in backbone_ids], "lr": cfg.lr * args.backbone_lr_mult},
+        {"params": [p for p in trainable if id(p) not in backbone_ids], "lr": cfg.lr},
+    ], weight_decay=cfg.weight_decay)
     use_scaler = args.amp and device.type == "cuda" and not torch.cuda.is_bf16_supported()
     scaler = torch.amp.GradScaler("cuda", enabled=use_scaler)
-    loss_fn = nn.CrossEntropyLoss()
+    loss_fn = nn.CrossEntropyLoss(label_smoothing=args.label_smoothing)
+    eval_loss_fn = nn.CrossEntropyLoss()  # plain CE so val/test losses stay comparable
+    print(f"    augment={args.augment}  label_smoothing={args.label_smoothing}  "
+          f"backbone_lr={cfg.lr * args.backbone_lr_mult:g}  early_stop_patience={args.patience or 'off'}")
 
     start_epoch, best, history = 1, {"accuracy": -1.0, "macro_f1": -1.0, "epoch": 0}, []
     last_path, best_path = out_dir / "last.pt", out_dir / "best.pt"
@@ -331,7 +368,7 @@ def run_config(cfg: Config, args, device: torch.device) -> dict:
         t0 = time.time()
         tr = train_one_epoch(model, train_dl, loss_fn, optimizer, scaler, device,
                              args.amp, args.clip_grad, epoch, cfg.epochs)
-        va = evaluate(model, val_dl, loss_fn, device, args.amp)
+        va = evaluate(model, val_dl, eval_loss_fn, device, args.amp)
         row = {"epoch": epoch, "train_loss": tr["loss"], "train_acc": tr["accuracy"],
                "val_loss": va["loss"], "val_acc": va["accuracy"], "val_macro_f1": va["macro_f1"],
                "seconds": round(time.time() - t0, 1)}
@@ -349,15 +386,18 @@ def run_config(cfg: Config, args, device: torch.device) -> dict:
         print(f"    epoch {epoch:02d}/{cfg.epochs} | train loss {tr['loss']:.4f} acc {tr['accuracy']:.4f} | "
               f"val loss {va['loss']:.4f} acc {va['accuracy']:.4f} F1 {va['macro_f1']:.4f} | "
               f"{row['seconds']:.0f}s{'  *best*' if improved else ''}")
+        if args.patience and epoch - best["epoch"] >= args.patience:
+            print(f"    early stop: no val-accuracy improvement for {args.patience} epochs")
+            break
 
     write_csv(out_dir / "history.csv", history)
 
     # Final-epoch test score (model is still at the last epoch's weights)
-    test_last = evaluate(model, test_dl, loss_fn, device, args.amp)
+    test_last = evaluate(model, test_dl, eval_loss_fn, device, args.amp)
     # Test score of the checkpoint picked on validation — the headline number
     model.load_state_dict(torch.load(best_path, map_location=device, weights_only=False)["model"])
-    val_best = evaluate(model, val_dl, loss_fn, device, args.amp)
-    test_best = evaluate(model, test_dl, loss_fn, device, args.amp)
+    val_best = evaluate(model, val_dl, eval_loss_fn, device, args.amp)
+    test_best = evaluate(model, test_dl, eval_loss_fn, device, args.amp)
 
     labels, preds = test_best["labels"], test_best["preds"]
     idx = list(range(len(classes)))
@@ -435,8 +475,8 @@ def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--config", nargs="+", choices=list(CONFIGS), default=[],
                     help="configuration(s) to run, in order")
-    ap.add_argument("--data-root", type=Path, default=ROOT / "CricketEC",
-                    help="folder containing train/ val/ test/ class subfolders")
+    ap.add_argument("--data-root", type=Path, default=ROOT / "data" / "CricketEC_split",
+                    help="folder containing train/ val/ test/ class subfolders (see make_split.py)")
     ap.add_argument("--out-dir", type=Path, default=ROOT / "runs")
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--workers", type=int, default=8)
@@ -448,6 +488,16 @@ def main() -> None:
                     help="between stacked RNN layers; no effect when --rnn-layers 1")
     ap.add_argument("--fc-dropout", type=float, default=0.4, help="Eq. 11")
     ap.add_argument("--clip-grad", type=float, default=1.0, help="max grad norm, 0 disables")
+    ap.add_argument("--no-augment", dest="augment", action="store_false",
+                    help="disable train-time augmentation")
+    ap.add_argument("--label-smoothing", type=float, default=0.1)
+    ap.add_argument("--backbone-lr-mult", type=float, default=0.1,
+                    help="learning-rate multiplier for the fine-tuned CNN layers")
+    ap.add_argument("--patience", type=int, default=8,
+                    help="early-stopping patience in epochs, 0 disables")
+    ap.add_argument("--paper-strict", action="store_true",
+                    help="exact paper protocol: no augmentation, no label smoothing, "
+                         "one learning rate, no early stopping")
     ap.add_argument("--no-amp", dest="amp", action="store_false",
                     help="disable mixed precision (slower, full fp32)")
     ap.add_argument("--resume", action="store_true", help="continue from runs/<config>/last.pt")
@@ -455,6 +505,8 @@ def main() -> None:
     ap.add_argument("--epochs", type=int, default=None, help="override epochs (smoke tests only)")
     ap.add_argument("--summarize", action="store_true", help="only rebuild runs/summary.csv")
     args = ap.parse_args()
+    if args.paper_strict:
+        args.augment, args.label_smoothing, args.backbone_lr_mult, args.patience = False, 0.0, 1.0, 0
 
     if args.summarize or not args.config:
         summarize(args.out_dir)
