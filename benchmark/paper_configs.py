@@ -23,7 +23,12 @@ turns every one of them off to reproduce the paper's protocol exactly):
     * dropout 0.2 on the CNN features before the RNN
     * label smoothing 0.1
     * fine-tuned backbone layers train at 0.1x the Table 7 learning rate
-    * early stopping after 8 epochs without a val-accuracy improvement
+    * 1-epoch warmup then cosine decay of the learning rate (the paper names no schedule)
+    * EMA of the weights (decay 0.998/step); the EMA model is validated and saved
+    * test-time augmentation in the final evaluation: probabilities averaged over
+      3 temporal offsets (uniform only) x {original, flipped}. Scores without TTA
+      are reported too; the best epoch is always chosen on plain validation.
+    * optional early stopping (--patience, off by default)
 
 Per configuration, written to runs/<config>/:
     best.pt         weights with the best validation accuracy (used for test)
@@ -54,6 +59,7 @@ import torch
 from decord import VideoReader, cpu
 from sklearn.metrics import classification_report, confusion_matrix, f1_score
 from torch import nn
+from torch.optim.swa_utils import AveragedModel, get_ema_multi_avg_fn
 from torch.utils.data import DataLoader, Dataset
 from torchvision.transforms import v2
 from torchvision.models import (
@@ -134,6 +140,15 @@ def jittered_uniform_indices(n_frames: int, t: int) -> list[int]:
     return [random.randrange(bounds[k], max(bounds[k] + 1, bounds[k + 1])) for k in range(t)]
 
 
+def offset_uniform_indices(n_frames: int, t: int, offset: float) -> list[int]:
+    """Deterministic test-time view: the frame at fraction `offset` of each of
+    the T equal segments (e.g. 0.25 = a quarter of the way into each segment)."""
+    if n_frames < t:
+        return pad_indices(n_frames, t)
+    bounds = [round(k * n_frames / t) for k in range(t + 1)]
+    return [min(n_frames - 1, bounds[k] + int(offset * (bounds[k + 1] - bounds[k]))) for k in range(t)]
+
+
 def pixel_intensity_indices(frames: np.ndarray, t: int, bins: int, pool: float = 1.0) -> list[int]:
     """Algorithm 1: top-T frames by L1 distance between consecutive normalised
     grayscale histograms, returned in chronological order. With pool > 1
@@ -161,7 +176,7 @@ class CricketECClips(Dataset):
 
     def __init__(self, split_dir: Path, classes: list[str], cfg: Config,
                  size: int, hist_bins: int, augment: v2.Transform | None = None,
-                 temporal_jitter: bool = False) -> None:
+                 temporal_jitter: bool = False, view_offset: float | None = None) -> None:
         self.class_to_idx = {c: i for i, c in enumerate(classes)}
         self.paths = sorted(p for p in split_dir.glob("*/*.avi"))
         unknown = {p.parent.name for p in self.paths} - set(classes)
@@ -170,7 +185,7 @@ class CricketECClips(Dataset):
         if not self.paths:
             raise FileNotFoundError(f"No .avi clips under {split_dir}")
         self.cfg, self.size, self.hist_bins, self.augment = cfg, size, hist_bins, augment
-        self.temporal_jitter = temporal_jitter
+        self.temporal_jitter, self.view_offset = temporal_jitter, view_offset
 
     def __len__(self) -> int:
         return len(self.paths)
@@ -180,8 +195,12 @@ class CricketECClips(Dataset):
         frames = read_all_frames(path, self.size)
         t = self.cfg.num_frames
         if self.cfg.sampling == "uniform":
-            indices = (jittered_uniform_indices(len(frames), t) if self.temporal_jitter
-                       else uniform_indices(len(frames), t))
+            if self.temporal_jitter:
+                indices = jittered_uniform_indices(len(frames), t)
+            elif self.view_offset is not None:
+                indices = offset_uniform_indices(len(frames), t, self.view_offset)
+            else:
+                indices = uniform_indices(len(frames), t)
         else:
             indices = pixel_intensity_indices(frames, t, self.hist_bins,
                                               pool=1.5 if self.temporal_jitter else 1.0)
@@ -280,21 +299,8 @@ def autocast_ctx(device: torch.device, enabled: bool):
     return torch.autocast(device_type=device.type, dtype=dtype, enabled=enabled and device.type == "cuda")
 
 
-@torch.inference_mode()
-def evaluate(model, loader, loss_fn, device, amp: bool):
-    model.eval()
-    loss_sum, preds, labels = 0.0, [], []
-    for clips, y in tqdm(loader, desc="  eval", leave=False, disable=None):
-        clips, y = clips.to(device, non_blocking=True), y.to(device, non_blocking=True)
-        with autocast_ctx(device, amp):
-            out = model(clips)
-            loss = loss_fn(out.float(), y)
-        loss_sum += loss.item() * y.size(0)
-        preds.append(out.argmax(1).cpu())
-        labels.append(y.cpu())
-    preds, labels = torch.cat(preds).numpy(), torch.cat(labels).numpy()
+def score(labels: np.ndarray, preds: np.ndarray) -> dict:
     return {
-        "loss": loss_sum / len(labels),
         "accuracy": float((preds == labels).mean()),
         "macro_f1": float(f1_score(labels, preds, average="macro", zero_division=0)),
         "preds": preds,
@@ -302,7 +308,40 @@ def evaluate(model, loader, loss_fn, device, amp: bool):
     }
 
 
-def train_one_epoch(model, loader, loss_fn, optimizer, scaler, device, amp, clip_grad, epoch, total):
+@torch.inference_mode()
+def evaluate(model, loader, loss_fn, device, amp: bool, flip: bool = False):
+    model.eval()
+    loss_sum, probs, labels = 0.0, [], []
+    for clips, y in tqdm(loader, desc="  eval", leave=False, disable=None):
+        clips, y = clips.to(device, non_blocking=True), y.to(device, non_blocking=True)
+        if flip:
+            clips = clips.flip(-1)
+        with autocast_ctx(device, amp):
+            out = model(clips).float()
+            loss = loss_fn(out, y)
+        loss_sum += loss.item() * y.size(0)
+        probs.append(out.softmax(1).cpu())
+        labels.append(y.cpu())
+    probs, labels = torch.cat(probs).numpy(), torch.cat(labels).numpy()
+    return {**score(labels, probs.argmax(1)), "loss": loss_sum / len(labels), "probs": probs}
+
+
+def evaluate_tta(model, make_view_ds, cfg: Config, args, loss_fn, device) -> dict:
+    """Average class probabilities over several deterministic views of each clip:
+    3 temporal offsets (uniform sampling only) x {original, horizontally flipped}."""
+    offsets = [None, 0.25, 0.75] if cfg.sampling == "uniform" else [None]
+    probs, labels, n_views = 0.0, None, 0
+    for offset in offsets:
+        loader = make_loader(make_view_ds(offset), cfg.batch_size, False, args.workers, args.seed,
+                             persistent=False)
+        for flip in (False, True):
+            r = evaluate(model, loader, loss_fn, device, args.amp, flip=flip)
+            probs, labels, n_views = probs + r["probs"], r["labels"], n_views + 1
+    return {**score(labels, probs.argmax(1)), "views": n_views}
+
+
+def train_one_epoch(model, loader, loss_fn, optimizer, scaler, device, amp, clip_grad, epoch, total,
+                    scheduler=None, ema=None):
     model.train()
     loss_sum, correct, seen = 0.0, 0, 0
     bar = tqdm(loader, desc=f"  epoch {epoch:02d}/{total}", leave=False, disable=None)
@@ -318,6 +357,10 @@ def train_one_epoch(model, loader, loss_fn, optimizer, scaler, device, amp, clip
             nn.utils.clip_grad_norm_(model.parameters(), clip_grad)
         scaler.step(optimizer)
         scaler.update()
+        if scheduler is not None:
+            scheduler.step()
+        if ema is not None:
+            ema.update_parameters(model)
         loss_sum += loss.item() * y.size(0)
         correct += (out.argmax(1) == y).sum().item()
         seen += y.size(0)
@@ -325,14 +368,14 @@ def train_one_epoch(model, loader, loss_fn, optimizer, scaler, device, amp, clip
     return {"loss": loss_sum / seen, "accuracy": correct / seen}
 
 
-def make_loader(ds, batch_size, shuffle, workers, seed):
+def make_loader(ds, batch_size, shuffle, workers, seed, persistent=True):
     return DataLoader(
         ds,
         batch_size=batch_size,
         shuffle=shuffle,
         num_workers=workers,
         pin_memory=True,
-        persistent_workers=workers > 0,
+        persistent_workers=persistent and workers > 0,
         prefetch_factor=4 if workers > 0 else None,
         generator=torch.Generator().manual_seed(seed),
     )
@@ -375,9 +418,30 @@ def run_config(cfg: Config, args, device: torch.device) -> dict:
     scaler = torch.amp.GradScaler("cuda", enabled=use_scaler)
     loss_fn = nn.CrossEntropyLoss(label_smoothing=args.label_smoothing)
     eval_loss_fn = nn.CrossEntropyLoss()  # plain CE so val/test losses stay comparable
+
+    # Per-step schedule: linear warmup, then cosine decay to min_lr_ratio x the
+    # initial rate. LambdaLR scales every param group, so the backbone keeps its multiplier.
+    total_steps = len(train_dl) * cfg.epochs
+    warmup_steps = len(train_dl) * args.warmup_epochs
+
+    def lr_factor(step: int) -> float:
+        if args.schedule == "constant":
+            return 1.0
+        if step < warmup_steps:
+            return (step + 1) / warmup_steps
+        progress = min(1.0, (step - warmup_steps) / max(1, total_steps - warmup_steps))
+        return args.min_lr_ratio + (1 - args.min_lr_ratio) * 0.5 * (1 + math.cos(math.pi * progress))
+
+    scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_factor)
+    # Exponential moving average of the weights (incl. BatchNorm statistics); when
+    # enabled it is the model that gets validated, checkpointed and tested.
+    ema = (AveragedModel(model, multi_avg_fn=get_ema_multi_avg_fn(args.ema_decay), use_buffers=True)
+           if args.ema_decay > 0 else None)
+    eval_model = ema.module if ema is not None else model
     print(f"    augment={args.augment}  temporal_jitter={args.temporal_jitter}  "
           f"feat_dropout={args.feat_dropout}  label_smoothing={args.label_smoothing}  "
-          f"backbone_lr={cfg.lr * args.backbone_lr_mult:g}  early_stop_patience={args.patience or 'off'}")
+          f"backbone_lr={cfg.lr * args.backbone_lr_mult:g}  schedule={args.schedule}  "
+          f"ema={args.ema_decay or 'off'}  tta={args.tta}  early_stop_patience={args.patience or 'off'}")
 
     start_epoch, best, history = 1, {"accuracy": -1.0, "macro_f1": -1.0, "epoch": 0}, []
     last_path, best_path = out_dir / "last.pt", out_dir / "best.pt"
@@ -386,6 +450,9 @@ def run_config(cfg: Config, args, device: torch.device) -> dict:
         model.load_state_dict(ckpt["model"])
         optimizer.load_state_dict(ckpt["optimizer"])
         scaler.load_state_dict(ckpt["scaler"])
+        scheduler.load_state_dict(ckpt["scheduler"])
+        if ema is not None:
+            ema.load_state_dict(ckpt["ema"])
         start_epoch, best, history = ckpt["epoch"] + 1, ckpt["best"], ckpt["history"]
         print(f"    resumed from epoch {ckpt['epoch']} (best val acc {best['accuracy']:.4f})")
 
@@ -393,8 +460,8 @@ def run_config(cfg: Config, args, device: torch.device) -> dict:
     for epoch in range(start_epoch, cfg.epochs + 1):
         t0 = time.time()
         tr = train_one_epoch(model, train_dl, loss_fn, optimizer, scaler, device,
-                             args.amp, args.clip_grad, epoch, cfg.epochs)
-        va = evaluate(model, val_dl, eval_loss_fn, device, args.amp)
+                             args.amp, args.clip_grad, epoch, cfg.epochs, scheduler, ema)
+        va = evaluate(eval_model, val_dl, eval_loss_fn, device, args.amp)
         row = {"epoch": epoch, "train_loss": tr["loss"], "train_acc": tr["accuracy"],
                "val_loss": va["loss"], "val_acc": va["accuracy"], "val_macro_f1": va["macro_f1"],
                "seconds": round(time.time() - t0, 1)}
@@ -402,12 +469,14 @@ def run_config(cfg: Config, args, device: torch.device) -> dict:
         improved = (va["accuracy"], va["macro_f1"]) > (best["accuracy"], best["macro_f1"])
         if improved:
             best = {"accuracy": va["accuracy"], "macro_f1": va["macro_f1"], "epoch": epoch}
-            torch.save({**meta, "epoch": epoch, "model": model.state_dict()}, best_path)
+            torch.save({**meta, "epoch": epoch, "model": eval_model.state_dict()}, best_path)
         torch.save({**meta, "epoch": epoch, "model": model.state_dict(),
                     "optimizer": optimizer.state_dict(), "scaler": scaler.state_dict(),
+                    "scheduler": scheduler.state_dict(),
+                    "ema": ema.state_dict() if ema is not None else None,
                     "best": best, "history": history}, last_path)
         if args.save_every_epoch:
-            torch.save({**meta, "epoch": epoch, "model": model.state_dict()},
+            torch.save({**meta, "epoch": epoch, "model": eval_model.state_dict()},
                        out_dir / f"epoch{epoch:02d}.pt")
         print(f"    epoch {epoch:02d}/{cfg.epochs} | train loss {tr['loss']:.4f} acc {tr['accuracy']:.4f} | "
               f"val loss {va['loss']:.4f} acc {va['accuracy']:.4f} F1 {va['macro_f1']:.4f} | "
@@ -418,14 +487,23 @@ def run_config(cfg: Config, args, device: torch.device) -> dict:
 
     write_csv(out_dir / "history.csv", history)
 
-    # Final-epoch test score (model is still at the last epoch's weights)
-    test_last = evaluate(model, test_dl, eval_loss_fn, device, args.amp)
-    # Test score of the checkpoint picked on validation — the headline number
+    # Final-epoch test score (eval_model still holds the last epoch's weights)
+    test_last = evaluate(eval_model, test_dl, eval_loss_fn, device, args.amp)
+    # Scores of the checkpoint picked on validation
     model.load_state_dict(torch.load(best_path, map_location=device, weights_only=False)["model"])
     val_best = evaluate(model, val_dl, eval_loss_fn, device, args.amp)
     test_best = evaluate(model, test_dl, eval_loss_fn, device, args.amp)
+    val_tta = test_tta = None
+    if args.tta:
+        def view_ds(split):
+            return lambda offset: CricketECClips(data_root / split, classes, cfg, args.img_size,
+                                                 args.hist_bins, view_offset=offset)
+        val_tta = evaluate_tta(model, view_ds("val"), cfg, args, eval_loss_fn, device)
+        test_tta = evaluate_tta(model, view_ds("test"), cfg, args, eval_loss_fn, device)
+    # Headline = TTA when enabled (decided up front, not after looking at test)
+    headline = test_tta if test_tta is not None else test_best
 
-    labels, preds = test_best["labels"], test_best["preds"]
+    labels, preds = headline["labels"], headline["preds"]
     idx = list(range(len(classes)))
     report = classification_report(labels, preds, labels=idx, target_names=classes,
                                    output_dict=True, zero_division=0)
@@ -447,12 +525,20 @@ def run_config(cfg: Config, args, device: torch.device) -> dict:
         "val": {"accuracy": val_best["accuracy"], "macro_f1": val_best["macro_f1"], "loss": val_best["loss"]},
         "test": {"accuracy": test_best["accuracy"], "macro_f1": test_best["macro_f1"], "loss": test_best["loss"]},
         "test_last_epoch": {"accuracy": test_last["accuracy"], "macro_f1": test_last["macro_f1"]},
+        "val_tta": None if val_tta is None else
+            {"accuracy": val_tta["accuracy"], "macro_f1": val_tta["macro_f1"], "views": val_tta["views"]},
+        "test_tta": None if test_tta is None else
+            {"accuracy": test_tta["accuracy"], "macro_f1": test_tta["macro_f1"], "views": test_tta["views"]},
         "test_per_class": {c: report[c] for c in classes},
+        "test_per_class_source": "test_tta" if test_tta is not None else "test",
         "test_set": {"num_clips": len(datasets["test"]), "sha256": test_fp},
     }
     (out_dir / "results.json").write_text(json.dumps(results, indent=2))
     print(f"    -> best epoch {best['epoch']}: val acc {val_best['accuracy']:.4f} F1 {val_best['macro_f1']:.4f} | "
           f"TEST acc {test_best['accuracy']:.4f} F1 {test_best['macro_f1']:.4f}")
+    if test_tta is not None:
+        print(f"    -> with TTA ({test_tta['views']} views): val acc {val_tta['accuracy']:.4f} "
+              f"F1 {val_tta['macro_f1']:.4f} | TEST acc {test_tta['accuracy']:.4f} F1 {test_tta['macro_f1']:.4f}")
     print(f"    saved to {out_dir}")
     return results
 
@@ -485,6 +571,9 @@ def summarize(out_dir: Path) -> None:
             "val_acc": round(100 * r["val"]["accuracy"], 2), "val_macro_f1": round(r["val"]["macro_f1"], 4),
             "test_acc": round(100 * r["test"]["accuracy"], 2), "test_macro_f1": round(r["test"]["macro_f1"], 4),
         })
+        tta = r.get("test_tta")
+        rows[-1]["test_acc_tta"] = round(100 * tta["accuracy"], 2) if tta else ""
+        rows[-1]["test_f1_tta"] = round(tta["macro_f1"], 4) if tta else ""
     if not rows:
         print(f"No results under {out_dir}")
         return
@@ -523,8 +612,18 @@ def main() -> None:
                     help="train on the same frames every epoch")
     ap.add_argument("--feat-dropout", type=float, default=0.2,
                     help="dropout on CNN features before the RNN")
-    ap.add_argument("--patience", type=int, default=8,
-                    help="early-stopping patience in epochs, 0 disables")
+    ap.add_argument("--schedule", choices=["cosine", "constant"], default="cosine",
+                    help="learning-rate schedule (warmup + cosine decay, or the plain Table 7 rate)")
+    ap.add_argument("--warmup-epochs", type=int, default=1)
+    ap.add_argument("--min-lr-ratio", type=float, default=0.01,
+                    help="final learning rate as a fraction of the initial one (cosine only)")
+    ap.add_argument("--ema-decay", type=float, default=0.998,
+                    help="weight EMA decay per step, 0 disables")
+    ap.add_argument("--no-tta", dest="tta", action="store_false",
+                    help="skip test-time augmentation in the final evaluation")
+    ap.add_argument("--patience", type=int, default=0,
+                    help="early-stopping patience in epochs, 0 disables (off by default: "
+                         "with a cosine schedule the best epochs come at the end)")
     ap.add_argument("--paper-strict", action="store_true",
                     help="exact paper protocol: no augmentation, no label smoothing, "
                          "one learning rate, no early stopping")
@@ -538,6 +637,7 @@ def main() -> None:
     if args.paper_strict:
         args.augment, args.label_smoothing, args.backbone_lr_mult, args.patience = False, 0.0, 1.0, 0
         args.temporal_jitter, args.feat_dropout = False, 0.0
+        args.schedule, args.ema_decay, args.tta = "constant", 0.0, False
 
     if args.summarize or not args.config:
         summarize(args.out_dir)
