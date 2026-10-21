@@ -40,3 +40,6 @@ CricketEC-train-test-val
 
 # Weights
 weights
+
+# Benchmark runs (weights, logs, results)
+runs/
