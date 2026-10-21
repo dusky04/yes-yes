@@ -1,0 +1,964 @@
+clip_id,file_path,chirality,camera_perspective,start_frame,end_frame,start_time_ms,end_time_ms
+CEC_VAL_0001,videos/outcome_classes/catch/catch_0001.avi,,outfield_wide,,,,
+CEC_TR_0001,videos/outcome_classes/catch/catch_0002.avi,,Fielder / Boundary View,,,,
+CEC_TR_0002,videos/outcome_classes/catch/catch_0003.avi,,Fielder / Boundary View,,,,
+CEC_TR_0003,videos/outcome_classes/catch/catch_0004.avi,,Fielder / Boundary View,,,,
+CEC_VAL_0002,videos/outcome_classes/catch/catch_0005.avi,,Fielder / Boundary View,,,,
+CEC_TR_0004,videos/outcome_classes/catch/catch_0006.avi,,,,,,
+CEC_TR_0005,videos/outcome_classes/catch/catch_0007.avi,,Pitch / Stump Close-up,,,,
+CEC_TEST_0001,videos/outcome_classes/catch/catch_0008.avi,,Pitch / Stump Close-up,,,,
+CEC_VAL_0003,videos/outcome_classes/catch/catch_0009.avi,,Fielder / Boundary View,,,,
+CEC_VAL_0004,videos/outcome_classes/catch/catch_0010.avi,,Fielder / Boundary View,,,,
+CEC_TR_0006,videos/outcome_classes/catch/catch_0011.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0007,videos/outcome_classes/catch/catch_0012.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0008,videos/outcome_classes/catch/catch_0013.avi,,Pitch / Umpire Perspective,,,,
+CEC_VAL_0005,videos/outcome_classes/catch/catch_0014.avi,,,,,,
+CEC_VAL_0006,videos/outcome_classes/catch/catch_0015.avi,,Fielder / Boundary View,,,,
+CEC_TR_0009,videos/outcome_classes/catch/catch_0016.avi,,Fielder / Boundary View,,,,
+CEC_TR_0010,videos/outcome_classes/catch/catch_0017.avi,,Fielder / Boundary View,,,,
+CEC_TEST_0002,videos/outcome_classes/catch/catch_0018.avi,,Fielder / Boundary View,,,,
+CEC_TR_0011,videos/outcome_classes/catch/catch_0019.avi,,Ground Field Tracking,,,,
+CEC_TR_0012,videos/outcome_classes/catch/catch_0020.avi,,Ground Field Tracking,,,,
+CEC_TR_0013,videos/outcome_classes/catch/catch_0021.avi,,Fielder / Boundary View,,,,
+CEC_TR_0014,videos/outcome_classes/catch/catch_0022.avi,,Fielder / Boundary View,,,,
+CEC_TEST_0003,videos/outcome_classes/catch/catch_0023.avi,,Pitch / Stump Close-up,,,,
+CEC_TEST_0004,videos/outcome_classes/catch/catch_0024.avi,,Fielder / Boundary View,,,,
+CEC_TR_0015,videos/outcome_classes/catch/catch_0025.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0016,videos/outcome_classes/catch/catch_0026.avi,,Fielder / Boundary View,,,,
+CEC_VAL_0007,videos/outcome_classes/catch/catch_0027.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0017,videos/outcome_classes/catch/catch_0028.avi,,Fielder / Boundary View,,,,
+CEC_TR_0018,videos/outcome_classes/catch/catch_0029.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0019,videos/outcome_classes/catch/catch_0030.avi,,Fielder / Boundary View,,,,
+CEC_VAL_0008,videos/outcome_classes/catch/catch_0031.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0020,videos/outcome_classes/catch/catch_0032.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0021,videos/outcome_classes/catch/catch_0033.avi,,Fielder / Boundary View,,,,
+CEC_TR_0022,videos/outcome_classes/catch/catch_0034.avi,,Pitch / Stump Close-up,,,,
+CEC_VAL_0009,videos/outcome_classes/catch/catch_0035.avi,,Pitch / Stump Close-up,,,,
+CEC_VAL_0010,videos/outcome_classes/catch/catch_0036.avi,,Fielder / Boundary View,,,,
+CEC_TEST_0005,videos/outcome_classes/catch/catch_0037.avi,,Fielder / Boundary View,,,,
+CEC_TR_0023,videos/outcome_classes/catch/catch_0038.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0024,videos/outcome_classes/catch/catch_0039.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0025,videos/outcome_classes/catch/catch_0040.avi,,Fielder / Boundary View,,,,
+CEC_TR_0026,videos/outcome_classes/catch/catch_0041.avi,,Fielder / Boundary View,,,,
+CEC_VAL_0011,videos/outcome_classes/catch/catch_0042.avi,,Fielder / Boundary View,,,,
+CEC_TR_0027,videos/outcome_classes/catch/catch_0043.avi,,Fielder / Boundary View,,,,
+CEC_TR_0028,videos/outcome_classes/catch/catch_0044.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_0029,videos/outcome_classes/catch/catch_0045.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0030,videos/outcome_classes/catch/catch_0046.avi,,Fielder / Boundary View,,,,
+CEC_TR_0031,videos/outcome_classes/catch/catch_0047.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0032,videos/outcome_classes/catch/catch_0048.avi,,Fielder / Boundary View,,,,
+CEC_TR_0033,videos/outcome_classes/catch/catch_0049.avi,,Fielder / Boundary View,,,,
+CEC_TR_0034,videos/outcome_classes/catch/catch_0050.avi,,Pitch / Stump Close-up,,,,
+CEC_VAL_0012,videos/outcome_classes/catch/catch_0051.avi,,Pitch / Stump Close-up,,,,
+CEC_TEST_0006,videos/outcome_classes/catch/catch_0052.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0035,videos/outcome_classes/catch/catch_0053.avi,,Pitch / Stump Close-up,,,,
+CEC_VAL_0013,videos/outcome_classes/catch/catch_0054.avi,,Fielder / Boundary View,,,,
+CEC_VAL_0014,videos/outcome_classes/catch/catch_0055.avi,,Fielder / Boundary View,,,,
+CEC_TR_0036,videos/outcome_classes/catch/catch_0056.avi,,Fielder / Boundary View,,,,
+CEC_VAL_0015,videos/outcome_classes/catch/catch_0057.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0037,videos/outcome_classes/catch/catch_0058.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0038,videos/outcome_classes/catch/catch_0059.avi,,Fielder / Boundary View,,,,
+CEC_TEST_0007,videos/outcome_classes/catch/catch_0060.avi,,Fielder / Boundary View,,,,
+CEC_TEST_0008,videos/outcome_classes/catch/catch_0061.avi,,Fielder / Boundary View,,,,
+CEC_TR_0039,videos/outcome_classes/catch/catch_0062.avi,,Fielder / Boundary View,,,,
+CEC_VAL_0016,videos/outcome_classes/catch/catch_0063.avi,,Fielder / Boundary View,,,,
+CEC_TEST_0009,videos/outcome_classes/catch/catch_0064.avi,,Fielder / Boundary View,,,,
+CEC_TR_0040,videos/outcome_classes/catch/catch_0065.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0041,videos/outcome_classes/catch/catch_0066.avi,,Fielder / Boundary View,,,,
+CEC_VAL_0017,videos/outcome_classes/catch/catch_0067.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0042,videos/outcome_classes/catch/catch_0068.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0043,videos/outcome_classes/catch/catch_0069.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0044,videos/outcome_classes/catch/catch_0070.avi,,Fielder / Boundary View,,,,
+CEC_TR_0045,videos/outcome_classes/catch/catch_0071.avi,,Fielder / Boundary View,,,,
+CEC_TR_0046,videos/outcome_classes/catch/catch_0072.avi,,Fielder / Boundary View,,,,
+CEC_TR_0047,videos/outcome_classes/catch/catch_0073.avi,,Fielder / Boundary View,,,,
+CEC_TR_0048,videos/outcome_classes/catch/catch_0074.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0049,videos/outcome_classes/catch/catch_0075.avi,,Pitch / Stump Close-up,,,,
+CEC_TEST_0010,videos/outcome_classes/catch/catch_0076.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0050,videos/outcome_classes/catch/catch_0077.avi,,Fielder / Boundary View,,,,
+CEC_TR_0051,videos/outcome_classes/catch/catch_0078.avi,,Fielder / Boundary View,,,,
+CEC_TR_0052,videos/outcome_classes/catch/catch_0079.avi,,Fielder / Boundary View,,,,
+CEC_TR_0053,videos/outcome_classes/catch/catch_0080.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0054,videos/outcome_classes/catch/catch_0081.avi,,Pitch / Stump Close-up,,,,
+CEC_TEST_0011,videos/outcome_classes/catch/catch_0082.avi,,Fielder / Boundary View,,,,
+CEC_TR_0055,videos/outcome_classes/catch/catch_0083.avi,,Fielder / Boundary View,,,,
+CEC_TR_0056,videos/outcome_classes/catch/catch_0084.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0057,videos/outcome_classes/catch/catch_0085.avi,,Pitch / Umpire Perspective,,,,
+CEC_VAL_0018,videos/outcome_classes/catch/catch_0086.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_0058,videos/outcome_classes/catch/catch_0087.avi,,Fielder / Boundary View,,,,
+CEC_VAL_0019,videos/outcome_classes/catch/catch_0088.avi,,Fielder / Boundary View,,,,
+CEC_TR_0059,videos/outcome_classes/catch/catch_0089.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_0060,videos/outcome_classes/catch/catch_0090.avi,,Fielder / Boundary View,,,,
+CEC_TR_0061,videos/outcome_classes/catch/catch_0091.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0062,videos/outcome_classes/catch/catch_0092.avi,,Fielder / Boundary View,,,,
+CEC_TEST_0012,videos/outcome_classes/catch/catch_0093.avi,,Pitch / Umpire Perspective,,,,
+CEC_VAL_0020,videos/outcome_classes/catch/catch_0094.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_0063,videos/outcome_classes/catch/catch_0095.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0064,videos/outcome_classes/catch/catch_0096.avi,,Fielder / Boundary View,,,,
+CEC_TR_0065,videos/outcome_classes/catch/catch_0097.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_0066,videos/outcome_classes/catch/catch_0098.avi,,Pitch / Umpire Perspective,,,,
+CEC_VAL_0021,videos/outcome_classes/catch/catch_0099.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0067,videos/outcome_classes/catch/catch_0100.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0068,videos/outcome_classes/catch/catch_0101.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0069,videos/outcome_classes/catch/catch_0102.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0070,videos/outcome_classes/catch/catch_0103.avi,,Fielder / Boundary View,,,,
+CEC_TR_0071,videos/outcome_classes/catch/catch_0104.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0072,videos/outcome_classes/catch/catch_0105.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0073,videos/outcome_classes/catch/catch_0106.avi,,Fielder / Boundary View,,,,
+CEC_TR_0074,videos/outcome_classes/catch/catch_0107.avi,,Fielder / Boundary View,,,,
+CEC_TR_0075,videos/outcome_classes/catch/catch_0108.avi,,Fielder / Boundary View,,,,
+CEC_TR_0076,videos/outcome_classes/catch/catch_0109.avi,,Fielder / Boundary View,,,,
+CEC_TR_0077,videos/outcome_classes/catch/catch_0110.avi,,Pitch / Stump Close-up,,,,
+CEC_VAL_0022,videos/outcome_classes/catch/catch_0111.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0078,videos/outcome_classes/catch/catch_0112.avi,,Fielder / Boundary View,,,,
+CEC_TR_0079,videos/outcome_classes/catch/catch_0113.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0080,videos/outcome_classes/catch/catch_0114.avi,,Fielder / Boundary View,,,,
+CEC_TR_0081,videos/outcome_classes/catch/catch_0115.avi,,Pitch / Stump Close-up,,,,
+CEC_TEST_0013,videos/outcome_classes/catch/catch_0116.avi,,Fielder / Boundary View,,,,
+CEC_TR_0082,videos/outcome_classes/catch/catch_0117.avi,,Fielder / Boundary View,,,,
+CEC_TR_0083,videos/outcome_classes/catch/catch_0118.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0084,videos/outcome_classes/catch/catch_0119.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_0085,videos/outcome_classes/catch/catch_0120.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0086,videos/outcome_classes/catch/catch_0121.avi,,Fielder / Boundary View,,,,
+CEC_TR_0087,videos/outcome_classes/catch/catch_0122.avi,,Fielder / Boundary View,,,,
+CEC_TR_0088,videos/outcome_classes/catch/catch_0123.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0089,videos/outcome_classes/catch/catch_0124.avi,,Pitch / Stump Close-up,,,,
+CEC_TEST_0014,videos/outcome_classes/catch/catch_0125.avi,,Pitch / Stump Close-up,,,,
+CEC_TEST_0015,videos/outcome_classes/catch/catch_0126.avi,,Pitch / Stump Close-up,,,,
+CEC_TEST_0016,videos/outcome_classes/catch/catch_0127.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0090,videos/outcome_classes/catch/catch_0128.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0091,videos/outcome_classes/catch/catch_0129.avi,,Pitch / Stump Close-up,,,,
+CEC_TEST_0017,videos/outcome_classes/catch/catch_0130.avi,,Fielder / Boundary View,,,,
+CEC_TR_0092,videos/outcome_classes/catch/catch_0131.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0093,videos/outcome_classes/catch/catch_0132.avi,,Fielder / Boundary View,,,,
+CEC_TR_0094,videos/outcome_classes/catch/catch_0133.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0095,videos/outcome_classes/catch/catch_0134.avi,,Pitch / Stump Close-up,,,,
+CEC_TEST_0018,videos/outcome_classes/catch/catch_0135.avi,,Fielder / Boundary View,,,,
+CEC_TEST_0019,videos/outcome_classes/catch/catch_0136.avi,,Pitch / Stump Close-up,,,,
+CEC_TEST_0020,videos/outcome_classes/catch/catch_0137.avi,,Fielder / Boundary View,,,,
+CEC_TR_0096,videos/outcome_classes/catch/catch_0138.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_0097,videos/outcome_classes/catch/catch_0139.avi,,Pitch / Stump Close-up,,,,
+CEC_VAL_0023,videos/outcome_classes/catch/catch_0140.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0098,videos/outcome_classes/catch/catch_0141.avi,,Fielder / Boundary View,,,,
+CEC_TR_0099,videos/outcome_classes/catch/catch_0142.avi,,Fielder / Boundary View,,,,
+CEC_TEST_0021,videos/outcome_classes/catch/catch_0143.avi,,Fielder / Boundary View,,,,
+CEC_TR_0100,videos/outcome_classes/catch/catch_0144.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0101,videos/outcome_classes/catch/catch_0145.avi,,Fielder / Boundary View,,,,
+CEC_TR_0102,videos/outcome_classes/catch/catch_0146.avi,,Pitch / Stump Close-up,,,,
+CEC_TEST_0022,videos/outcome_classes/catch/catch_0147.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0103,videos/outcome_classes/catch/catch_0148.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0104,videos/outcome_classes/catch/catch_0149.avi,,Pitch / Stump Close-up,,,,
+CEC_TEST_0023,videos/outcome_classes/catch/catch_0150.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_0494,videos/outcome_classes/four/four_0001.avi,,Ground Field Tracking,,,,
+CEC_VAL_0110,videos/outcome_classes/four/four_0002.avi,,Ground Field Tracking,,,,
+CEC_TEST_0110,videos/outcome_classes/four/four_0003.avi,,Ground Field Tracking,,,,
+CEC_VAL_0111,videos/outcome_classes/four/four_0004.avi,,Ground Field Tracking,,,,
+CEC_TR_0495,videos/outcome_classes/four/four_0005.avi,,Ground Field Tracking,,,,
+CEC_TEST_0111,videos/outcome_classes/four/four_0006.avi,,Ground Field Tracking,,,,
+CEC_TR_0496,videos/outcome_classes/four/four_0007.avi,,Ground Field Tracking,,,,
+CEC_TR_0497,videos/outcome_classes/four/four_0008.avi,,Ground Field Tracking,,,,
+CEC_TR_0498,videos/outcome_classes/four/four_0009.avi,,Ground Field Tracking,,,,
+CEC_TR_0499,videos/outcome_classes/four/four_0010.avi,,Ground Field Tracking,,,,
+CEC_TR_0500,videos/outcome_classes/four/four_0011.avi,,Ground Field Tracking,,,,
+CEC_VAL_0112,videos/outcome_classes/four/four_0012.avi,,Ground Field Tracking,,,,
+CEC_TR_0501,videos/outcome_classes/four/four_0013.avi,,Ground Field Tracking,,,,
+CEC_TR_0502,videos/outcome_classes/four/four_0014.avi,,Ground Field Tracking,,,,
+CEC_TR_0503,videos/outcome_classes/four/four_0015.avi,,Ground Field Tracking,,,,
+CEC_TEST_0112,videos/outcome_classes/four/four_0016.avi,,Ground Field Tracking,,,,
+CEC_TEST_0113,videos/outcome_classes/four/four_0017.avi,,Ground Field Tracking,,,,
+CEC_VAL_0113,videos/outcome_classes/four/four_0018.avi,,Ground Field Tracking,,,,
+CEC_TR_0504,videos/outcome_classes/four/four_0019.avi,,Ground Field Tracking,,,,
+CEC_TR_0505,videos/outcome_classes/four/four_0020.avi,,Ground Field Tracking,,,,
+CEC_TR_0506,videos/outcome_classes/four/four_0021.avi,,Ground Field Tracking,,,,
+CEC_TR_0507,videos/outcome_classes/four/four_0022.avi,,Ground Field Tracking,,,,
+CEC_TR_0508,videos/outcome_classes/four/four_0023.avi,,Ground Field Tracking,,,,
+CEC_VAL_0114,videos/outcome_classes/four/four_0024.avi,,Ground Field Tracking,,,,
+CEC_VAL_0115,videos/outcome_classes/four/four_0025.avi,,Ground Field Tracking,,,,
+CEC_TEST_0114,videos/outcome_classes/four/four_0026.avi,,Ground Field Tracking,,,,
+CEC_TR_0509,videos/outcome_classes/four/four_0027.avi,,Ground Field Tracking,,,,
+CEC_VAL_0116,videos/outcome_classes/four/four_0028.avi,,Ground Field Tracking,,,,
+CEC_TR_0510,videos/outcome_classes/four/four_0029.avi,,Ground Field Tracking,,,,
+CEC_TR_0511,videos/outcome_classes/four/four_0030.avi,,Ground Field Tracking,,,,
+CEC_TR_0512,videos/outcome_classes/four/four_0031.avi,,Ground Field Tracking,,,,
+CEC_TR_0513,videos/outcome_classes/four/four_0032.avi,,Ground Field Tracking,,,,
+CEC_TR_0514,videos/outcome_classes/four/four_0033.avi,,Ground Field Tracking,,,,
+CEC_TR_0515,videos/outcome_classes/four/four_0034.avi,,Ground Field Tracking,,,,
+CEC_TR_0516,videos/outcome_classes/four/four_0035.avi,,Ground Field Tracking,,,,
+CEC_VAL_0117,videos/outcome_classes/four/four_0036.avi,,Ground Field Tracking,,,,
+CEC_TEST_0115,videos/outcome_classes/four/four_0037.avi,,Ground Field Tracking,,,,
+CEC_TR_0517,videos/outcome_classes/four/four_0038.avi,,Ground Field Tracking,,,,
+CEC_TR_0518,videos/outcome_classes/four/four_0039.avi,,Ground Field Tracking,,,,
+CEC_TR_0519,videos/outcome_classes/four/four_0040.avi,,Ground Field Tracking,,,,
+CEC_VAL_0118,videos/outcome_classes/four/four_0041.avi,,Ground Field Tracking,,,,
+CEC_TR_0520,videos/outcome_classes/four/four_0042.avi,,Ground Field Tracking,,,,
+CEC_TR_0521,videos/outcome_classes/four/four_0043.avi,,Ground Field Tracking,,,,
+CEC_TR_0522,videos/outcome_classes/four/four_0044.avi,,Ground Field Tracking,,,,
+CEC_TEST_0116,videos/outcome_classes/four/four_0045.avi,,Ground Field Tracking,,,,
+CEC_TR_0523,videos/outcome_classes/four/four_0046.avi,,Ground Field Tracking,,,,
+CEC_VAL_0119,videos/outcome_classes/four/four_0047.avi,,Ground Field Tracking,,,,
+CEC_TEST_0117,videos/outcome_classes/four/four_0048.avi,,Ground Field Tracking,,,,
+CEC_TR_0524,videos/outcome_classes/four/four_0049.avi,,Ground Field Tracking,,,,
+CEC_TR_0525,videos/outcome_classes/four/four_0050.avi,,Ground Field Tracking,,,,
+CEC_TR_0526,videos/outcome_classes/four/four_0051.avi,,Ground Field Tracking,,,,
+CEC_TR_0527,videos/outcome_classes/four/four_0052.avi,,Ground Field Tracking,,,,
+CEC_VAL_0120,videos/outcome_classes/four/four_0053.avi,,Ground Field Tracking,,,,
+CEC_TR_0528,videos/outcome_classes/four/four_0054.avi,,Ground Field Tracking,,,,
+CEC_TR_0529,videos/outcome_classes/four/four_0055.avi,,Ground Field Tracking,,,,
+CEC_TR_0530,videos/outcome_classes/four/four_0056.avi,,Ground Field Tracking,,,,
+CEC_VAL_0121,videos/outcome_classes/four/four_0057.avi,,Ground Field Tracking,,,,
+CEC_TR_0531,videos/outcome_classes/four/four_0058.avi,,Ground Field Tracking,,,,
+CEC_TR_0532,videos/outcome_classes/four/four_0059.avi,,Ground Field Tracking,,,,
+CEC_VAL_0122,videos/outcome_classes/four/four_0060.avi,,Ground Field Tracking,,,,
+CEC_TEST_0118,videos/outcome_classes/four/four_0061.avi,,Ground Field Tracking,,,,
+CEC_TR_0533,videos/outcome_classes/four/four_0062.avi,,Ground Field Tracking,,,,
+CEC_TEST_0119,videos/outcome_classes/four/four_0063.avi,,Ground Field Tracking,,,,
+CEC_TR_0534,videos/outcome_classes/four/four_0064.avi,,Ground Field Tracking,,,,
+CEC_TR_0535,videos/outcome_classes/four/four_0065.avi,,Ground Field Tracking,,,,
+CEC_TR_0536,videos/outcome_classes/four/four_0066.avi,,Ground Field Tracking,,,,
+CEC_TR_0537,videos/outcome_classes/four/four_0067.avi,,Ground Field Tracking,,,,
+CEC_TR_0538,videos/outcome_classes/four/four_0068.avi,,Ground Field Tracking,,,,
+CEC_VAL_0123,videos/outcome_classes/four/four_0069.avi,,Ground Field Tracking,,,,
+CEC_TR_0539,videos/outcome_classes/four/four_0070.avi,,Ground Field Tracking,,,,
+CEC_TR_0540,videos/outcome_classes/four/four_0071.avi,,Ground Field Tracking,,,,
+CEC_TR_0541,videos/outcome_classes/four/four_0072.avi,,Ground Field Tracking,,,,
+CEC_TEST_0120,videos/outcome_classes/four/four_0073.avi,,Ground Field Tracking,,,,
+CEC_TR_0542,videos/outcome_classes/four/four_0074.avi,,Ground Field Tracking,,,,
+CEC_TR_0543,videos/outcome_classes/four/four_0075.avi,,Ground Field Tracking,,,,
+CEC_VAL_0124,videos/outcome_classes/four/four_0076.avi,,Ground Field Tracking,,,,
+CEC_TR_0544,videos/outcome_classes/four/four_0077.avi,,Ground Field Tracking,,,,
+CEC_TEST_0121,videos/outcome_classes/four/four_0078.avi,,Ground Field Tracking,,,,
+CEC_TR_0545,videos/outcome_classes/four/four_0079.avi,,Ground Field Tracking,,,,
+CEC_TR_0546,videos/outcome_classes/four/four_0080.avi,,Ground Field Tracking,,,,
+CEC_TR_0547,videos/outcome_classes/four/four_0081.avi,,Ground Field Tracking,,,,
+CEC_TR_0548,videos/outcome_classes/four/four_0082.avi,,Ground Field Tracking,,,,
+CEC_TR_0549,videos/outcome_classes/four/four_0083.avi,,Ground Field Tracking,,,,
+CEC_TEST_0122,videos/outcome_classes/four/four_0084.avi,,Ground Field Tracking,,,,
+CEC_VAL_0125,videos/outcome_classes/four/four_0085.avi,,Ground Field Tracking,,,,
+CEC_VAL_0126,videos/outcome_classes/four/four_0086.avi,,Ground Field Tracking,,,,
+CEC_TR_0550,videos/outcome_classes/four/four_0087.avi,,Ground Field Tracking,,,,
+CEC_TR_0551,videos/outcome_classes/four/four_0088.avi,,,,,,
+CEC_TEST_0123,videos/outcome_classes/four/four_0089.avi,,Ground Field Tracking,,,,
+CEC_TEST_0124,videos/outcome_classes/four/four_0090.avi,,Ground Field Tracking,,,,
+CEC_TR_0552,videos/outcome_classes/four/four_0091.avi,,Ground Field Tracking,,,,
+CEC_VAL_0127,videos/outcome_classes/four/four_0092.avi,,Ground Field Tracking,,,,
+CEC_TR_0553,videos/outcome_classes/four/four_0093.avi,,Ground Field Tracking,,,,
+CEC_TR_0554,videos/outcome_classes/four/four_0094.avi,,Ground Field Tracking,,,,
+CEC_TEST_0125,videos/outcome_classes/four/four_0095.avi,,Ground Field Tracking,,,,
+CEC_TEST_0126,videos/outcome_classes/four/four_0096.avi,,Ground Field Tracking,,,,
+CEC_TEST_0127,videos/outcome_classes/four/four_0097.avi,,Ground Field Tracking,,,,
+CEC_TR_0555,videos/outcome_classes/four/four_0098.avi,,Ground Field Tracking,,,,
+CEC_TR_0556,videos/outcome_classes/four/four_0099.avi,,Ground Field Tracking,,,,
+CEC_TR_0557,videos/outcome_classes/four/four_0100.avi,,Ground Field Tracking,,,,
+CEC_TR_0558,videos/outcome_classes/four/four_0101.avi,,Ground Field Tracking,,,,
+CEC_TR_0559,videos/outcome_classes/four/four_0102.avi,,Ground Field Tracking,,,,
+CEC_TR_0560,videos/outcome_classes/four/four_0103.avi,,Ground Field Tracking,,,,
+CEC_TR_0561,videos/outcome_classes/four/four_0104.avi,,Ground Field Tracking,,,,
+CEC_TR_0562,videos/outcome_classes/four/four_0105.avi,,Ground Field Tracking,,,,
+CEC_TR_0563,videos/outcome_classes/four/four_0106.avi,,Ground Field Tracking,,,,
+CEC_VAL_0128,videos/outcome_classes/four/four_0107.avi,,Ground Field Tracking,,,,
+CEC_TR_0564,videos/outcome_classes/four/four_0108.avi,,Ground Field Tracking,,,,
+CEC_VAL_0129,videos/outcome_classes/four/four_0109.avi,,Ground Field Tracking,,,,
+CEC_TR_0565,videos/outcome_classes/four/four_0110.avi,,Ground Field Tracking,,,,
+CEC_TR_0566,videos/outcome_classes/four/four_0111.avi,,Ground Field Tracking,,,,
+CEC_TEST_0128,videos/outcome_classes/four/four_0112.avi,,Ground Field Tracking,,,,
+CEC_TR_0567,videos/outcome_classes/four/four_0113.avi,,Ground Field Tracking,,,,
+CEC_TEST_0129,videos/outcome_classes/four/four_0114.avi,,Ground Field Tracking,,,,
+CEC_VAL_0130,videos/outcome_classes/four/four_0115.avi,,Ground Field Tracking,,,,
+CEC_TR_0568,videos/outcome_classes/four/four_0116.avi,,Ground Field Tracking,,,,
+CEC_TR_0569,videos/outcome_classes/four/four_0117.avi,,Ground Field Tracking,,,,
+CEC_TEST_0130,videos/outcome_classes/four/four_0118.avi,,Ground Field Tracking,,,,
+CEC_TR_0570,videos/outcome_classes/four/four_0119.avi,,Ground Field Tracking,,,,
+CEC_TR_0571,videos/outcome_classes/four/four_0120.avi,,Ground Field Tracking,,,,
+CEC_TR_0572,videos/outcome_classes/four/four_0121.avi,,Ground Field Tracking,,,,
+CEC_VAL_0131,videos/outcome_classes/four/four_0122.avi,,Ground Field Tracking,,,,
+CEC_TR_0573,videos/outcome_classes/four/four_0123.avi,,Ground Field Tracking,,,,
+CEC_TR_0574,videos/outcome_classes/four/four_0124.avi,,Ground Field Tracking,,,,
+CEC_TEST_0131,videos/outcome_classes/four/four_0125.avi,,Ground Field Tracking,,,,
+CEC_VAL_0132,videos/outcome_classes/four/four_0126.avi,,Ground Field Tracking,,,,
+CEC_TR_0575,videos/outcome_classes/four/four_0127.avi,,Ground Field Tracking,,,,
+CEC_TR_0576,videos/outcome_classes/four/four_0128.avi,,Ground Field Tracking,,,,
+CEC_TR_0577,videos/outcome_classes/four/four_0129.avi,,Ground Field Tracking,,,,
+CEC_TR_0578,videos/outcome_classes/four/four_0130.avi,,Ground Field Tracking,,,,
+CEC_TR_0579,videos/outcome_classes/four/four_0131.avi,,Ground Field Tracking,,,,
+CEC_TR_0580,videos/outcome_classes/four/four_0132.avi,,Ground Field Tracking,,,,
+CEC_TR_0581,videos/outcome_classes/four/four_0133.avi,,Ground Field Tracking,,,,
+CEC_TEST_0132,videos/outcome_classes/four/four_0134.avi,,Ground Field Tracking,,,,
+CEC_TR_0582,videos/outcome_classes/four/four_0135.avi,,Ground Field Tracking,,,,
+CEC_TR_0583,videos/outcome_classes/four/four_0136.avi,,Ground Field Tracking,,,,
+CEC_TR_0584,videos/outcome_classes/four/four_0137.avi,,Ground Field Tracking,,,,
+CEC_TR_0585,videos/outcome_classes/four/four_0138.avi,,Ground Field Tracking,,,,
+CEC_TR_0586,videos/outcome_classes/four/four_0139.avi,,Ground Field Tracking,,,,
+CEC_TR_0587,videos/outcome_classes/four/four_0140.avi,,Ground Field Tracking,,,,
+CEC_TR_0588,videos/outcome_classes/four/four_0141.avi,,Ground Field Tracking,,,,
+CEC_TR_0589,videos/outcome_classes/four/four_0142.avi,,Ground Field Tracking,,,,
+CEC_TR_0590,videos/outcome_classes/four/four_0143.avi,,Ground Field Tracking,,,,
+CEC_TR_0591,videos/outcome_classes/four/four_0144.avi,,Ground Field Tracking,,,,
+CEC_TR_0592,videos/outcome_classes/four/four_0145.avi,,Ground Field Tracking,,,,
+CEC_TR_0593,videos/outcome_classes/four/four_0146.avi,,Ground Field Tracking,,,,
+CEC_TR_0594,videos/outcome_classes/four/four_0147.avi,,Ground Field Tracking,,,,
+CEC_TR_0595,videos/outcome_classes/four/four_0148.avi,,Ground Field Tracking,,,,
+CEC_TR_0596,videos/outcome_classes/four/four_0149.avi,,Ground Field Tracking,,,,
+CEC_TR_0597,videos/outcome_classes/four/four_0150.avi,,Ground Field Tracking,,,,
+CEC_TEST_0246,videos/outcome_classes/six/six_0001.avi,,High-Angle Ball Tracking,,,,
+CEC_VAL_0246,videos/outcome_classes/six/six_0002.avi,,High-Angle Ball Tracking,,,,
+CEC_TEST_0247,videos/outcome_classes/six/six_0003.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1112,videos/outcome_classes/six/six_0004.avi,,High-Angle Ball Tracking,,,,
+CEC_TEST_0248,videos/outcome_classes/six/six_0005.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1113,videos/outcome_classes/six/six_0006.avi,,High-Angle Ball Tracking,,,,
+CEC_VAL_0247,videos/outcome_classes/six/six_0007.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1114,videos/outcome_classes/six/six_0008.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1115,videos/outcome_classes/six/six_0009.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1116,videos/outcome_classes/six/six_0010.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1117,videos/outcome_classes/six/six_0011.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1118,videos/outcome_classes/six/six_0012.avi,,High-Angle Ball Tracking,,,,
+CEC_VAL_0248,videos/outcome_classes/six/six_0013.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1119,videos/outcome_classes/six/six_0014.avi,,Ground Field Tracking,,,,
+CEC_TR_1120,videos/outcome_classes/six/six_0015.avi,,,,,,
+CEC_TR_1121,videos/outcome_classes/six/six_0016.avi,,High-Angle Ball Tracking,,,,
+CEC_TEST_0249,videos/outcome_classes/six/six_0017.avi,,High-Angle Ball Tracking,,,,
+CEC_VAL_0249,videos/outcome_classes/six/six_0018.avi,,,,,,
+CEC_TR_1122,videos/outcome_classes/six/six_0019.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1123,videos/outcome_classes/six/six_0020.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1124,videos/outcome_classes/six/six_0021.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1125,videos/outcome_classes/six/six_0022.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1126,videos/outcome_classes/six/six_0023.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1127,videos/outcome_classes/six/six_0024.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1128,videos/outcome_classes/six/six_0025.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1129,videos/outcome_classes/six/six_0026.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1130,videos/outcome_classes/six/six_0027.avi,,High-Angle Ball Tracking,,,,
+CEC_VAL_0250,videos/outcome_classes/six/six_0028.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1131,videos/outcome_classes/six/six_0029.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1132,videos/outcome_classes/six/six_0030.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1133,videos/outcome_classes/six/six_0031.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1134,videos/outcome_classes/six/six_0032.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1135,videos/outcome_classes/six/six_0033.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1136,videos/outcome_classes/six/six_0034.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1137,videos/outcome_classes/six/six_0035.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1138,videos/outcome_classes/six/six_0036.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1139,videos/outcome_classes/six/six_0037.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1140,videos/outcome_classes/six/six_0038.avi,,High-Angle Ball Tracking,,,,
+CEC_TEST_0250,videos/outcome_classes/six/six_0039.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1141,videos/outcome_classes/six/six_0040.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1142,videos/outcome_classes/six/six_0041.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1143,videos/outcome_classes/six/six_0042.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1144,videos/outcome_classes/six/six_0043.avi,,High-Angle Ball Tracking,,,,
+CEC_TEST_0251,videos/outcome_classes/six/six_0044.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1145,videos/outcome_classes/six/six_0045.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1146,videos/outcome_classes/six/six_0046.avi,,High-Angle Ball Tracking,,,,
+CEC_VAL_0251,videos/outcome_classes/six/six_0047.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1147,videos/outcome_classes/six/six_0048.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1148,videos/outcome_classes/six/six_0049.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1149,videos/outcome_classes/six/six_0050.avi,,High-Angle Ball Tracking,,,,
+CEC_VAL_0252,videos/outcome_classes/six/six_0051.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1150,videos/outcome_classes/six/six_0052.avi,,High-Angle Ball Tracking,,,,
+CEC_VAL_0253,videos/outcome_classes/six/six_0053.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1151,videos/outcome_classes/six/six_0054.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1152,videos/outcome_classes/six/six_0055.avi,,High-Angle Ball Tracking,,,,
+CEC_TEST_0252,videos/outcome_classes/six/six_0056.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1153,videos/outcome_classes/six/six_0057.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1154,videos/outcome_classes/six/six_0058.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1155,videos/outcome_classes/six/six_0059.avi,,High-Angle Ball Tracking,,,,
+CEC_VAL_0254,videos/outcome_classes/six/six_0060.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1156,videos/outcome_classes/six/six_0061.avi,,High-Angle Ball Tracking,,,,
+CEC_TEST_0253,videos/outcome_classes/six/six_0062.avi,,High-Angle Ball Tracking,,,,
+CEC_TEST_0254,videos/outcome_classes/six/six_0063.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1157,videos/outcome_classes/six/six_0064.avi,,High-Angle Ball Tracking,,,,
+CEC_TEST_0255,videos/outcome_classes/six/six_0065.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1158,videos/outcome_classes/six/six_0066.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1159,videos/outcome_classes/six/six_0067.avi,,High-Angle Ball Tracking,,,,
+CEC_VAL_0255,videos/outcome_classes/six/six_0068.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1160,videos/outcome_classes/six/six_0069.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1161,videos/outcome_classes/six/six_0070.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1162,videos/outcome_classes/six/six_0071.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1163,videos/outcome_classes/six/six_0072.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1164,videos/outcome_classes/six/six_0073.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1165,videos/outcome_classes/six/six_0074.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1166,videos/outcome_classes/six/six_0075.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1167,videos/outcome_classes/six/six_0076.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1168,videos/outcome_classes/six/six_0077.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1169,videos/outcome_classes/six/six_0078.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1170,videos/outcome_classes/six/six_0079.avi,,High-Angle Ball Tracking,,,,
+CEC_VAL_0256,videos/outcome_classes/six/six_0080.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1171,videos/outcome_classes/six/six_0081.avi,,High-Angle Ball Tracking,,,,
+CEC_VAL_0257,videos/outcome_classes/six/six_0082.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1172,videos/outcome_classes/six/six_0083.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1173,videos/outcome_classes/six/six_0084.avi,,High-Angle Ball Tracking,,,,
+CEC_VAL_0258,videos/outcome_classes/six/six_0085.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1174,videos/outcome_classes/six/six_0086.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1175,videos/outcome_classes/six/six_0087.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1176,videos/outcome_classes/six/six_0088.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1177,videos/outcome_classes/six/six_0089.avi,,High-Angle Ball Tracking,,,,
+CEC_TEST_0256,videos/outcome_classes/six/six_0090.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1178,videos/outcome_classes/six/six_0091.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1179,videos/outcome_classes/six/six_0092.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1180,videos/outcome_classes/six/six_0093.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1181,videos/outcome_classes/six/six_0094.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1182,videos/outcome_classes/six/six_0095.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1183,videos/outcome_classes/six/six_0096.avi,,High-Angle Ball Tracking,,,,
+CEC_VAL_0259,videos/outcome_classes/six/six_0097.avi,,High-Angle Ball Tracking,,,,
+CEC_TEST_0257,videos/outcome_classes/six/six_0098.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1184,videos/outcome_classes/six/six_0099.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1185,videos/outcome_classes/six/six_0100.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1186,videos/outcome_classes/six/six_0101.avi,,High-Angle Ball Tracking,,,,
+CEC_TEST_0258,videos/outcome_classes/six/six_0102.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1187,videos/outcome_classes/six/six_0103.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1188,videos/outcome_classes/six/six_0104.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1189,videos/outcome_classes/six/six_0105.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1190,videos/outcome_classes/six/six_0106.avi,,High-Angle Ball Tracking,,,,
+CEC_VAL_0260,videos/outcome_classes/six/six_0107.avi,,High-Angle Ball Tracking,,,,
+CEC_VAL_0261,videos/outcome_classes/six/six_0108.avi,,High-Angle Ball Tracking,,,,
+CEC_TEST_0259,videos/outcome_classes/six/six_0109.avi,,High-Angle Ball Tracking,,,,
+CEC_TEST_0260,videos/outcome_classes/six/six_0110.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1191,videos/outcome_classes/six/six_0111.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1192,videos/outcome_classes/six/six_0112.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1193,videos/outcome_classes/six/six_0113.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1194,videos/outcome_classes/six/six_0114.avi,,High-Angle Ball Tracking,,,,
+CEC_TEST_0261,videos/outcome_classes/six/six_0115.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1195,videos/outcome_classes/six/six_0116.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1196,videos/outcome_classes/six/six_0117.avi,,High-Angle Ball Tracking,,,,
+CEC_VAL_0262,videos/outcome_classes/six/six_0118.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1197,videos/outcome_classes/six/six_0119.avi,,High-Angle Ball Tracking,,,,
+CEC_TEST_0262,videos/outcome_classes/six/six_0120.avi,,High-Angle Ball Tracking,,,,
+CEC_VAL_0263,videos/outcome_classes/six/six_0121.avi,,High-Angle Ball Tracking,,,,
+CEC_TEST_0263,videos/outcome_classes/six/six_0122.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1198,videos/outcome_classes/six/six_0123.avi,,High-Angle Ball Tracking,,,,
+CEC_VAL_0264,videos/outcome_classes/six/six_0124.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1199,videos/outcome_classes/six/six_0125.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1200,videos/outcome_classes/six/six_0126.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1201,videos/outcome_classes/six/six_0127.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1202,videos/outcome_classes/six/six_0128.avi,,High-Angle Ball Tracking,,,,
+CEC_VAL_0265,videos/outcome_classes/six/six_0129.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1203,videos/outcome_classes/six/six_0130.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1204,videos/outcome_classes/six/six_0131.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1205,videos/outcome_classes/six/six_0132.avi,,High-Angle Ball Tracking,,,,
+CEC_TEST_0264,videos/outcome_classes/six/six_0133.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1206,videos/outcome_classes/six/six_0134.avi,,High-Angle Ball Tracking,,,,
+CEC_TEST_0265,videos/outcome_classes/six/six_0135.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1207,videos/outcome_classes/six/six_0136.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1208,videos/outcome_classes/six/six_0137.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1209,videos/outcome_classes/six/six_0138.avi,,High-Angle Ball Tracking,,,,
+CEC_VAL_0266,videos/outcome_classes/six/six_0139.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1210,videos/outcome_classes/six/six_0140.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1211,videos/outcome_classes/six/six_0141.avi,,High-Angle Ball Tracking,,,,
+CEC_VAL_0267,videos/outcome_classes/six/six_0142.avi,,High-Angle Ball Tracking,,,,
+CEC_TEST_0266,videos/outcome_classes/six/six_0143.avi,,High-Angle Ball Tracking,,,,
+CEC_TEST_0267,videos/outcome_classes/six/six_0144.avi,,High-Angle Ball Tracking,,,,
+CEC_VAL_0268,videos/outcome_classes/six/six_0145.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1212,videos/outcome_classes/six/six_0146.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1213,videos/outcome_classes/six/six_0147.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1214,videos/outcome_classes/six/six_0148.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1215,videos/outcome_classes/six/six_0149.avi,,High-Angle Ball Tracking,,,,
+CEC_TEST_0268,videos/outcome_classes/six/six_0150.avi,,High-Angle Ball Tracking,,,,
+CEC_TR_1625,videos/outcome_classes/wicket/wicket_0001.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_1626,videos/outcome_classes/wicket/wicket_0002.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_1627,videos/outcome_classes/wicket/wicket_0003.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_1628,videos/outcome_classes/wicket/wicket_0004.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_1629,videos/outcome_classes/wicket/wicket_0005.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_1630,videos/outcome_classes/wicket/wicket_0006.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_1631,videos/outcome_classes/wicket/wicket_0007.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_1632,videos/outcome_classes/wicket/wicket_0008.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_1633,videos/outcome_classes/wicket/wicket_0009.avi,,Pitch / Umpire Perspective,,,,
+CEC_TEST_0358,videos/outcome_classes/wicket/wicket_0010.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1634,videos/outcome_classes/wicket/wicket_0011.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1635,videos/outcome_classes/wicket/wicket_0012.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1636,videos/outcome_classes/wicket/wicket_0013.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_1637,videos/outcome_classes/wicket/wicket_0014.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_1638,videos/outcome_classes/wicket/wicket_0015.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1639,videos/outcome_classes/wicket/wicket_0016.avi,,Pitch / Umpire Perspective,,,,
+CEC_VAL_0358,videos/outcome_classes/wicket/wicket_0017.avi,,Pitch / Umpire Perspective,,,,
+CEC_TEST_0359,videos/outcome_classes/wicket/wicket_0018.avi,,Pitch / Umpire Perspective,,,,
+CEC_TEST_0360,videos/outcome_classes/wicket/wicket_0019.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_1640,videos/outcome_classes/wicket/wicket_0020.avi,,Pitch / Stump Close-up,,,,
+CEC_VAL_0359,videos/outcome_classes/wicket/wicket_0021.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1641,videos/outcome_classes/wicket/wicket_0022.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1642,videos/outcome_classes/wicket/wicket_0023.avi,,Pitch / Stump Close-up,,,,
+CEC_TEST_0361,videos/outcome_classes/wicket/wicket_0024.avi,,Pitch / Stump Close-up,,,,
+CEC_VAL_0360,videos/outcome_classes/wicket/wicket_0025.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1643,videos/outcome_classes/wicket/wicket_0026.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1644,videos/outcome_classes/wicket/wicket_0027.avi,,Pitch / Stump Close-up,,,,
+CEC_VAL_0361,videos/outcome_classes/wicket/wicket_0028.avi,,Pitch / Umpire Perspective,,,,
+CEC_TEST_0362,videos/outcome_classes/wicket/wicket_0029.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1645,videos/outcome_classes/wicket/wicket_0030.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1646,videos/outcome_classes/wicket/wicket_0031.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1647,videos/outcome_classes/wicket/wicket_0032.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1648,videos/outcome_classes/wicket/wicket_0033.avi,,Pitch / Umpire Perspective,,,,
+CEC_VAL_0362,videos/outcome_classes/wicket/wicket_0034.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1649,videos/outcome_classes/wicket/wicket_0035.avi,,Pitch / Umpire Perspective,,,,
+CEC_VAL_0363,videos/outcome_classes/wicket/wicket_0036.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1650,videos/outcome_classes/wicket/wicket_0037.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1651,videos/outcome_classes/wicket/wicket_0038.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1652,videos/outcome_classes/wicket/wicket_0039.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1653,videos/outcome_classes/wicket/wicket_0040.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1654,videos/outcome_classes/wicket/wicket_0041.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1655,videos/outcome_classes/wicket/wicket_0042.avi,,Pitch / Umpire Perspective,,,,
+CEC_VAL_0364,videos/outcome_classes/wicket/wicket_0043.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1656,videos/outcome_classes/wicket/wicket_0044.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1657,videos/outcome_classes/wicket/wicket_0045.avi,,Pitch / Umpire Perspective,,,,
+CEC_TEST_0363,videos/outcome_classes/wicket/wicket_0046.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1658,videos/outcome_classes/wicket/wicket_0047.avi,,Pitch / Stump Close-up,,,,
+CEC_VAL_0365,videos/outcome_classes/wicket/wicket_0048.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1659,videos/outcome_classes/wicket/wicket_0049.avi,,Pitch / Umpire Perspective,,,,
+CEC_TEST_0364,videos/outcome_classes/wicket/wicket_0050.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1660,videos/outcome_classes/wicket/wicket_0051.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1661,videos/outcome_classes/wicket/wicket_0052.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1662,videos/outcome_classes/wicket/wicket_0053.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1663,videos/outcome_classes/wicket/wicket_0054.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1664,videos/outcome_classes/wicket/wicket_0055.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1665,videos/outcome_classes/wicket/wicket_0056.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1666,videos/outcome_classes/wicket/wicket_0057.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1667,videos/outcome_classes/wicket/wicket_0058.avi,,Pitch / Umpire Perspective,,,,
+CEC_VAL_0366,videos/outcome_classes/wicket/wicket_0059.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1668,videos/outcome_classes/wicket/wicket_0060.avi,,Pitch / Umpire Perspective,,,,
+CEC_VAL_0367,videos/outcome_classes/wicket/wicket_0061.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1669,videos/outcome_classes/wicket/wicket_0062.avi,,Pitch / Umpire Perspective,,,,
+CEC_TEST_0365,videos/outcome_classes/wicket/wicket_0063.avi,,Pitch / Umpire Perspective,,,,
+CEC_VAL_0368,videos/outcome_classes/wicket/wicket_0064.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1670,videos/outcome_classes/wicket/wicket_0065.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1671,videos/outcome_classes/wicket/wicket_0066.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_1672,videos/outcome_classes/wicket/wicket_0067.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_1673,videos/outcome_classes/wicket/wicket_0068.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1674,videos/outcome_classes/wicket/wicket_0069.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1675,videos/outcome_classes/wicket/wicket_0070.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1676,videos/outcome_classes/wicket/wicket_0071.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1677,videos/outcome_classes/wicket/wicket_0072.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1678,videos/outcome_classes/wicket/wicket_0073.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_1679,videos/outcome_classes/wicket/wicket_0074.avi,,Pitch / Umpire Perspective,,,,
+CEC_VAL_0369,videos/outcome_classes/wicket/wicket_0075.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1680,videos/outcome_classes/wicket/wicket_0076.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1681,videos/outcome_classes/wicket/wicket_0077.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1682,videos/outcome_classes/wicket/wicket_0078.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1683,videos/outcome_classes/wicket/wicket_0079.avi,,Pitch / Umpire Perspective,,,,
+CEC_TEST_0366,videos/outcome_classes/wicket/wicket_0080.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1684,videos/outcome_classes/wicket/wicket_0081.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1685,videos/outcome_classes/wicket/wicket_0082.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1686,videos/outcome_classes/wicket/wicket_0083.avi,,Pitch / Umpire Perspective,,,,
+CEC_TEST_0367,videos/outcome_classes/wicket/wicket_0084.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1687,videos/outcome_classes/wicket/wicket_0085.avi,,Pitch / Stump Close-up,,,,
+CEC_TEST_0368,videos/outcome_classes/wicket/wicket_0086.avi,,Pitch / Umpire Perspective,,,,
+CEC_TEST_0369,videos/outcome_classes/wicket/wicket_0087.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1688,videos/outcome_classes/wicket/wicket_0088.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1689,videos/outcome_classes/wicket/wicket_0089.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1690,videos/outcome_classes/wicket/wicket_0090.avi,,Pitch / Umpire Perspective,,,,
+CEC_VAL_0370,videos/outcome_classes/wicket/wicket_0091.avi,,Pitch / Umpire Perspective,,,,
+CEC_TEST_0370,videos/outcome_classes/wicket/wicket_0092.avi,,Pitch / Umpire Perspective,,,,
+CEC_VAL_0371,videos/outcome_classes/wicket/wicket_0093.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1691,videos/outcome_classes/wicket/wicket_0094.avi,,Pitch / Umpire Perspective,,,,
+CEC_TEST_0371,videos/outcome_classes/wicket/wicket_0095.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1692,videos/outcome_classes/wicket/wicket_0096.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1693,videos/outcome_classes/wicket/wicket_0097.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1694,videos/outcome_classes/wicket/wicket_0098.avi,,Pitch / Umpire Perspective,,,,
+CEC_VAL_0372,videos/outcome_classes/wicket/wicket_0099.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1695,videos/outcome_classes/wicket/wicket_0100.avi,,Pitch / Umpire Perspective,,,,
+CEC_VAL_0373,videos/outcome_classes/wicket/wicket_0101.avi,,Pitch / Umpire Perspective,,,,
+CEC_TEST_0372,videos/outcome_classes/wicket/wicket_0102.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1696,videos/outcome_classes/wicket/wicket_0103.avi,,Pitch / Umpire Perspective,,,,
+CEC_VAL_0374,videos/outcome_classes/wicket/wicket_0104.avi,,Pitch / Umpire Perspective,,,,
+CEC_TEST_0373,videos/outcome_classes/wicket/wicket_0105.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1697,videos/outcome_classes/wicket/wicket_0106.avi,,Pitch / Umpire Perspective,,,,
+CEC_VAL_0375,videos/outcome_classes/wicket/wicket_0107.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1698,videos/outcome_classes/wicket/wicket_0108.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1699,videos/outcome_classes/wicket/wicket_0109.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1700,videos/outcome_classes/wicket/wicket_0110.avi,,Pitch / Umpire Perspective,,,,
+CEC_VAL_0376,videos/outcome_classes/wicket/wicket_0111.avi,,,,,,
+CEC_TR_1701,videos/outcome_classes/wicket/wicket_0112.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1702,videos/outcome_classes/wicket/wicket_0113.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1703,videos/outcome_classes/wicket/wicket_0114.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_1704,videos/outcome_classes/wicket/wicket_0115.avi,,Pitch / Umpire Perspective,,,,
+CEC_TEST_0374,videos/outcome_classes/wicket/wicket_0116.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1705,videos/outcome_classes/wicket/wicket_0117.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1706,videos/outcome_classes/wicket/wicket_0118.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1707,videos/outcome_classes/wicket/wicket_0119.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1708,videos/outcome_classes/wicket/wicket_0120.avi,,Pitch / Umpire Perspective,,,,
+CEC_TEST_0375,videos/outcome_classes/wicket/wicket_0121.avi,,Pitch / Umpire Perspective,,,,
+CEC_VAL_0377,videos/outcome_classes/wicket/wicket_0122.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1709,videos/outcome_classes/wicket/wicket_0123.avi,,Pitch / Umpire Perspective,,,,
+CEC_VAL_0378,videos/outcome_classes/wicket/wicket_0124.avi,,,,,,
+CEC_TR_1710,videos/outcome_classes/wicket/wicket_0125.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1711,videos/outcome_classes/wicket/wicket_0126.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1712,videos/outcome_classes/wicket/wicket_0127.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1713,videos/outcome_classes/wicket/wicket_0128.avi,,Pitch / Umpire Perspective,,,,
+CEC_VAL_0379,videos/outcome_classes/wicket/wicket_0129.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1714,videos/outcome_classes/wicket/wicket_0130.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1715,videos/outcome_classes/wicket/wicket_0131.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1716,videos/outcome_classes/wicket/wicket_0132.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1717,videos/outcome_classes/wicket/wicket_0133.avi,,Pitch / Umpire Perspective,,,,
+CEC_TEST_0376,videos/outcome_classes/wicket/wicket_0134.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1718,videos/outcome_classes/wicket/wicket_0135.avi,,Pitch / Stump Close-up,,,,
+CEC_VAL_0380,videos/outcome_classes/wicket/wicket_0136.avi,,Pitch / Umpire Perspective,,,,
+CEC_TEST_0377,videos/outcome_classes/wicket/wicket_0137.avi,,,,,,
+CEC_TR_1719,videos/outcome_classes/wicket/wicket_0138.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1720,videos/outcome_classes/wicket/wicket_0139.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1721,videos/outcome_classes/wicket/wicket_0140.avi,,Pitch / Umpire Perspective,,,,
+CEC_TEST_0378,videos/outcome_classes/wicket/wicket_0141.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1722,videos/outcome_classes/wicket/wicket_0142.avi,,Pitch / Umpire Perspective,,,,
+CEC_TEST_0379,videos/outcome_classes/wicket/wicket_0143.avi,,Pitch / Umpire Perspective,,,,
+CEC_TEST_0380,videos/outcome_classes/wicket/wicket_0144.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1723,videos/outcome_classes/wicket/wicket_0145.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1724,videos/outcome_classes/wicket/wicket_0146.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_1725,videos/outcome_classes/wicket/wicket_0147.avi,,Pitch / Stump Close-up,,,,
+CEC_TR_1726,videos/outcome_classes/wicket/wicket_0148.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1727,videos/outcome_classes/wicket/wicket_0149.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_1728,videos/outcome_classes/wicket/wicket_0150.avi,,Pitch / Umpire Perspective,,,,
+CEC_TR_0606,videos/stroke_classes/hook/hook_0001.avi,left-handed,Batsman-Centric,3,25,120,1000
+CEC_TR_0607,videos/stroke_classes/hook/hook_0002.avi,left-handed,Batsman-Centric,8,27,320,1080
+CEC_TR_0608,videos/stroke_classes/hook/hook_0003.avi,left-handed,Batsman-Centric,13,35,520,1400
+CEC_TR_0609,videos/stroke_classes/hook/hook_0004.avi,right-handed,Batsman-Centric,9,33,360,1320
+CEC_TEST_0129,videos/stroke_classes/hook/hook_0005.avi,right-handed,Batsman-Centric,16,33,640,1320
+CEC_TEST_0130,videos/stroke_classes/hook/hook_0006.avi,right-handed,Batsman-Centric,10,29,400,1160
+CEC_TR_0610,videos/stroke_classes/hook/hook_0007.avi,right-handed,Batsman-Centric,17,56,680,2240
+CEC_TR_0611,videos/stroke_classes/hook/hook_0008.avi,right-handed,Batsman-Centric,12,38,480,1520
+CEC_TR_0612,videos/stroke_classes/hook/hook_0009.avi,right-handed,Batsman-Centric,10,28,400,1120
+CEC_TEST_0131,videos/stroke_classes/hook/hook_0010.avi,left-handed,Batsman-Centric,8,27,320,1080
+CEC_TR_0613,videos/stroke_classes/hook/hook_0011.avi,right-handed,Batsman-Centric,2,19,80,760
+CEC_TR_0614,videos/stroke_classes/hook/hook_0012.avi,right-handed,Batsman-Centric,9,25,360,1000
+CEC_TR_0615,videos/stroke_classes/hook/hook_0013.avi,left-handed,Batsman-Centric,8,30,320,1200
+CEC_TR_0616,videos/stroke_classes/hook/hook_0014.avi,right-handed,Batsman-Centric,18,34,720,1360
+CEC_TEST_0132,videos/stroke_classes/hook/hook_0015.avi,right-handed,Batsman-Centric,9,29,360,1160
+CEC_TEST_0133,videos/stroke_classes/hook/hook_0016.avi,right-handed,Batsman-Centric,0,15,0,600
+CEC_TR_0617,videos/stroke_classes/hook/hook_0017.avi,right-handed,Batsman-Centric,10,27,400,1080
+CEC_TR_0618,videos/stroke_classes/hook/hook_0018.avi,right-handed,Batsman-Centric,12,43,480,1720
+CEC_TR_0619,videos/stroke_classes/hook/hook_0019.avi,right-handed,Batsman-Centric,11,32,440,1280
+CEC_TR_0620,videos/stroke_classes/hook/hook_0020.avi,left-handed,Batsman-Centric,7,31,280,1240
+CEC_TR_0621,videos/stroke_classes/hook/hook_0021.avi,right-handed,Batsman-Centric,16,33,640,1320
+CEC_TR_0622,videos/stroke_classes/hook/hook_0022.avi,right-handed,Batsman-Centric,3,25,120,1000
+CEC_TEST_0134,videos/stroke_classes/hook/hook_0023.avi,left-handed,Batsman-Centric,3,25,120,1000
+CEC_TR_0623,videos/stroke_classes/hook/hook_0024.avi,left-handed,Batsman-Centric,8,28,320,1120
+CEC_TR_0624,videos/stroke_classes/hook/hook_0025.avi,right-handed,Batsman-Centric,9,30,360,1200
+CEC_VAL_0129,videos/stroke_classes/hook/hook_0026.avi,left-handed,Batsman-Centric,9,30,360,1200
+CEC_TR_0625,videos/stroke_classes/hook/hook_0027.avi,left-handed,Batsman-Centric,2,24,80,960
+CEC_TR_0626,videos/stroke_classes/hook/hook_0028.avi,right-handed,Batsman-Centric,10,28,400,1120
+CEC_TR_0627,videos/stroke_classes/hook/hook_0029.avi,left-handed,Batsman-Centric,10,31,400,1240
+CEC_TR_0628,videos/stroke_classes/hook/hook_0030.avi,left-handed,Batsman-Centric,9,27,360,1080
+CEC_TR_0629,videos/stroke_classes/hook/hook_0031.avi,right-handed,Batsman-Centric,8,26,320,1040
+CEC_TR_0630,videos/stroke_classes/hook/hook_0032.avi,right-handed,Batsman-Centric,14,34,560,1360
+CEC_VAL_0130,videos/stroke_classes/hook/hook_0033.avi,left-handed,Batsman-Centric,13,34,520,1360
+CEC_VAL_0131,videos/stroke_classes/hook/hook_0034.avi,left-handed,Batsman-Centric,12,31,480,1240
+CEC_TR_0631,videos/stroke_classes/hook/hook_0035.avi,right-handed,Batsman-Centric,12,31,480,1240
+CEC_VAL_0132,videos/stroke_classes/hook/hook_0036.avi,right-handed,Batsman-Centric,14,35,560,1400
+CEC_VAL_0133,videos/stroke_classes/hook/hook_0037.avi,left-handed,Batsman-Centric,15,34,600,1360
+CEC_TR_0632,videos/stroke_classes/hook/hook_0038.avi,left-handed,Batsman-Centric,3,23,120,920
+CEC_TR_0633,videos/stroke_classes/hook/hook_0039.avi,right-handed,Batsman-Centric,5,24,200,960
+CEC_TEST_0135,videos/stroke_classes/hook/hook_0040.avi,right-handed,Batsman-Centric,6,26,240,1040
+CEC_TR_0634,videos/stroke_classes/hook/hook_0041.avi,left-handed,Batsman-Centric,6,26,240,1040
+CEC_TEST_0136,videos/stroke_classes/hook/hook_0042.avi,right-handed,Batsman-Centric,2,21,80,840
+CEC_TR_0635,videos/stroke_classes/hook/hook_0043.avi,left-handed,Batsman-Centric,3,21,120,840
+CEC_TR_0636,videos/stroke_classes/hook/hook_0044.avi,left-handed,Batsman-Centric,2,23,80,920
+CEC_TEST_0137,videos/stroke_classes/hook/hook_0045.avi,right-handed,Batsman-Centric,3,27,120,1080
+CEC_TR_0637,videos/stroke_classes/hook/hook_0046.avi,left-handed,Batsman-Centric,11,30,440,1200
+CEC_VAL_0134,videos/stroke_classes/hook/hook_0047.avi,right-handed,Batsman-Centric,11,31,440,1240
+CEC_TEST_0138,videos/stroke_classes/hook/hook_0048.avi,left-handed,Batsman-Centric,2,25,80,1000
+CEC_TR_0638,videos/stroke_classes/hook/hook_0049.avi,left-handed,Batsman-Centric,8,32,320,1280
+CEC_TR_0639,videos/stroke_classes/hook/hook_0050.avi,left-handed,Batsman-Centric,11,30,440,1200
+CEC_TR_0640,videos/stroke_classes/hook/hook_0051.avi,left-handed,Batsman-Centric,11,31,440,1240
+CEC_TR_0641,videos/stroke_classes/hook/hook_0052.avi,right-handed,Batsman-Centric,12,32,480,1280
+CEC_TR_0642,videos/stroke_classes/hook/hook_0053.avi,right-handed,Batsman-Centric,12,33,480,1320
+CEC_TR_0643,videos/stroke_classes/hook/hook_0054.avi,right-handed,Batsman-Centric,12,33,480,1320
+CEC_TR_0644,videos/stroke_classes/hook/hook_0055.avi,left-handed,Batsman-Centric,5,26,200,1040
+CEC_TR_0645,videos/stroke_classes/hook/hook_0056.avi,left-handed,Batsman-Centric,5,26,200,1040
+CEC_TR_0646,videos/stroke_classes/hook/hook_0057.avi,left-handed,Batsman-Centric,10,34,400,1360
+CEC_TR_0647,videos/stroke_classes/hook/hook_0058.avi,left-handed,Batsman-Centric,9,33,360,1320
+CEC_VAL_0135,videos/stroke_classes/hook/hook_0059.avi,left-handed,Batsman-Centric,8,32,320,1280
+CEC_TR_0648,videos/stroke_classes/hook/hook_0060.avi,left-handed,Batsman-Centric,10,35,400,1400
+CEC_TR_0649,videos/stroke_classes/hook/hook_0061.avi,left-handed,Batsman-Centric,9,31,360,1240
+CEC_TR_0650,videos/stroke_classes/hook/hook_0062.avi,left-handed,Batsman-Centric,9,31,360,1240
+CEC_TR_0651,videos/stroke_classes/hook/hook_0063.avi,left-handed,Batsman-Centric,9,32,360,1280
+CEC_TR_0652,videos/stroke_classes/hook/hook_0064.avi,left-handed,Batsman-Centric,7,27,280,1080
+CEC_VAL_0136,videos/stroke_classes/hook/hook_0065.avi,left-handed,Batsman-Centric,7,27,280,1080
+CEC_VAL_0137,videos/stroke_classes/hook/hook_0066.avi,right-handed,Batsman-Centric,6,27,240,1080
+CEC_TR_0653,videos/stroke_classes/hook/hook_0067.avi,right-handed,Batsman-Centric,0,19,0,760
+CEC_VAL_0138,videos/stroke_classes/hook/hook_0068.avi,right-handed,Batsman-Centric,0,19,0,760
+CEC_TR_0654,videos/stroke_classes/hook/hook_0069.avi,right-handed,Batsman-Centric,13,33,520,1320
+CEC_TR_0655,videos/stroke_classes/hook/hook_0070.avi,right-handed,Batsman-Centric,13,33,520,1320
+CEC_TR_0656,videos/stroke_classes/hook/hook_0071.avi,left-handed,Batsman-Centric,3,28,120,1120
+CEC_TR_0657,videos/stroke_classes/hook/hook_0072.avi,left-handed,Batsman-Centric,8,31,320,1240
+CEC_VAL_0139,videos/stroke_classes/hook/hook_0073.avi,left-handed,Batsman-Centric,11,36,440,1440
+CEC_TR_0658,videos/stroke_classes/hook/hook_0074.avi,right-handed,Batsman-Centric,14,33,560,1320
+CEC_TR_0659,videos/stroke_classes/hook/hook_0075.avi,right-handed,Batsman-Centric,16,41,640,1640
+CEC_TR_0660,videos/stroke_classes/hook/hook_0076.avi,right-handed,Batsman-Centric,11,32,440,1280
+CEC_VAL_0140,videos/stroke_classes/hook/hook_0077.avi,right-handed,Batsman-Centric,23,57,920,2280
+CEC_TR_0661,videos/stroke_classes/hook/hook_0078.avi,right-handed,Batsman-Centric,14,36,560,1440
+CEC_VAL_0141,videos/stroke_classes/hook/hook_0079.avi,right-handed,Batsman-Centric,9,31,360,1240
+CEC_TR_0662,videos/stroke_classes/hook/hook_0080.avi,right-handed,Batsman-Centric,7,30,280,1200
+CEC_TEST_0139,videos/stroke_classes/hook/hook_0081.avi,right-handed,Batsman-Centric,3,24,120,960
+CEC_TR_0663,videos/stroke_classes/hook/hook_0082.avi,right-handed,Batsman-Centric,7,27,280,1080
+CEC_TEST_0140,videos/stroke_classes/hook/hook_0083.avi,right-handed,Batsman-Centric,6,26,240,1040
+CEC_VAL_0142,videos/stroke_classes/hook/hook_0084.avi,right-handed,Batsman-Centric,1,24,40,960
+CEC_TR_0664,videos/stroke_classes/hook/hook_0085.avi,left-handed,Batsman-Centric,10,34,400,1360
+CEC_TR_0665,videos/stroke_classes/hook/hook_0086.avi,right-handed,Batsman-Centric,11,32,440,1280
+CEC_TEST_0141,videos/stroke_classes/hook/hook_0087.avi,right-handed,Batsman-Centric,20,41,800,1640
+CEC_TEST_0142,videos/stroke_classes/hook/hook_0088.avi,right-handed,Batsman-Centric,6,30,240,1200
+CEC_TR_0666,videos/stroke_classes/hook/hook_0089.avi,right-handed,Batsman-Centric,9,32,360,1280
+CEC_TR_0667,videos/stroke_classes/hook/hook_0090.avi,right-handed,Batsman-Centric,9,29,360,1160
+CEC_TR_0668,videos/stroke_classes/hook/hook_0091.avi,left-handed,Batsman-Centric,9,31,360,1240
+CEC_TEST_0143,videos/stroke_classes/hook/hook_0092.avi,left-handed,Batsman-Centric,2,23,80,920
+CEC_VAL_0143,videos/stroke_classes/hook/hook_0093.avi,left-handed,Batsman-Centric,5,25,200,1000
+CEC_VAL_0144,videos/stroke_classes/hook/hook_0094.avi,left-handed,Batsman-Centric,4,24,160,960
+CEC_TR_0669,videos/stroke_classes/hook/hook_0095.avi,right-handed,Batsman-Centric,9,32,360,1280
+CEC_TR_0670,videos/stroke_classes/hook/hook_0096.avi,left-handed,Batsman-Centric,0,19,0,760
+CEC_TR_0671,videos/stroke_classes/hook/hook_0097.avi,right-handed,Batsman-Centric,11,33,440,1320
+CEC_TEST_0144,videos/stroke_classes/hook/hook_0098.avi,right-handed,Batsman-Centric,1,24,40,960
+CEC_TR_0672,videos/stroke_classes/hook/hook_0099.avi,right-handed,Batsman-Centric,11,31,440,1240
+CEC_TR_0673,videos/stroke_classes/hook/hook_0100.avi,right-handed,Batsman-Centric,6,27,240,1080
+CEC_VAL_0145,videos/stroke_classes/hook/hook_0101.avi,right-handed,Batsman-Centric,6,27,240,1080
+CEC_TR_0674,videos/stroke_classes/hook/hook_0102.avi,right-handed,Batsman-Centric,9,30,360,1200
+CEC_TR_0675,videos/stroke_classes/hook/hook_0103.avi,right-handed,Batsman-Centric,6,27,240,1080
+CEC_TEST_0145,videos/stroke_classes/hook/hook_0104.avi,right-handed,Batsman-Centric,12,34,480,1360
+CEC_TEST_0146,videos/stroke_classes/hook/hook_0105.avi,right-handed,Batsman-Centric,15,37,600,1480
+CEC_TR_0676,videos/stroke_classes/hook/hook_0106.avi,right-handed,Batsman-Centric,5,26,200,1040
+CEC_TR_0677,videos/stroke_classes/hook/hook_0107.avi,right-handed,Batsman-Centric,16,39,640,1560
+CEC_TR_0678,videos/stroke_classes/hook/hook_0108.avi,left-handed,Batsman-Centric,8,30,320,1200
+CEC_TR_0679,videos/stroke_classes/hook/hook_0109.avi,left-handed,Batsman-Centric,12,32,480,1280
+CEC_TR_0680,videos/stroke_classes/hook/hook_0110.avi,left-handed,Batsman-Centric,12,32,480,1280
+CEC_TR_0681,videos/stroke_classes/hook/hook_0111.avi,right-handed,Batsman-Centric,14,37,560,1480
+CEC_TEST_0147,videos/stroke_classes/hook/hook_0112.avi,right-handed,Batsman-Centric,15,37,600,1480
+CEC_TR_0682,videos/stroke_classes/hook/hook_0113.avi,right-handed,Batsman-Centric,10,32,400,1280
+CEC_TR_0683,videos/stroke_classes/hook/hook_0114.avi,right-handed,Batsman-Centric,11,34,440,1360
+CEC_TR_0684,videos/stroke_classes/hook/hook_0115.avi,right-handed,Batsman-Centric,17,38,680,1520
+CEC_TR_0685,videos/stroke_classes/hook/hook_0116.avi,right-handed,Batsman-Centric,16,38,640,1520
+CEC_TR_0686,videos/stroke_classes/hook/hook_0117.avi,right-handed,Batsman-Centric,12,36,480,1440
+CEC_TR_0687,videos/stroke_classes/hook/hook_0118.avi,right-handed,Batsman-Centric,15,36,600,1440
+CEC_TR_0688,videos/stroke_classes/hook/hook_0119.avi,right-handed,Batsman-Centric,3,23,120,920
+CEC_TR_0689,videos/stroke_classes/hook/hook_0120.avi,right-handed,Batsman-Centric,5,26,200,1040
+CEC_TR_0690,videos/stroke_classes/hook/hook_0121.avi,right-handed,Batsman-Centric,16,37,640,1480
+CEC_TR_0691,videos/stroke_classes/hook/hook_0122.avi,right-handed,Batsman-Centric,14,34,560,1360
+CEC_VAL_0146,videos/stroke_classes/hook/hook_0123.avi,right-handed,Batsman-Centric,10,30,400,1200
+CEC_VAL_0147,videos/stroke_classes/hook/hook_0124.avi,right-handed,Batsman-Centric,16,38,640,1520
+CEC_TR_0692,videos/stroke_classes/hook/hook_0125.avi,right-handed,Batsman-Centric,14,35,560,1400
+CEC_TR_0693,videos/stroke_classes/hook/hook_0126.avi,right-handed,Batsman-Centric,7,26,280,1040
+CEC_TR_0694,videos/stroke_classes/hook/hook_0127.avi,right-handed,Batsman-Centric,6,26,240,1040
+CEC_TR_0695,videos/stroke_classes/hook/hook_0128.avi,right-handed,Batsman-Centric,16,41,640,1640
+CEC_TR_0696,videos/stroke_classes/hook/hook_0129.avi,right-handed,Batsman-Centric,6,29,240,1160
+CEC_TR_0697,videos/stroke_classes/hook/hook_0130.avi,right-handed,Batsman-Centric,16,34,640,1360
+CEC_VAL_0148,videos/stroke_classes/hook/hook_0131.avi,right-handed,Batsman-Centric,12,32,480,1280
+CEC_TR_0698,videos/stroke_classes/hook/hook_0132.avi,right-handed,Batsman-Centric,8,31,320,1240
+CEC_TR_0699,videos/stroke_classes/hook/hook_0133.avi,left-handed,Batsman-Centric,11,31,440,1240
+CEC_TR_0700,videos/stroke_classes/hook/hook_0134.avi,right-handed,Batsman-Centric,20,40,800,1600
+CEC_TEST_0148,videos/stroke_classes/hook/hook_0135.avi,left-handed,Batsman-Centric,10,33,400,1320
+CEC_TR_0701,videos/stroke_classes/hook/hook_0136.avi,right-handed,Batsman-Centric,7,28,280,1120
+CEC_TR_0702,videos/stroke_classes/hook/hook_0137.avi,right-handed,Batsman-Centric,17,40,680,1600
+CEC_TR_0703,videos/stroke_classes/hook/hook_0138.avi,left-handed,Batsman-Centric,13,34,520,1360
+CEC_TR_0704,videos/stroke_classes/hook/hook_0139.avi,left-handed,Batsman-Centric,2,24,80,960
+CEC_TR_0705,videos/stroke_classes/hook/hook_0140.avi,right-handed,Batsman-Centric,5,25,200,1000
+CEC_TEST_0149,videos/stroke_classes/hook/hook_0141.avi,right-handed,Batsman-Centric,0,20,0,800
+CEC_VAL_0149,videos/stroke_classes/hook/hook_0142.avi,right-handed,Batsman-Centric,11,33,440,1320
+CEC_TR_0706,videos/stroke_classes/hook/hook_0143.avi,right-handed,Batsman-Centric,6,25,240,1000
+CEC_TR_0707,videos/stroke_classes/hook/hook_0144.avi,right-handed,Batsman-Centric,26,26,1040,1040
+CEC_TEST_0150,videos/stroke_classes/hook/hook_0145.avi,right-handed,Batsman-Centric,3,47,120,1880
+CEC_TEST_0151,videos/stroke_classes/hook/hook_0146.avi,right-handed,Batsman-Centric,21,46,840,1840
+CEC_TR_0708,videos/stroke_classes/hook/hook_0147.avi,right-handed,Batsman-Centric,7,28,280,1120
+CEC_TR_0709,videos/stroke_classes/hook/hook_0148.avi,left-handed,Batsman-Centric,6,29,240,1160
+CEC_TR_0710,videos/stroke_classes/hook/hook_0149.avi,left-handed,Batsman-Centric,13,36,520,1440
+CEC_VAL_0150,videos/stroke_classes/hook/hook_0150.avi,right-handed,Batsman-Centric,11,31,440,1240
+CEC_TR_0711,videos/stroke_classes/hook/hook_0151.avi,right-handed,Batsman-Centric,15,37,600,1480
+CEC_TR_0712,videos/stroke_classes/hook/hook_0152.avi,right-handed,Batsman-Centric,4,27,160,1080
+CEC_TEST_0152,videos/stroke_classes/hook/hook_0153.avi,right-handed,Batsman-Centric,8,29,320,1160
+CEC_TR_0713,videos/stroke_classes/hook/hook_0154.avi,right-handed,Batsman-Centric,7,28,280,1120
+CEC_TR_0714,videos/stroke_classes/hook/hook_0155.avi,right-handed,Batsman-Centric,8,31,320,1240
+CEC_TR_0715,videos/stroke_classes/hook/hook_0156.avi,right-handed,Batsman-Centric,5,25,200,1000
+CEC_TR_0716,videos/stroke_classes/hook/hook_0157.avi,right-handed,Batsman-Centric,16,52,640,2080
+CEC_VAL_0151,videos/stroke_classes/hook/hook_0158.avi,right-handed,Batsman-Centric,19,41,760,1640
+CEC_TR_0717,videos/stroke_classes/hook/hook_0159.avi,left-handed,Batsman-Centric,6,29,240,1160
+CEC_TEST_0153,videos/stroke_classes/hook/hook_0160.avi,left-handed,Batsman-Centric,5,25,200,1000
+CEC_VAL_0152,videos/stroke_classes/hook/hook_0161.avi,right-handed,Batsman-Centric,5,25,200,1000
+CEC_TR_0718,videos/stroke_classes/hook/hook_0162.avi,left-handed,Batsman-Centric,4,23,160,920
+CEC_TR_0719,videos/stroke_classes/hook/hook_0163.avi,right-handed,Batsman-Centric,4,24,160,960
+CEC_TEST_0154,videos/stroke_classes/hook/hook_0164.avi,right-handed,Batsman-Centric,0,19,0,760
+CEC_TR_0720,videos/stroke_classes/hook/hook_0165.avi,left-handed,Batsman-Centric,0,19,0,760
+CEC_TR_0721,videos/stroke_classes/hook/hook_0166.avi,left-handed,Batsman-Centric,11,33,440,1320
+CEC_TR_0722,videos/stroke_classes/hook/hook_0167.avi,right-handed,Batsman-Centric,11,34,440,1360
+CEC_TR_0723,videos/stroke_classes/hook/hook_0168.avi,left-handed,Batsman-Centric,1,25,40,1000
+CEC_TR_0724,videos/stroke_classes/hook/hook_0169.avi,right-handed,Batsman-Centric,1,26,40,1040
+CEC_TR_0725,videos/stroke_classes/hook/hook_0170.avi,right-handed,Batsman-Centric,1,25,40,1000
+CEC_TEST_0155,videos/stroke_classes/hook/hook_0171.avi,right-handed,Batsman-Centric,11,30,440,1200
+CEC_VAL_0153,videos/stroke_classes/hook/hook_0172.avi,left-handed,Batsman-Centric,9,30,360,1200
+CEC_TR_0726,videos/stroke_classes/hook/hook_0173.avi,left-handed,Batsman-Centric,7,26,280,1040
+CEC_TR_0727,videos/stroke_classes/hook/hook_0174.avi,left-handed,Batsman-Centric,6,26,240,1040
+CEC_VAL_0154,videos/stroke_classes/hook/hook_0175.avi,right-handed,Batsman-Centric,6,27,240,1080
+CEC_TR_0728,videos/stroke_classes/hook/hook_0176.avi,left-handed,Batsman-Centric,6,26,240,1040
+CEC_TR_0729,videos/stroke_classes/hook/hook_0177.avi,right-handed,Batsman-Centric,10,30,400,1200
+CEC_TR_0730,videos/stroke_classes/hook/hook_0178.avi,right-handed,Batsman-Centric,5,26,200,1040
+CEC_VAL_0155,videos/stroke_classes/hook/hook_0179.avi,left-handed,Batsman-Centric,15,34,600,1360
+CEC_TR_0731,videos/stroke_classes/hook/hook_0180.avi,left-handed,Batsman-Centric,3,23,120,920
+CEC_TR_0732,videos/stroke_classes/hook/hook_0181.avi,right-handed,Batsman-Centric,2,26,80,1040
+CEC_TR_0733,videos/stroke_classes/late_cut/late_cut_0001.avi,right-handed,Batsman-Centric,7,29,280,1160
+CEC_TR_0734,videos/stroke_classes/late_cut/late_cut_0002.avi,right-handed,Batsman-Centric,10,33,400,1320
+CEC_TR_0735,videos/stroke_classes/late_cut/late_cut_0003.avi,left-handed,Batsman-Centric,0,13,0,520
+CEC_TR_0736,videos/stroke_classes/late_cut/late_cut_0004.avi,right-handed,Batsman-Centric,0,11,0,440
+CEC_TEST_0156,videos/stroke_classes/late_cut/late_cut_0005.avi,left-handed,Batsman-Centric,0,19,0,760
+CEC_TR_0737,videos/stroke_classes/late_cut/late_cut_0006.avi,right-handed,Batsman-Centric,0,21,0,840
+CEC_TR_0738,videos/stroke_classes/late_cut/late_cut_0007.avi,right-handed,Batsman-Centric,7,31,280,1240
+CEC_TR_0739,videos/stroke_classes/late_cut/late_cut_0008.avi,left-handed,Batsman-Centric,8,30,320,1200
+CEC_TR_0740,videos/stroke_classes/late_cut/late_cut_0009.avi,right-handed,Batsman-Centric,17,42,680,1680
+CEC_TEST_0157,videos/stroke_classes/late_cut/late_cut_0010.avi,left-handed,Batsman-Centric,17,36,680,1440
+CEC_VAL_0156,videos/stroke_classes/late_cut/late_cut_0011.avi,right-handed,Batsman-Centric,12,34,480,1360
+CEC_TR_0741,videos/stroke_classes/late_cut/late_cut_0012.avi,left-handed,Batsman-Centric,11,34,440,1360
+CEC_TR_0742,videos/stroke_classes/late_cut/late_cut_0013.avi,right-handed,Batsman-Centric,12,35,480,1400
+CEC_TEST_0158,videos/stroke_classes/late_cut/late_cut_0014.avi,left-handed,Batsman-Centric,11,34,440,1360
+CEC_VAL_0157,videos/stroke_classes/late_cut/late_cut_0015.avi,left-handed,Batsman-Centric,15,46,600,1840
+CEC_TR_0743,videos/stroke_classes/late_cut/late_cut_0016.avi,right-handed,Batsman-Centric,14,42,560,1680
+CEC_TR_0744,videos/stroke_classes/late_cut/late_cut_0017.avi,left-handed,Batsman-Centric,3,27,120,1080
+CEC_TR_0745,videos/stroke_classes/late_cut/late_cut_0018.avi,left-handed,Batsman-Centric,10,39,400,1560
+CEC_TEST_0159,videos/stroke_classes/late_cut/late_cut_0019.avi,right-handed,Batsman-Centric,11,41,440,1640
+CEC_TEST_0160,videos/stroke_classes/late_cut/late_cut_0020.avi,left-handed,Batsman-Centric,11,36,440,1440
+CEC_VAL_0158,videos/stroke_classes/late_cut/late_cut_0021.avi,right-handed,Batsman-Centric,5,26,200,1040
+CEC_TR_0746,videos/stroke_classes/late_cut/late_cut_0022.avi,right-handed,Batsman-Centric,7,32,280,1280
+CEC_TR_0747,videos/stroke_classes/late_cut/late_cut_0023.avi,left-handed,Batsman-Centric,5,34,200,1360
+CEC_TR_0748,videos/stroke_classes/late_cut/late_cut_0024.avi,right-handed,Batsman-Centric,9,35,360,1400
+CEC_TR_0749,videos/stroke_classes/late_cut/late_cut_0025.avi,right-handed,Batsman-Centric,2,29,80,1160
+CEC_TEST_0161,videos/stroke_classes/late_cut/late_cut_0026.avi,right-handed,Batsman-Centric,5,27,200,1080
+CEC_VAL_0159,videos/stroke_classes/late_cut/late_cut_0027.avi,right-handed,Batsman-Centric,4,30,160,1200
+CEC_TR_0750,videos/stroke_classes/late_cut/late_cut_0028.avi,right-handed,Batsman-Centric,4,32,160,1280
+CEC_TR_0751,videos/stroke_classes/late_cut/late_cut_0029.avi,right-handed,Batsman-Centric,7,33,280,1320
+CEC_TR_0752,videos/stroke_classes/late_cut/late_cut_0030.avi,right-handed,Batsman-Centric,3,27,120,1080
+CEC_TR_0753,videos/stroke_classes/late_cut/late_cut_0031.avi,left-handed,Batsman-Centric,9,41,360,1640
+CEC_TR_0754,videos/stroke_classes/late_cut/late_cut_0032.avi,left-handed,Batsman-Centric,17,49,680,1960
+CEC_TR_0755,videos/stroke_classes/late_cut/late_cut_0033.avi,right-handed,Batsman-Centric,3,27,120,1080
+CEC_VAL_0160,videos/stroke_classes/late_cut/late_cut_0034.avi,right-handed,Batsman-Centric,10,34,400,1360
+CEC_TR_0756,videos/stroke_classes/late_cut/late_cut_0035.avi,right-handed,Batsman-Centric,11,38,440,1520
+CEC_TR_0757,videos/stroke_classes/late_cut/late_cut_0036.avi,right-handed,Batsman-Centric,6,30,240,1200
+CEC_TR_0758,videos/stroke_classes/late_cut/late_cut_0037.avi,left-handed,Batsman-Centric,5,29,200,1160
+CEC_TR_0759,videos/stroke_classes/late_cut/late_cut_0038.avi,right-handed,Batsman-Centric,22,44,880,1760
+CEC_TR_0760,videos/stroke_classes/late_cut/late_cut_0039.avi,right-handed,Batsman-Centric,0,28,0,1120
+CEC_TR_0761,videos/stroke_classes/late_cut/late_cut_0040.avi,right-handed,Batsman-Centric,12,47,480,1880
+CEC_TR_0762,videos/stroke_classes/late_cut/late_cut_0041.avi,right-handed,Batsman-Centric,2,34,80,1360
+CEC_VAL_0161,videos/stroke_classes/late_cut/late_cut_0042.avi,right-handed,Batsman-Centric,8,34,320,1360
+CEC_TR_0763,videos/stroke_classes/late_cut/late_cut_0043.avi,right-handed,Batsman-Centric,12,34,480,1360
+CEC_TEST_0162,videos/stroke_classes/late_cut/late_cut_0044.avi,right-handed,Batsman-Centric,23,50,920,2000
+CEC_TR_0764,videos/stroke_classes/late_cut/late_cut_0045.avi,right-handed,Batsman-Centric,17,40,680,1600
+CEC_TR_0765,videos/stroke_classes/late_cut/late_cut_0046.avi,right-handed,Batsman-Centric,10,41,400,1640
+CEC_TR_0766,videos/stroke_classes/late_cut/late_cut_0047.avi,left-handed,Batsman-Centric,11,39,440,1560
+CEC_TR_0767,videos/stroke_classes/late_cut/late_cut_0048.avi,left-handed,Batsman-Centric,12,37,480,1480
+CEC_TR_0768,videos/stroke_classes/late_cut/late_cut_0049.avi,left-handed,Batsman-Centric,9,35,360,1400
+CEC_VAL_0162,videos/stroke_classes/late_cut/late_cut_0050.avi,right-handed,Batsman-Centric,14,44,560,1760
+CEC_TEST_0163,videos/stroke_classes/late_cut/late_cut_0051.avi,right-handed,Batsman-Centric,12,34,480,1360
+CEC_TR_0769,videos/stroke_classes/late_cut/late_cut_0052.avi,left-handed,Batsman-Centric,12,34,480,1360
+CEC_VAL_0163,videos/stroke_classes/late_cut/late_cut_0053.avi,right-handed,Batsman-Centric,8,40,320,1600
+CEC_TEST_0164,videos/stroke_classes/late_cut/late_cut_0054.avi,left-handed,Batsman-Centric,8,37,320,1480
+CEC_TR_0770,videos/stroke_classes/late_cut/late_cut_0055.avi,right-handed,Batsman-Centric,8,31,320,1240
+CEC_TR_0771,videos/stroke_classes/late_cut/late_cut_0056.avi,left-handed,Batsman-Centric,8,31,320,1240
+CEC_TEST_0165,videos/stroke_classes/late_cut/late_cut_0057.avi,right-handed,Batsman-Centric,0,24,0,960
+CEC_TR_0772,videos/stroke_classes/late_cut/late_cut_0058.avi,left-handed,Batsman-Centric,0,24,0,960
+CEC_TR_0773,videos/stroke_classes/late_cut/late_cut_0059.avi,right-handed,Batsman-Centric,0,25,0,1000
+CEC_VAL_0164,videos/stroke_classes/late_cut/late_cut_0060.avi,left-handed,Batsman-Centric,3,24,120,960
+CEC_TR_0774,videos/stroke_classes/late_cut/late_cut_0061.avi,right-handed,Batsman-Centric,6,35,240,1400
+CEC_TR_0775,videos/stroke_classes/late_cut/late_cut_0062.avi,left-handed,Batsman-Centric,7,38,280,1520
+CEC_TR_0776,videos/stroke_classes/late_cut/late_cut_0063.avi,right-handed,Batsman-Centric,9,30,360,1200
+CEC_VAL_0165,videos/stroke_classes/late_cut/late_cut_0064.avi,left-handed,Batsman-Centric,10,33,400,1320
+CEC_TR_0777,videos/stroke_classes/late_cut/late_cut_0065.avi,left-handed,Batsman-Centric,25,52,1000,2080
+CEC_TEST_0166,videos/stroke_classes/late_cut/late_cut_0066.avi,right-handed,Batsman-Centric,25,52,1000,2080
+CEC_TR_0778,videos/stroke_classes/late_cut/late_cut_0067.avi,left-handed,Batsman-Centric,10,38,400,1520
+CEC_TR_0779,videos/stroke_classes/late_cut/late_cut_0068.avi,left-handed,Batsman-Centric,14,42,560,1680
+CEC_TR_0780,videos/stroke_classes/late_cut/late_cut_0069.avi,right-handed,Batsman-Centric,1,24,40,960
+CEC_TR_0781,videos/stroke_classes/late_cut/late_cut_0070.avi,right-handed,Batsman-Centric,13,36,520,1440
+CEC_TR_0782,videos/stroke_classes/late_cut/late_cut_0071.avi,left-handed,Batsman-Centric,13,36,520,1440
+CEC_TR_0783,videos/stroke_classes/late_cut/late_cut_0072.avi,right-handed,Batsman-Centric,19,47,760,1880
+CEC_VAL_0166,videos/stroke_classes/late_cut/late_cut_0073.avi,left-handed,Batsman-Centric,19,48,760,1920
+CEC_TR_0784,videos/stroke_classes/late_cut/late_cut_0074.avi,right-handed,Batsman-Centric,8,31,320,1240
+CEC_TR_0785,videos/stroke_classes/late_cut/late_cut_0075.avi,left-handed,Batsman-Centric,8,34,320,1360
+CEC_TR_0786,videos/stroke_classes/late_cut/late_cut_0076.avi,left-handed,Batsman-Centric,8,31,320,1240
+CEC_TR_0787,videos/stroke_classes/late_cut/late_cut_0077.avi,right-handed,Batsman-Centric,19,44,760,1760
+CEC_TEST_0167,videos/stroke_classes/late_cut/late_cut_0078.avi,left-handed,Batsman-Centric,19,42,760,1680
+CEC_TEST_0168,videos/stroke_classes/late_cut/late_cut_0079.avi,right-handed,Batsman-Centric,9,33,360,1320
+CEC_VAL_0167,videos/stroke_classes/late_cut/late_cut_0080.avi,left-handed,Batsman-Centric,9,33,360,1320
+CEC_TR_0788,videos/stroke_classes/late_cut/late_cut_0081.avi,right-handed,Batsman-Centric,10,39,400,1560
+CEC_VAL_0168,videos/stroke_classes/late_cut/late_cut_0082.avi,left-handed,Batsman-Centric,10,38,400,1520
+CEC_TR_0789,videos/stroke_classes/late_cut/late_cut_0083.avi,left-handed,Batsman-Centric,1,24,40,960
+CEC_TR_0790,videos/stroke_classes/late_cut/late_cut_0084.avi,right-handed,Batsman-Centric,8,32,320,1280
+CEC_TR_0791,videos/stroke_classes/late_cut/late_cut_0085.avi,right-handed,Batsman-Centric,11,33,440,1320
+CEC_VAL_0169,videos/stroke_classes/late_cut/late_cut_0086.avi,left-handed,Batsman-Centric,10,33,400,1320
+CEC_TR_0792,videos/stroke_classes/late_cut/late_cut_0087.avi,left-handed,Batsman-Centric,12,34,480,1360
+CEC_TR_0793,videos/stroke_classes/late_cut/late_cut_0088.avi,right-handed,Batsman-Centric,10,32,400,1280
+CEC_TR_0794,videos/stroke_classes/late_cut/late_cut_0089.avi,left-handed,Batsman-Centric,10,29,400,1160
+CEC_TR_0795,videos/stroke_classes/late_cut/late_cut_0090.avi,left-handed,Batsman-Centric,23,49,920,1960
+CEC_TR_0796,videos/stroke_classes/late_cut/late_cut_0091.avi,right-handed,Batsman-Centric,11,33,440,1320
+CEC_TR_0797,videos/stroke_classes/late_cut/late_cut_0092.avi,left-handed,Batsman-Centric,12,32,480,1280
+CEC_TR_0798,videos/stroke_classes/late_cut/late_cut_0093.avi,right-handed,Batsman-Centric,19,39,760,1560
+CEC_TEST_0169,videos/stroke_classes/late_cut/late_cut_0094.avi,left-handed,Batsman-Centric,18,40,720,1600
+CEC_TR_0799,videos/stroke_classes/late_cut/late_cut_0095.avi,right-handed,Batsman-Centric,10,33,400,1320
+CEC_TR_0800,videos/stroke_classes/late_cut/late_cut_0096.avi,left-handed,Batsman-Centric,10,32,400,1280
+CEC_VAL_0170,videos/stroke_classes/late_cut/late_cut_0097.avi,right-handed,Batsman-Centric,11,41,440,1640
+CEC_TR_0801,videos/stroke_classes/late_cut/late_cut_0098.avi,left-handed,Batsman-Centric,11,39,440,1560
+CEC_VAL_0171,videos/stroke_classes/late_cut/late_cut_0099.avi,left-handed,Batsman-Centric,13,47,520,1880
+CEC_TR_0802,videos/stroke_classes/late_cut/late_cut_0100.avi,right-handed,Batsman-Centric,12,48,480,1920
+CEC_VAL_0172,videos/stroke_classes/late_cut/late_cut_0101.avi,left-handed,Batsman-Centric,8,32,320,1280
+CEC_TR_0803,videos/stroke_classes/late_cut/late_cut_0102.avi,left-handed,Batsman-Centric,3,25,120,1000
+CEC_TR_0804,videos/stroke_classes/late_cut/late_cut_0103.avi,left-handed,Batsman-Centric,5,36,200,1440
+CEC_TR_0805,videos/stroke_classes/late_cut/late_cut_0104.avi,right-handed,Batsman-Centric,17,33,680,1320
+CEC_TR_0806,videos/stroke_classes/late_cut/late_cut_0105.avi,right-handed,Batsman-Centric,3,27,120,1080
+CEC_VAL_0173,videos/stroke_classes/late_cut/late_cut_0106.avi,right-handed,Batsman-Centric,3,32,120,1280
+CEC_TEST_0170,videos/stroke_classes/late_cut/late_cut_0107.avi,right-handed,Batsman-Centric,15,38,600,1520
+CEC_TR_0807,videos/stroke_classes/late_cut/late_cut_0108.avi,right-handed,Batsman-Centric,15,45,600,1800
+CEC_TR_0808,videos/stroke_classes/late_cut/late_cut_0109.avi,right-handed,Batsman-Centric,5,36,200,1440
+CEC_TR_0809,videos/stroke_classes/late_cut/late_cut_0110.avi,left-handed,Batsman-Centric,7,30,280,1200
+CEC_TR_0810,videos/stroke_classes/late_cut/late_cut_0111.avi,right-handed,Batsman-Centric,5,24,200,960
+CEC_TR_0811,videos/stroke_classes/late_cut/late_cut_0112.avi,right-handed,Batsman-Centric,7,30,280,1200
+CEC_TEST_0171,videos/stroke_classes/late_cut/late_cut_0113.avi,left-handed,Batsman-Centric,3,32,120,1280
+CEC_TR_0812,videos/stroke_classes/late_cut/late_cut_0114.avi,right-handed,Batsman-Centric,4,32,160,1280
+CEC_TEST_0172,videos/stroke_classes/late_cut/late_cut_0115.avi,right-handed,Batsman-Centric,10,29,400,1160
+CEC_TR_0813,videos/stroke_classes/late_cut/late_cut_0116.avi,left-handed,Batsman-Centric,10,31,400,1240
+CEC_TR_0814,videos/stroke_classes/late_cut/late_cut_0117.avi,right-handed,Batsman-Centric,6,28,240,1120
+CEC_TR_0815,videos/stroke_classes/late_cut/late_cut_0118.avi,left-handed,Batsman-Centric,5,28,200,1120
+CEC_TR_0816,videos/stroke_classes/late_cut/late_cut_0119.avi,left-handed,Batsman-Centric,18,39,720,1560
+CEC_TR_0817,videos/stroke_classes/late_cut/late_cut_0120.avi,right-handed,Batsman-Centric,18,43,720,1720
+CEC_VAL_0174,videos/stroke_classes/late_cut/late_cut_0121.avi,left-handed,Batsman-Centric,18,40,720,1600
+CEC_TR_0818,videos/stroke_classes/late_cut/late_cut_0122.avi,right-handed,Batsman-Centric,10,33,400,1320
+CEC_TR_0819,videos/stroke_classes/late_cut/late_cut_0123.avi,left-handed,Batsman-Centric,10,32,400,1280
+CEC_TR_0820,videos/stroke_classes/late_cut/late_cut_0124.avi,right-handed,Batsman-Centric,3,24,120,960
+CEC_TR_0821,videos/stroke_classes/late_cut/late_cut_0125.avi,right-handed,Batsman-Centric,7,33,280,1320
+CEC_TR_0822,videos/stroke_classes/late_cut/late_cut_0126.avi,right-handed,Batsman-Centric,8,31,320,1240
+CEC_TR_0823,videos/stroke_classes/late_cut/late_cut_0127.avi,left-handed,Batsman-Centric,20,49,800,1960
+CEC_TR_0824,videos/stroke_classes/late_cut/late_cut_0128.avi,left-handed,Batsman-Centric,3,35,120,1400
+CEC_TR_0825,videos/stroke_classes/late_cut/late_cut_0129.avi,right-handed,Batsman-Centric,0,32,0,1280
+CEC_TR_0826,videos/stroke_classes/late_cut/late_cut_0130.avi,right-handed,Batsman-Centric,13,36,520,1440
+CEC_TR_0827,videos/stroke_classes/late_cut/late_cut_0131.avi,right-handed,Batsman-Centric,7,41,280,1640
+CEC_TR_0828,videos/stroke_classes/late_cut/late_cut_0132.avi,right-handed,Batsman-Centric,4,32,160,1280
+CEC_TR_0829,videos/stroke_classes/late_cut/late_cut_0133.avi,left-handed,Batsman-Centric,7,31,280,1240
+CEC_TR_0830,videos/stroke_classes/late_cut/late_cut_0134.avi,left-handed,Batsman-Centric,6,29,240,1160
+CEC_TR_0831,videos/stroke_classes/late_cut/late_cut_0135.avi,right-handed,Batsman-Centric,6,29,240,1160
+CEC_VAL_0175,videos/stroke_classes/late_cut/late_cut_0136.avi,right-handed,Batsman-Centric,0,23,0,920
+CEC_TR_0832,videos/stroke_classes/late_cut/late_cut_0137.avi,left-handed,Batsman-Centric,0,20,0,800
+CEC_TR_0833,videos/stroke_classes/late_cut/late_cut_0138.avi,right-handed,Batsman-Centric,11,38,440,1520
+CEC_TEST_0173,videos/stroke_classes/late_cut/late_cut_0139.avi,right-handed,Batsman-Centric,12,38,480,1520
+CEC_TR_0834,videos/stroke_classes/late_cut/late_cut_0140.avi,left-handed,Batsman-Centric,10,34,400,1360
+CEC_TR_0835,videos/stroke_classes/late_cut/late_cut_0141.avi,left-handed,Batsman-Centric,7,33,280,1320
+CEC_TR_0836,videos/stroke_classes/late_cut/late_cut_0142.avi,right-handed,Batsman-Centric,13,38,520,1520
+CEC_TEST_0174,videos/stroke_classes/late_cut/late_cut_0143.avi,right-handed,Batsman-Centric,10,39,400,1560
+CEC_TEST_0175,videos/stroke_classes/late_cut/late_cut_0144.avi,right-handed,Batsman-Centric,11,35,440,1400
+CEC_TR_0837,videos/stroke_classes/late_cut/late_cut_0145.avi,right-handed,Batsman-Centric,15,41,600,1640
+CEC_TR_0838,videos/stroke_classes/late_cut/late_cut_0146.avi,right-handed,Batsman-Centric,6,29,240,1160
+CEC_VAL_0176,videos/stroke_classes/late_cut/late_cut_0147.avi,left-handed,Batsman-Centric,6,29,240,1160
+CEC_TR_0839,videos/stroke_classes/late_cut/late_cut_0148.avi,right-handed,Batsman-Centric,6,31,240,1240
+CEC_VAL_0177,videos/stroke_classes/late_cut/late_cut_0149.avi,left-handed,Batsman-Centric,13,39,520,1560
+CEC_TR_0840,videos/stroke_classes/late_cut/late_cut_0150.avi,left-handed,Batsman-Centric,13,37,520,1480
+CEC_TR_0841,videos/stroke_classes/late_cut/late_cut_0151.avi,right-handed,Batsman-Centric,9,31,360,1240
+CEC_TR_0842,videos/stroke_classes/late_cut/late_cut_0152.avi,right-handed,Batsman-Centric,3,25,120,1000
+CEC_TR_0843,videos/stroke_classes/late_cut/late_cut_0153.avi,right-handed,Batsman-Centric,9,32,360,1280
+CEC_TR_0844,videos/stroke_classes/late_cut/late_cut_0154.avi,right-handed,Batsman-Centric,0,24,0,960
+CEC_TR_0845,videos/stroke_classes/late_cut/late_cut_0155.avi,right-handed,Batsman-Centric,8,31,320,1240
+CEC_TEST_0176,videos/stroke_classes/late_cut/late_cut_0156.avi,right-handed,Batsman-Centric,10,40,400,1600
+CEC_VAL_0178,videos/stroke_classes/late_cut/late_cut_0157.avi,right-handed,Batsman-Centric,0,23,0,920
+CEC_TR_0846,videos/stroke_classes/late_cut/late_cut_0158.avi,right-handed,Batsman-Centric,6,32,240,1280
+CEC_TR_0847,videos/stroke_classes/late_cut/late_cut_0159.avi,right-handed,Batsman-Centric,1,24,40,960
+CEC_TEST_0177,videos/stroke_classes/late_cut/late_cut_0160.avi,left-handed,Batsman-Centric,5,29,200,1160
+CEC_TEST_0178,videos/stroke_classes/late_cut/late_cut_0161.avi,left-handed,Batsman-Centric,2,23,80,920
+CEC_TR_0848,videos/stroke_classes/late_cut/late_cut_0162.avi,right-handed,Batsman-Centric,6,30,240,1200
+CEC_TR_0849,videos/stroke_classes/late_cut/late_cut_0163.avi,right-handed,Batsman-Centric,4,33,160,1320
+CEC_TR_0850,videos/stroke_classes/late_cut/late_cut_0164.avi,left-handed,Batsman-Centric,9,31,360,1240
+CEC_TR_0851,videos/stroke_classes/late_cut/late_cut_0165.avi,right-handed,Batsman-Centric,6,32,240,1280
+CEC_TR_0852,videos/stroke_classes/late_cut/late_cut_0166.avi,right-handed,Batsman-Centric,10,30,400,1200
+CEC_TR_0853,videos/stroke_classes/late_cut/late_cut_0167.avi,right-handed,Batsman-Centric,6,35,240,1400
+CEC_VAL_0179,videos/stroke_classes/late_cut/late_cut_0168.avi,left-handed,Batsman-Centric,9,30,360,1200
+CEC_TR_0854,videos/stroke_classes/late_cut/late_cut_0169.avi,left-handed,Batsman-Centric,0,20,0,800
+CEC_TR_0855,videos/stroke_classes/late_cut/late_cut_0170.avi,right-handed,Batsman-Centric,4,27,160,1080
+CEC_TEST_0179,videos/stroke_classes/late_cut/late_cut_0171.avi,right-handed,Batsman-Centric,1,33,40,1320
+CEC_VAL_0180,videos/stroke_classes/late_cut/late_cut_0172.avi,right-handed,Batsman-Centric,18,49,720,1960
+CEC_TEST_0180,videos/stroke_classes/late_cut/late_cut_0173.avi,right-handed,Batsman-Centric,3,34,120,1360
+CEC_TR_0856,videos/stroke_classes/late_cut/late_cut_0174.avi,right-handed,Batsman-Centric,3,27,120,1080
+CEC_VAL_0181,videos/stroke_classes/late_cut/late_cut_0175.avi,right-handed,Batsman-Centric,15,37,600,1480
+CEC_TEST_0181,videos/stroke_classes/late_cut/late_cut_0176.avi,left-handed,Batsman-Centric,0,23,0,920
+CEC_TEST_0182,videos/stroke_classes/late_cut/late_cut_0177.avi,left-handed,Batsman-Centric,8,28,320,1120
+CEC_VAL_0182,videos/stroke_classes/late_cut/late_cut_0178.avi,left-handed,Batsman-Centric,8,29,320,1160
+CEC_TR_0857,videos/stroke_classes/late_cut/late_cut_0179.avi,right-handed,Batsman-Centric,7,32,280,1280
+CEC_TR_0858,videos/stroke_classes/late_cut/late_cut_0180.avi,left-handed,Batsman-Centric,4,33,160,1320
+CEC_TR_0859,videos/stroke_classes/late_cut/late_cut_0181.avi,right-handed,Batsman-Centric,0,21,0,840
+CEC_TR_0860,videos/stroke_classes/late_cut/late_cut_0182.avi,left-handed,Batsman-Centric,6,30,240,1200

@@ -79,7 +79,7 @@ OUTCOME_CLASSES = [
     "four",           # 11
     "wicket",         # 12  (confirmed = 12)
     "catch",          # 13
-    # "<5th outcome>",# 14  TODO: missing from zip — confirm with professor
+    "lbw",            # 14  (confirmed = 14)
 ]
 
 STROKE_ID_OFFSET  = 0
