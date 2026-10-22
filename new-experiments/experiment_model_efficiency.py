@@ -94,7 +94,10 @@ def measure_extraction(model_id, c, sampling, n_clips=20):
     d = Path(CI.DATASET_NAME) / "test"
     if not d.exists():
         return None
-    ds = CricketEC(c=c, dir=d, transform=CI.E.EVAL_TRANSFORM, sampling=sampling)
+    if hasattr(CI.E, "make_dataset"):   # benchmark-pipeline evaluate_test
+        ds = CI.E.make_dataset("test", model_id)
+    else:
+        ds = CricketEC(c=c, dir=d, transform=CI.E.EVAL_TRANSFORM, sampling=sampling)
     n = min(n_clips, len(ds))
     if n == 0:
         return None

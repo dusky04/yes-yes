@@ -88,8 +88,12 @@ def predict_split(model_id: str, device, split: str = "test", keep_model: bool =
     if len(class_names) != NUM_CLASSES:
         raise ValueError(f"{d} has {len(class_names)} classes, expected {NUM_CLASSES}")
 
-    ds = CricketEC(c=c, dir=d, transform=E.EVAL_TRANSFORM,
-                   sampling=E.SAMPLING[cfg["sampling"]])
+    if hasattr(E, "make_dataset"):      # benchmark-pipeline evaluate_test
+        ds = E.make_dataset(split, model_id)
+        ds.video_paths = ds.paths
+    else:
+        ds = CricketEC(c=c, dir=d, transform=E.EVAL_TRANSFORM,
+                       sampling=E.SAMPLING[cfg["sampling"]])
     loader = DataLoader(ds, batch_size=c.BATCH_SIZE, shuffle=False,
                         num_workers=c.NUM_WORKERS, pin_memory=(device.type == "cuda"))
 

@@ -9,10 +9,11 @@ results.csv and its charts; results/README.md is the index.
     results/
       README.md                                  index + headline numbers
       00_dataset_split/                          the fixed train/val/test assignment
-      01_benchmark_A-E/run0_.. run3_../          the A-E benchmark, one folder per training recipe
+      01_exp1_benchmark_A-E/run0_.. run3_../     the A-E benchmark, one folder per training recipe
+      01_exp1_benchmark_A-E/exp1_test_eval/      Experiment 1: A-E test predictions + summary
       02_exp2_sampling_ablation/                 Experiment 2
       03_exp3_frame_sensitivity/                 Experiment 3
-      04_exp4 .. 07_exp7/                        analysis experiments (pending)
+      04_exp4 .. 07_exp7/                        analysis experiments on the five A-E models
     each config folder: best.pt (weights), results.json, history.csv, train.log,
                         test_confusion_matrix.csv, test_predictions.csv
 
@@ -45,18 +46,18 @@ INK, INK_2, MUTED, GRID, AXIS = "#0b0b0b", "#52514e", "#898781", "#e1e0d9", "#c3
 
 # (remote dir, local section, local subfolder or None, title, what changed)
 SOURCES = [
-    ("runs_old_data", "01_benchmark_A-E", "run0_old-dataset_no-regularization",
+    ("runs_old_data", "01_exp1_benchmark_A-E", "run0_old-dataset_no-regularization",
      "Run 0: old 3,000-clip dataset, no regularization",
      "First run of the paper-faithful pipeline on the original Drive release (2,250/375/375). "
      "No augmentation, a single learning rate, no schedule."),
-    ("runs", "01_benchmark_A-E", "run1_augment-labelsmooth-lowLR",
+    ("runs", "01_exp1_benchmark_A-E", "run1_augment-labelsmooth-lowLR",
      "Run 1: 2,638-clip dataset + basic regularization",
      "New release with the fixed split. Adds clip-consistent augmentation (crop, flip, colour "
      "jitter), label smoothing 0.1, backbone at 0.1x learning rate, early stopping."),
-    ("runs_v2", "01_benchmark_A-E", "run2_plus-temporal-jitter",
+    ("runs_v2", "01_exp1_benchmark_A-E", "run2_plus-temporal-jitter",
      "Run 2: + temporal jitter, random erasing, feature dropout",
      "Training clips get different frames every epoch; random erasing; dropout 0.2 on CNN features."),
-    ("runs_v3", "01_benchmark_A-E", "run3_plus-cosine-ema-tta",
+    ("runs_v3", "01_exp1_benchmark_A-E", "run3_plus-cosine-ema-tta",
      "Run 3: + cosine LR schedule, weight EMA, test-time augmentation",
      "Current recipe. Warmup + cosine decay, EMA of the weights, TTA in the final evaluation."),
     ("experiments/exp2", "02_exp2_sampling_ablation", None,
@@ -70,17 +71,75 @@ SOURCES = [
      "to Experiment 2. Also measures single-clip inference latency and peak GPU memory."),
 ]
 
-PENDING = {
-    "04_exp4_camera_perspective": "Experiment 4: camera-perspective robustness",
-    "05_exp5_model_efficiency": "Experiment 5: computational efficiency and complexity",
-    "06_exp6_semantic_error_analysis": "Experiment 6: semantic-layer and misclassification analysis",
-    "07_exp7_statistical_analysis": "Experiment 7: statistical reliability",
-}
-PENDING_NOTE = (
-    "Not run yet. The scripts in `new-experiments/` analyse the five trained A-E models through "
-    "`evaluate_test.py` (Experiment 1) and its checkpoints, which are not in the repository. "
-    "Once those are available, or once they are pointed at the models trained here, the outputs "
-    "land in this folder.\n")
+# Analysis experiments: (remote dir, local folder, title, CSVs rendered in the README)
+ANALYSIS = [
+    ("experiments/exp1_test_eval", "01_exp1_benchmark_A-E/exp1_test_eval",
+     "Experiment 1: test-set evaluation of A-E", ["test_summary.csv"]),
+    ("experiments/exp4_camera_perspective", "04_exp4_camera_perspective",
+     "Experiment 4: camera-perspective robustness",
+     ["camera_perspective_coverage.csv", "camera_perspective_results.csv"]),
+    ("experiments/exp5_model_efficiency", "05_exp5_model_efficiency",
+     "Experiment 5: computational efficiency and complexity", ["model_efficiency_results.csv"]),
+    ("experiments/exp6_semantic_error_analysis", "06_exp6_semantic_error_analysis",
+     "Experiment 6: semantic-layer and misclassification analysis",
+     ["semantic_layer_results.csv", "class_confusion_analysis.csv"]),
+    ("experiments/exp7_statistical_analysis", "07_exp7_statistical_analysis",
+     "Experiment 7: statistical reliability",
+     ["statistical_analysis_results.csv", "pairwise_significance_results.csv"]),
+]
+ANALYSIS_NOTE = (
+    "Analysis of the five benchmark models A-E (`runs_v3`, current training recipe), produced by "
+    "the scripts in `new-experiments/` through `new-experiments/run_analysis.sh`; Experiment 1 "
+    "collects their per-clip test predictions, which 4, 6 and 7 analyse.\n")
+PENDING_NOTE = "Not run yet: waits for all five A-E models to finish training (`runs_v3/`).\n"
+
+
+def csv_to_markdown(path: Path, max_rows: int = 40) -> str:
+    with open(path, newline="") as f:
+        rows = list(csv.reader(f))
+    if not rows:
+        return ""
+    head, body = rows[0], rows[1:max_rows + 1]
+    out = ["| " + " | ".join(head) + " |", "|" + "---|" * len(head)]
+    out += ["| " + " | ".join(r) + " |" for r in body]
+    if len(rows) - 1 > max_rows:
+        out.append(f"\n_{len(rows) - 1 - max_rows} more rows in `{path.name}`._")
+    return "\n".join(out)
+
+
+def fetch_analysis(host: str, out: Path) -> dict[str, bool]:
+    cmd = f"cd {REMOTE_REPO} && for d in {' '.join(a[0] for a in ANALYSIS)}; do [ -d $d ] && echo $d; done"
+    present = set(subprocess.run([*SSH, host, cmd], capture_output=True, text=True).stdout.split())
+    found = {}
+    for remote_dir, local, *_ in ANALYSIS:
+        found[remote_dir] = remote_dir in present
+        if found[remote_dir]:
+            rsync(host, f"{REMOTE_REPO}/{remote_dir}/", out / local)
+            subprocess.run(["rsync", "-a", "-e", " ".join(SSH),
+                            f"{host}:{REMOTE_REPO}/{remote_dir}.log", str(out / local / "run.log")],
+                           capture_output=True)
+    return found
+
+
+def write_analysis_readmes(out: Path) -> dict[str, str]:
+    status = {}
+    for remote_dir, local, title, tables in ANALYSIS:
+        d = out / local
+        d.mkdir(parents=True, exist_ok=True)
+        files = sorted(p.name for p in d.iterdir() if p.name != "README.md")
+        if not files:
+            (d / "README.md").write_text(f"# {title}\n\n{PENDING_NOTE}")
+            status[local] = "pending (waits for A-E)"
+            continue
+        parts = [f"# {title}\n", ANALYSIS_NOTE]
+        for t in tables:
+            if (d / t).exists():
+                parts += [f"## `{t}`\n", csv_to_markdown(d / t) + "\n"]
+        parts += [f"![{p}]({p})\n" for p in files if p.endswith(".png")]
+        parts += ["## All files\n", "\n".join(f"- `{p}`" for p in files) + "\n"]
+        (d / "README.md").write_text("\n".join(parts))
+        status[local] = "done" if any(p.endswith(".csv") for p in files) else "incomplete"
+    return status
 
 
 def config_specs() -> dict[str, dict]:
@@ -133,6 +192,7 @@ def fetch(host: str, out: Path, specs: dict) -> list[dict]:
         sections.append({"remote": remote_dir, "section": section, "sub": sub, "title": title,
                          "desc": desc, "base": base, "configs": configs})
     rsync(host, f"{REMOTE_REPO}/data/CricketEC_split/split.json", out / "00_dataset_split" / "split.json")
+    fetch_analysis(host, out)
     return sections
 
 
@@ -327,7 +387,7 @@ def chart_exp3(rows: list[dict], acc_path: Path, cost_path: Path) -> bool:
 def chart_benchmark(sections: list[dict], rows_by_section: dict, path: Path) -> bool:
     labels, vals = [], []
     for s in sections:
-        if s["section"] != "01_benchmark_A-E":
+        if s["section"] != "01_exp1_benchmark_A-E":
             continue
         for r in rows_by_section[s["remote"]]:
             if r["config"] == "B" and r["status"] == "done":
@@ -378,8 +438,8 @@ def build_reports(out: Path, sections: list[dict], specs: dict) -> None:
                        for s in sections}
 
     # 01: one README for all benchmark runs, one table per run
-    bench = [s for s in sections if s["section"] == "01_benchmark_A-E"]
-    bdir = out / "01_benchmark_A-E"
+    bench = [s for s in sections if s["section"] == "01_exp1_benchmark_A-E"]
+    bdir = out / "01_exp1_benchmark_A-E"
     bdir.mkdir(parents=True, exist_ok=True)
     charts = ["benchmark_progression.png"] if chart_benchmark(
         sections, rows_by_section, bdir / "benchmark_progression.png") else []
@@ -402,7 +462,7 @@ def build_reports(out: Path, sections: list[dict], specs: dict) -> None:
 
     # 02 / 03
     for s in sections:
-        if s["section"] == "01_benchmark_A-E":
+        if s["section"] == "01_exp1_benchmark_A-E":
             continue
         rows = rows_by_section[s["remote"]]
         s["base"].mkdir(parents=True, exist_ok=True)
@@ -418,12 +478,7 @@ def build_reports(out: Path, sections: list[dict], specs: dict) -> None:
         if rows:
             write_csv(s["base"] / "results.csv", rows)
 
-    # 04-07 placeholders
-    for name, title in PENDING.items():
-        d = out / name
-        d.mkdir(parents=True, exist_ok=True)
-        if not any(p.name != "README.md" for p in d.iterdir()):
-            (d / "README.md").write_text(f"# {title}\n\n{PENDING_NOTE}")
+    analysis_status = write_analysis_readmes(out)
 
     (out / "00_dataset_split" / "README.md").write_text(
         "# Dataset split\n\n`split.json` is the fixed train/val/test assignment of the 2,638-clip "
@@ -444,13 +499,13 @@ def build_reports(out: Path, sections: list[dict], specs: dict) -> None:
            "| Folder | What it is | Status |", "|---|---|---|",
            "| [00_dataset_split](./00_dataset_split/) | Fixed train/val/test split (2,638-clip release) | |"]
     for s in bench:
-        idx.append(f"| [01_benchmark_A-E/{s['sub']}](./01_benchmark_A-E/{s['sub']}/) | {s['title']} | "
+        idx.append(f"| [01_exp1_benchmark_A-E/{s['sub']}](./01_exp1_benchmark_A-E/{s['sub']}/) | {s['title']} | "
                    f"{best_line(s['remote'])} |")
     for s in sections:
-        if s["section"] != "01_benchmark_A-E":
+        if s["section"] != "01_exp1_benchmark_A-E":
             idx.append(f"| [{s['section']}](./{s['section']}/) | {s['title']} | {best_line(s['remote'])} |")
-    for name, title in PENDING.items():
-        idx.append(f"| [{name}](./{name}/) | {title} | pending (needs the A-E checkpoints) |")
+    for _, local, title, _ in ANALYSIS:
+        idx.append(f"| [{local}](./{local}/) | {title} | {analysis_status[local]} |")
     (out / "README.md").write_text("\n".join(idx) + "\n")
 
 
