@@ -104,3 +104,48 @@ def effnet_b0_model(C) -> Model:
         for param in effnet.features[idx].parameters():
             param.requires_grad = True
     return Model(C, name="effnet", feature_extractor_model=effnet)
+
+class MeanPoolModel(Model):
+    def __init__(self, C, name, feature_extractor_model):
+        super().__init__(C, name, feature_extractor_model)
+
+        # Remove attention pooling so its parameters are not
+        # expected when loading the original checkpoint.
+        del self.attention_pool
+
+    def forward(self, x):
+        B, T, C, H, W = x.shape
+
+        features = self.feature_extractor(
+            x.reshape(B * T, C, H, W)
+        )
+        features = self.batch_norm(features)
+        features = features.reshape(B, T, -1)
+
+        features, _ = self.lstm(features)
+        features = self.layer_norm(features)
+
+        # Parameter-free temporal mean pooling
+        features = torch.mean(features, dim=1)
+
+        features = self.dropout(features)
+        return self.linear(features)
+
+
+def resnet34_lstm_meanpool_model(C):
+    resnet = resnet34(weights="DEFAULT")
+
+    for param in resnet.parameters():
+        param.requires_grad = False
+
+    for param in resnet.layer3.parameters():
+        param.requires_grad = True
+
+    for param in resnet.layer4.parameters():
+        param.requires_grad = True
+
+    return MeanPoolModel(
+        C,
+        name="resnet",
+        feature_extractor_model=resnet
+    )
