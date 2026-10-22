@@ -538,7 +538,9 @@ def main() -> None:
         print(f"Fetching from {args.host}:{REMOTE_REPO}")
         sections = fetch(args.host, args.out, specs)
     build_reports(args.out, sections, specs)
-    print(f"Organised results in {args.out} (start with README.md)")
+    from build_report import build
+    page = build(args.out)
+    print(f"Organised results in {args.out} (start with README.md; page: {page})")
 
 
 if __name__ == "__main__":
