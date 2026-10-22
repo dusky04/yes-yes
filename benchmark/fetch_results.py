@@ -123,6 +123,12 @@ def fetch_analysis(host: str, out: Path) -> dict[str, bool]:
 
 def write_analysis_readmes(out: Path) -> dict[str, str]:
     status = {}
+    summary = out / "01_exp1_benchmark_A-E" / "exp1_test_eval" / "test_summary.csv"
+    models = [r["model"] for r in csv.DictReader(open(summary))] if summary.exists() else []
+    trial = 0 < len(models) < 5
+    trial_note = (f"**Trial run on model{'s' if len(models) > 1 else ''} {', '.join(models)} only.** "
+                  "The final run on all five A-E models starts on the server once they finish "
+                  "training.\n")
     for remote_dir, local, title, tables in ANALYSIS:
         d = out / local
         d.mkdir(parents=True, exist_ok=True)
@@ -131,14 +137,16 @@ def write_analysis_readmes(out: Path) -> dict[str, str]:
             (d / "README.md").write_text(f"# {title}\n\n{PENDING_NOTE}")
             status[local] = "pending (waits for A-E)"
             continue
-        parts = [f"# {title}\n", ANALYSIS_NOTE]
+        parts = [f"# {title}\n", ANALYSIS_NOTE] + ([trial_note] if trial else [])
         for t in tables:
             if (d / t).exists():
                 parts += [f"## `{t}`\n", csv_to_markdown(d / t) + "\n"]
         parts += [f"![{p}]({p})\n" for p in files if p.endswith(".png")]
         parts += ["## All files\n", "\n".join(f"- `{p}`" for p in files) + "\n"]
         (d / "README.md").write_text("\n".join(parts))
-        status[local] = "done" if any(p.endswith(".csv") for p in files) else "incomplete"
+        done = any(p.endswith(".csv") for p in files)
+        status[local] = (f"trial run on {', '.join(models)} only; final run queued" if done and trial
+                         else "done" if done else "incomplete")
     return status
 
 

@@ -31,6 +31,10 @@ step() {
     fi
 }
 
+# latency/memory from a fresh process on the idle GPU (the numbers recorded during training
+# included training leftovers and GPU sharing); updates each run's results.json
+step cost_remeasure python benchmark/paper_configs.py --remeasure-cost \
+    experiments/exp2/E2-?/ experiments/exp3/E3-?/ runs_v3/?/
 step exp1_test_eval python new-experiments/evaluate_test.py --out "$E/exp1_test_eval" "${M[@]}"
 step exp4_camera_perspective python new-experiments/experiment_camera_perspective.py \
     --annotations annotations/manual_annotations.csv --predictions "$PRED" \

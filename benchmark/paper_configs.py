@@ -382,8 +382,10 @@ def train_one_epoch(model, loader, loss_fn, optimizer, scaler, device, amp, clip
 @torch.inference_mode()
 def measure_cost(model, dataset, device, amp: bool, n_clips: int = 100, warmup: int = 3) -> dict:
     """Single-clip inference cost: mean model-only latency (ms) over real test clips
-    at batch size 1 after warm-up, and the peak GPU memory of those forwards (MB).
-    Uses the same precision (autocast) as evaluation."""
+    at batch size 1 after warm-up, and the peak GPU memory of inference (MB): the
+    model's weights plus the forward pass, excluding anything else the process still
+    holds (e.g. optimiser state right after training). Uses the same precision
+    (autocast) as evaluation. Latency is only meaningful on an otherwise idle GPU."""
     if device.type != "cuda":
         return {"latency_ms_per_clip": None, "peak_gpu_mem_mb": None, "n_clips_timed": 0}
     model.eval()
@@ -392,6 +394,8 @@ def measure_cost(model, dataset, device, amp: bool, n_clips: int = 100, warmup: 
         with autocast_ctx(device, amp):
             model(x.to(device))
     torch.cuda.synchronize()
+    weights = sum(t.numel() * t.element_size() for t in [*model.parameters(), *model.buffers()])
+    resident = torch.cuda.memory_allocated(device)
     torch.cuda.reset_peak_memory_stats(device)
     times = []
     for x in clips[warmup:]:
@@ -402,9 +406,35 @@ def measure_cost(model, dataset, device, amp: bool, n_clips: int = 100, warmup: 
             model(x)
         torch.cuda.synchronize()
         times.append(time.perf_counter() - t0)
+    peak = torch.cuda.max_memory_allocated(device) - resident + weights
     return {"latency_ms_per_clip": round(1000 * float(np.mean(times)), 2),
-            "peak_gpu_mem_mb": round(torch.cuda.max_memory_allocated(device) / 2**20, 1),
+            "peak_gpu_mem_mb": round(peak / 2**20, 1),
             "n_clips_timed": len(times)}
+
+
+def remeasure_cost(run_dirs: list[Path], device: torch.device, amp: bool) -> None:
+    """Re-measure inference cost for finished runs in a fresh process (meant for an idle
+    GPU), from each run's best.pt, and record it in its results.json."""
+    for d in run_dirs:
+        res = d / "results.json"
+        if not res.exists():
+            print(f"[skip] {d}: no results.json")
+            continue
+        ckpt = torch.load(d / "best.pt", map_location=device, weights_only=False)
+        cfg, a = Config(**ckpt["config"]), ckpt["args"]
+        model = CNNRNN(cfg, len(ckpt["classes"]), a.get("rnn_layers", 1), a.get("rnn_dropout", 0.3),
+                       a.get("fc_dropout", 0.4), a.get("feat_dropout", 0.0)).to(device)
+        model.load_state_dict(ckpt["model"])
+        data_root = Path(a["data_root"])
+        ds = CricketECClips(data_root / "test", ckpt["classes"], cfg, a.get("img_size", 224),
+                            a.get("hist_bins", 64))
+        cost = measure_cost(model, ds, device, amp)
+        r = json.loads(res.read_text())
+        r["cost"] = {**cost, "measured": "fresh process, after training"}
+        res.write_text(json.dumps(r, indent=2))
+        print(f"  {d}: {cost['latency_ms_per_clip']} ms/clip, peak {cost['peak_gpu_mem_mb']} MB")
+        del model
+        torch.cuda.empty_cache()
 
 
 def make_loader(ds, batch_size, shuffle, workers, seed, persistent=True):
@@ -683,12 +713,18 @@ def main() -> None:
     ap.add_argument("--save-every-epoch", action="store_true", help="also keep epochNN.pt files")
     ap.add_argument("--epochs", type=int, default=None, help="override epochs (smoke tests only)")
     ap.add_argument("--summarize", action="store_true", help="only rebuild runs/summary.csv")
+    ap.add_argument("--remeasure-cost", nargs="+", type=Path, metavar="RUN_DIR",
+                    help="re-measure latency/memory of finished runs (run on an idle GPU)")
     args = ap.parse_args()
     if args.paper_strict:
         args.augment, args.label_smoothing, args.backbone_lr_mult, args.patience = False, 0.0, 1.0, 0
         args.temporal_jitter, args.feat_dropout = False, 0.0
         args.schedule, args.ema_decay, args.tta = "constant", 0.0, False
 
+    if args.remeasure_cost:
+        remeasure_cost(args.remeasure_cost, torch.device("cuda" if torch.cuda.is_available() else "cpu"),
+                       args.amp)
+        return
     if args.summarize or not args.config:
         summarize(args.out_dir)
         return
