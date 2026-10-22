@@ -178,8 +178,13 @@ def remote_configs(host: str) -> dict[str, list[str]]:
 
 def rsync(host: str, src: str, dst: Path, *extra: str) -> None:
     dst.parent.mkdir(parents=True, exist_ok=True)
-    subprocess.run(["rsync", "-a", *extra, "-e", " ".join(SSH), f"{host}:{src}", str(dst)],
-                   check=True)
+    p = subprocess.run(["rsync", "-a", *extra, "-e", " ".join(SSH), f"{host}:{src}", str(dst)])
+    # 23/24: some files changed or vanished mid-copy (a run still writing its checkpoint);
+    # keep what arrived, the next fetch picks up the rest
+    if p.returncode in (23, 24):
+        print(f"  [warn] {src}: some files were being written; partial copy kept")
+    elif p.returncode:
+        raise subprocess.CalledProcessError(p.returncode, p.args)
 
 
 def fetch(host: str, out: Path, specs: dict) -> list[dict]:
