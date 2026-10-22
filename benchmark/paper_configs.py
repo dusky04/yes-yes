@@ -97,6 +97,17 @@ CONFIGS = {
     "C": Config("C", "effnet_b0", "gru",  "uniform", 24, 12, 128, 20, 1e-3, 1e-4),
     "D": Config("D", "resnet34",  "lstm", "pixel",   24,  8,  64, 40, 1e-3, 3e-3),
     "E": Config("E", "resnet34",  "lstm", "pixel",   16, 16,  64, 40, 3e-3, 3e-3),
+    # Experiment 2 — controlled sampling ablation: ResNet-34, 16 frames, GRU/LSTM x
+    # uniform/pixel-intensity, every other setting identical (new-experiments spec).
+    "E2-A": Config("E2-A", "resnet34", "gru",  "uniform", 16, 16, 64, 40, 1e-3, 3e-3),
+    "E2-B": Config("E2-B", "resnet34", "gru",  "pixel",   16, 16, 64, 40, 1e-3, 3e-3),
+    "E2-C": Config("E2-C", "resnet34", "lstm", "uniform", 16, 16, 64, 40, 1e-3, 3e-3),
+    "E2-D": Config("E2-D", "resnet34", "lstm", "pixel",   16, 16, 64, 40, 1e-3, 3e-3),
+    # Experiment 3 — frame-count sensitivity: ResNet-34 + GRU + uniform, only T varies.
+    "E3-A": Config("E3-A", "resnet34", "gru",  "uniform",  8, 16, 64, 40, 1e-3, 3e-3),
+    "E3-B": Config("E3-B", "resnet34", "gru",  "uniform", 16, 16, 64, 40, 1e-3, 3e-3),
+    "E3-C": Config("E3-C", "resnet34", "gru",  "uniform", 24, 16, 64, 40, 1e-3, 3e-3),
+    "E3-D": Config("E3-D", "resnet34", "gru",  "uniform", 32, 16, 64, 40, 1e-3, 3e-3),
 }
 
 
@@ -368,6 +379,34 @@ def train_one_epoch(model, loader, loss_fn, optimizer, scaler, device, amp, clip
     return {"loss": loss_sum / seen, "accuracy": correct / seen}
 
 
+@torch.inference_mode()
+def measure_cost(model, dataset, device, amp: bool, n_clips: int = 100, warmup: int = 3) -> dict:
+    """Single-clip inference cost: mean model-only latency (ms) over real test clips
+    at batch size 1 after warm-up, and the peak GPU memory of those forwards (MB).
+    Uses the same precision (autocast) as evaluation."""
+    if device.type != "cuda":
+        return {"latency_ms_per_clip": None, "peak_gpu_mem_mb": None, "n_clips_timed": 0}
+    model.eval()
+    clips = [dataset[i][0].unsqueeze(0) for i in range(min(n_clips + warmup, len(dataset)))]
+    for x in clips[:warmup]:
+        with autocast_ctx(device, amp):
+            model(x.to(device))
+    torch.cuda.synchronize()
+    torch.cuda.reset_peak_memory_stats(device)
+    times = []
+    for x in clips[warmup:]:
+        x = x.to(device)
+        torch.cuda.synchronize()
+        t0 = time.perf_counter()
+        with autocast_ctx(device, amp):
+            model(x)
+        torch.cuda.synchronize()
+        times.append(time.perf_counter() - t0)
+    return {"latency_ms_per_clip": round(1000 * float(np.mean(times)), 2),
+            "peak_gpu_mem_mb": round(torch.cuda.max_memory_allocated(device) / 2**20, 1),
+            "n_clips_timed": len(times)}
+
+
 def make_loader(ds, batch_size, shuffle, workers, seed, persistent=True):
     return DataLoader(
         ds,
@@ -502,6 +541,8 @@ def run_config(cfg: Config, args, device: torch.device) -> dict:
         test_tta = evaluate_tta(model, view_ds("test"), cfg, args, eval_loss_fn, device)
     # Headline = TTA when enabled (decided up front, not after looking at test)
     headline = test_tta if test_tta is not None else test_best
+    cost = measure_cost(model, datasets["test"], device, args.amp)
+    train_minutes = round(sum(h["seconds"] for h in history) / 60, 1)
 
     labels, preds = headline["labels"], headline["preds"]
     idx = list(range(len(classes)))
@@ -530,8 +571,11 @@ def run_config(cfg: Config, args, device: torch.device) -> dict:
         "test_tta": None if test_tta is None else
             {"accuracy": test_tta["accuracy"], "macro_f1": test_tta["macro_f1"], "views": test_tta["views"]},
         "test_per_class": {c: report[c] for c in classes},
+        "test_macro_avg": report["macro avg"],
         "test_per_class_source": "test_tta" if test_tta is not None else "test",
         "test_set": {"num_clips": len(datasets["test"]), "sha256": test_fp},
+        "cost": cost,
+        "train_minutes": train_minutes,
     }
     (out_dir / "results.json").write_text(json.dumps(results, indent=2))
     print(f"    -> best epoch {best['epoch']}: val acc {val_best['accuracy']:.4f} F1 {val_best['macro_f1']:.4f} | "
@@ -539,6 +583,9 @@ def run_config(cfg: Config, args, device: torch.device) -> dict:
     if test_tta is not None:
         print(f"    -> with TTA ({test_tta['views']} views): val acc {val_tta['accuracy']:.4f} "
               f"F1 {val_tta['macro_f1']:.4f} | TEST acc {test_tta['accuracy']:.4f} F1 {test_tta['macro_f1']:.4f}")
+    if cost["latency_ms_per_clip"] is not None:
+        print(f"    -> cost: {cost['latency_ms_per_clip']} ms/clip, peak GPU {cost['peak_gpu_mem_mb']} MB "
+              f"| trained in {train_minutes} min")
     print(f"    saved to {out_dir}")
     return results
 
@@ -574,6 +621,9 @@ def summarize(out_dir: Path) -> None:
         tta = r.get("test_tta")
         rows[-1]["test_acc_tta"] = round(100 * tta["accuracy"], 2) if tta else ""
         rows[-1]["test_f1_tta"] = round(tta["macro_f1"], 4) if tta else ""
+        cost = r.get("cost") or {}
+        rows[-1]["latency_ms"] = cost.get("latency_ms_per_clip") or ""
+        rows[-1]["peak_mem_mb"] = cost.get("peak_gpu_mem_mb") or ""
     if not rows:
         print(f"No results under {out_dir}")
         return
