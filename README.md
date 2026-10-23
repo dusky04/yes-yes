@@ -1,7 +1,7 @@
 # CricketEC: A Benchmark for Cricket Event & Stroke Classification
 
 CricketEC is a video classification benchmark built from short broadcast cricket
-clips. Each clip is labelled into one of **14 classes** spanning two semantic
+clips. Each clip is labelled into one of **15 classes** spanning two semantic
 layers — the *biomechanical batting stroke* being played, and the *match-event
 outcome* of the delivery — enabling study of fine-grained action recognition and
 event understanding in a single, consistently annotated corpus.
@@ -10,11 +10,11 @@ event understanding in a single, consistently annotated corpus.
 
 | | |
 |---|---|
-| Total clips | **2,488** |
-| Classes | **14** (10 stroke + 4 outcome) |
+| Total clips | **2,488** (first 14 classes; the 15th class, `lbw`, is being integrated) |
+| Classes | **15** (10 stroke + 5 outcome) |
 | Splits | train / validation / test (≈ 70 / 15 / 15) |
 | Clip format | `.avi`, native broadcast resolution and frame rate |
-| Per-clip metadata | duration, frame count, fps, resolution, chirality, camera perspective, stroke start/end time, source match |
+| Per-clip metadata | duration, frame count, fps, resolution, chirality, camera perspective, stroke start/end frame & time (ms), source match |
 
 ## Taxonomy
 
@@ -22,10 +22,10 @@ event understanding in a single, consistently annotated corpus.
 `cover`, `defense`, `flick`, `hook`, `late_cut`, `lofted`, `pull`, `square_cut`,
 `straight`, `sweep`
 
-**Outcome classes (4)** — the match-event outcome:
-`six`, `four`, `wicket`, `catch`
+**Outcome classes (5)** — the match-event outcome:
+`six`, `four`, `wicket`, `catch`, `lbw`
 
-Class ids are `0–9` for strokes and `10–13` for outcomes, fixed in `config.py`.
+Class ids are `0–9` for strokes and `10–14` for outcomes, fixed in `config.py`.
 
 ---
 
@@ -46,7 +46,7 @@ differently — this distinction matters when working with the data:
 CricketEC_Dataset/
 ├── videos/
 │   ├── stroke_classes/<class>/<class>_NNNN.avi     # 10 stroke folders
-│   └── outcome_classes/<class>/<class>_NNNN.avi    # 4 outcome folders
+│   └── outcome_classes/<class>/<class>_NNNN.avi    # 5 outcome folders (incl. lbw)
 ├── annotations/
 │   ├── train_split_match_disjoint.json             # training split (clip list)
 │   ├── val_split_match_disjoint.json               # validation split
@@ -54,7 +54,8 @@ CricketEC_Dataset/
 │   └── full_taxonomy_metadata.csv                  # per-class summary table
 ├── tools/                                          # dataset build pipeline (01–06)
 ├── baselines/                                      # reference benchmark code
-├── annotate.py                                     # interactive annotation tool
+├── annotate.py                                     # interactive annotation tool (strokes + outcomes)
+├── annotate_lbw.py                                 # standalone LBW (event) annotation tool
 ├── merge_annotations.py                            # writes annotations into the JSONs
 ├── config.py                                       # taxonomy, paths, split ratios
 └── run_pipeline.py                                 # runs the full build
@@ -83,9 +84,11 @@ Each split JSON has top-level metadata (`split_name`, `dataset_name`, `version`,
   "fps": 30.0,
   "resolution": [1920, 1080],
   "chirality": "right-handed",              // batter handedness — stroke clips
-  "camera_perspective": "side_on",          // camera angle (see Annotation)
-  "start_time_of_stroke": 0.80,             // stroke clips — seconds from clip start
-  "end_time_of_stroke": 2.10                // stroke clips — seconds from clip start
+  "camera_perspective": "Batsman-Centric",  // camera angle (see Annotation)
+  "start_frame": 7,                         // stroke clips — start frame index
+  "end_frame": 19,                          // stroke clips — end frame index
+  "start_time_ms": 233,                     // stroke clips — round(start_frame*1000/fps)
+  "end_time_ms": 633                        // stroke clips — round(end_frame*1000/fps)
 }
 ```
 
@@ -107,16 +110,25 @@ attributes:
 
   | Layer | `camera_perspective` vocabulary |
   |---|---|
-  | Stroke | `front_on`, `side_on`, `reverse_angle`, `high_angle` |
-  | Outcome | `outfield_wide`, `main_pitch`, `close_up_replay`, `side_on` |
+  | Stroke | `Batsman-Centric`, `Batsman / High-Angle Tracking` |
+  | Outcome | `High-Angle Ball Tracking`, `Ground Field Tracking`, `Pitch / Stump Close-up`, `Fielder / Boundary View`, `Pitch / Umpire Perspective` |
+  | Outcome — `lbw` | `Batsman-Centric` only (`Unknown` → `null`) |
 
-- **`start_time_of_stroke`** / **`end_time_of_stroke`** — the temporal extent of the
-  stroke within the clip, in seconds measured from the clip start (stroke clips
-  only; `null` for outcome clips).
+  An LBW is adjudicated at the stumps and is therefore shown from the
+  batsman/stump-focused camera, so the `lbw` class uses a restricted vocabulary
+  (`Batsman-Centric`, or `Unknown` stored as `null`) rather than the field-event
+  angles of the other outcome classes.
 
-Labels were assigned by frame-by-frame review of each clip. The labelling interface
-(`annotate.py`) and the routine that writes labels into the split files
-(`merge_annotations.py`) are included for reproducibility and extension.
+- **`start_frame`** / **`end_frame`** and **`start_time_ms`** / **`end_time_ms`** —
+  the temporal extent of the stroke within the clip (stroke clips only; `null` for
+  outcome clips, `lbw` included). Because a batting stroke lasts only a few hundred
+  milliseconds, boundaries are marked by *frame* using a frame-accurate scrubber,
+  and the millisecond times are derived exactly as `round(frame * 1000 / fps)`.
+
+Labels were assigned by frame-by-frame review of each clip. The batting/outcome
+labelling interface (`annotate.py`), the standalone LBW tool (`annotate_lbw.py`),
+and the routine that writes labels into the split files (`merge_annotations.py`)
+are included for reproducibility and extension.
 
 ---
 
