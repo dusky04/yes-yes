@@ -1,16 +1,16 @@
 class_id,class_name,semantic_layer,total_clips,train_clips,val_clips,test_clips,total_duration_sec,mean_duration_sec,std_duration_sec,fps,dominant_perspective
-0,cover,stroke,188,132,28,28,418.28,2.22,0.51,25.0,Batsman-Centric
-1,defense,stroke,192,134,29,29,562.8,2.93,0.71,25.0,Batsman-Centric
-2,flick,stroke,181,127,27,27,379.12,2.09,0.5,25.0,Batsman-Centric
-3,hook,stroke,181,127,27,27,378.28,2.09,0.58,25.0,Batsman-Centric
-4,late_cut,stroke,182,128,27,27,400.24,2.2,0.41,25.0,Batsman-Centric
-5,lofted,stroke,198,138,30,30,827.19,4.18,1.51,25.0,Batsman-Centric
-6,pull,stroke,179,125,27,27,360.4,2.01,0.52,25.0,Batsman-Centric
-7,square_cut,stroke,200,140,30,30,467.4,2.34,0.69,25.0,Batsman-Centric
-8,straight,stroke,193,135,29,29,571.12,2.96,0.6,25.0,Batsman-Centric
-9,sweep,stroke,194,136,29,29,463.92,2.39,0.59,25.0,Batsman-Centric
-10,six,outcome,150,106,22,22,607.0,4.05,0.27,25.0,High-Angle Ball Tracking
-11,four,outcome,150,106,22,22,594.0,3.96,0.2,30.0,Ground Field Tracking
-12,wicket,outcome,150,106,22,22,387.0,2.58,0.66,30.0,Pitch / Umpire Perspective
-13,catch,outcome,150,106,22,22,584.0,3.89,0.49,30.0,Fielder / Boundary View
-14,lbw,outcome,150,106,22,22,391.72,2.61,0.55,30.0,Pitch / Umpire Perspective
+0,cover,stroke,188,138,25,25,418.28,2.22,0.51,25.0,Batsman-Centric
+1,defense,stroke,192,142,25,25,563.12,2.93,0.71,25.0,Batsman-Centric
+2,flick,stroke,181,131,25,25,379.12,2.09,0.5,25.0,Batsman-Centric
+3,hook,stroke,184,134,25,25,385.0,2.09,0.58,25.0,Batsman-Centric
+4,late_cut,stroke,182,132,25,25,400.24,2.2,0.41,25.0,Batsman-Centric
+5,lofted,stroke,198,148,25,25,827.19,4.18,1.51,25.0,Batsman-Centric
+6,pull,stroke,179,129,25,25,360.4,2.01,0.52,25.0,Batsman-Centric
+7,square_cut,stroke,190,140,25,25,442.52,2.33,0.69,25.0,Batsman-Centric
+8,straight,stroke,193,143,25,25,571.12,2.96,0.6,25.0,Batsman-Centric
+9,sweep,stroke,194,144,25,25,463.92,2.39,0.59,25.0,Batsman-Centric
+10,six,outcome,150,100,25,25,607.0,4.05,0.27,25.0,High-Angle Ball Tracking
+11,four,outcome,150,100,25,25,594.0,3.96,0.2,30.0,Ground Field Tracking
+12,wicket,outcome,150,100,25,25,386.0,2.57,0.66,30.0,Pitch / Umpire Perspective
+13,catch,outcome,150,100,25,25,584.0,3.89,0.49,30.0,Fielder / Boundary View
+14,lbw,outcome,150,100,25,25,391.72,2.61,0.55,30.0,Pitch / Umpire Perspective
