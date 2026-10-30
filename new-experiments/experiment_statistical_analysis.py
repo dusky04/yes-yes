@@ -61,6 +61,11 @@ def mcnemar_exact(best_correct, other_correct):
     return float(p), b, c
 
 
+def sig(p: float) -> float:
+    """p-value to 4 significant digits; round(p, 5) would save any p < 5e-6 as 0.0."""
+    return float(f"{p:.4g}")
+
+
 def holm(pvals):
     """Holm-Bonferroni adjusted p-values (same order as input)."""
     m = len(pvals)
@@ -176,8 +181,8 @@ def main():
             "f1_macro": round(obs_f1[m], 4),
             "f1_ci95_low": round(f_lo, 4), "f1_ci95_high": round(f_hi, 4),
             "role": "reference (best)" if is_best else "compared to best",
-            "mcnemar_p": "" if is_best else round(raw_p[m], 5),
-            "holm_adj_p": "" if is_best else round(adj_p[m], 5),
+            "mcnemar_p": "" if is_best else sig(raw_p[m]),
+            "holm_adj_p": "" if is_best else sig(adj_p[m]),
             "significant_vs_best_0.05": "" if is_best else ("yes" if adj_p[m] < 0.05 else "no"),
         })
     with (out / "statistical_analysis_results.csv").open("w", newline="") as f:
@@ -195,7 +200,7 @@ def main():
             "diff_ci95_low": round(d_lo, 4), "diff_ci95_high": round(d_hi, 4),
             "mcnemar_b_best_right_other_wrong": b_,
             "mcnemar_c_best_wrong_other_right": c_,
-            "mcnemar_p": round(raw_p[m], 5), "holm_adj_p": round(adj_p[m], 5),
+            "mcnemar_p": sig(raw_p[m]), "holm_adj_p": sig(adj_p[m]),
             "significant_0.05": "yes" if adj_p[m] < 0.05 else "no",
         })
     with (out / "pairwise_significance_results.csv").open("w", newline="") as f:
