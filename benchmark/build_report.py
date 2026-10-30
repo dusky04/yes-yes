@@ -641,7 +641,7 @@ function analysisSection(n, key, intro, extra) {
 
 runsTable(); runSelect();
 exp1(); exp2(); exp3();
-analysisSection(4, "exp4", "Accuracy grouped by the annotated camera perspective. Only clips whose file name matches an annotation get a perspective; the rest are reported as missing, never guessed.");
+analysisSection(4, "exp4", "Test accuracy of A–E grouped by camera perspective, on the same 375-clip test set they were trained and scored with. Perspective labels come from the final annotated release (CricketEC_release_final), matched to our clips by file content: all 375 test clips are labelled, and every perspective appears in our train, val and test.");
 analysisSection(5, "exp5", "Parameters, GFLOPs, single-clip latency, throughput and peak GPU memory of each model, measured on the idle A30 GPU.");
 analysisSection(6, "exp6", "Accuracy on the 10 batting-stroke classes vs the 5 match-outcome classes, and whether errors stay within a group or cross between them.", (s, a) => {
   const rows = a.tables["semantic_layer_results.csv"]; if (!rows) return;

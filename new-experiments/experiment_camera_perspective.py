@@ -38,6 +38,12 @@ from sklearn.metrics import precision_recall_fscore_support
 import cec_infer as CI
 
 
+def clip_key(path: str) -> str:
+    """<class folder>/<file name>: unique, unlike the bare file name (some releases
+    reuse a name across class folders, e.g. four/six_103.avi and six/six_103.avi)."""
+    return "/".join(Path(path).parts[-2:])
+
+
 def load_perspectives(path: Path):
     """clip-filename -> (semantic_layer, camera_perspective). Accepts the merged
     dataset JSON (list of records) or a CSV with file_path + camera_perspective."""
@@ -49,14 +55,14 @@ def load_perspectives(path: Path):
         for r in records:
             fp = r.get("file_path") or r.get("video") or r.get("path") or ""
             if fp:
-                m[Path(fp).name] = ((r.get("semantic_layer") or "").strip(),
+                m[clip_key(fp)] = ((r.get("semantic_layer") or "").strip(),
                                     (r.get("camera_perspective") or "").strip())
     else:
         with open(path, newline="") as f:
             for r in csv.DictReader(f):
                 fp = r.get("file_path") or r.get("video") or r.get("path") or ""
                 if fp:
-                    m[Path(fp).name] = ((r.get("semantic_layer") or "").strip(),
+                    m[clip_key(fp)] = ((r.get("semantic_layer") or "").strip(),
                                         (r.get("camera_perspective") or "").strip())
     return m
 
@@ -109,7 +115,7 @@ def main():
         n_missing = 0
         missing_examples = []
         for v, t, p in zip(rec["videos"], rec["true"], rec["pred"]):
-            name = Path(v).name
+            name = clip_key(v)
             if name in persp and persp[name][1]:
                 layer, pv = persp[name]
                 if not layer:                      # derive layer from the true class
